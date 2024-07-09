@@ -70,7 +70,7 @@ const TestimonialsMain = () => {
             <div class="relative bg-white rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 w-60 p-8 text-center shadow-md">
               <Image
                 src={peterson}
-                class="rounded-full mx-auto w-20 h-20 border-4 border-white/70  opacity-70 group-hover:opacity-100 object-cover transition"
+                class="rounded-full mx-auto w-20 h-20 border-4 border-white/70  opacity-70 group-hover:opacity-100 object-cover transition" alt="headshot"
               />
 
               <h3 class="font-bold mt-6">John Peterson</h3>
@@ -131,7 +131,7 @@ const TestimonialsMain = () => {
               id="panel-content"
               class="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-5 space-y-4"
             >
-              <h2 class="font-bold">Mary Jane</h2>
+              <h2 class="font-bold">John Peterson</h2>
               <p class="text-sm">
                 Choosing Milestone Financial Management was a game-changer for
                 me. Their expertise across crypto, stocks, and real estate
@@ -422,7 +422,7 @@ const TestimonialsMain = () => {
               id="panel-content2"
               class="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-5 space-y-4"
             >
-              <h2 class="font-bold">Mary Johnson</h2>
+              <h2 class="font-bold">David Thompson</h2>
               <p class="text-sm">
                 Milestone Financial Management has transformed my investments.
                 Their focus on responsible strategies in real estate and

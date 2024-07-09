@@ -17,7 +17,7 @@ const SectionTwoText = () => {
         <div className="flex gap-2 items-center sm:self-start group">
           <Link
             className="text-scheme-purple group-hover:text-scheme-darkGrey text-center sm:text-left"
-            href={"/"}
+            href={"/about"}
           >
             Learn more
           </Link>
