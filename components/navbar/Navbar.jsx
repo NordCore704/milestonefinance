@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 const archivo = Archivo({
-    subsets: ['latin']
+    subsets: ['latin'],
 })
 const alatsi = Alatsi({
     subsets: ['latin'],
@@ -40,6 +40,7 @@ const Navbar = () => {
   };
   const router = useRouter();
   const currentRoute = router.pathname;
+  console.log(currentRoute);
 
   const navRef = useRef();
   const logoRef = useRef();
@@ -160,7 +161,7 @@ const Navbar = () => {
             <li className="-translate-x-8 opacity-0 hover:text-scheme-purpleOne text-white transition-colors duration-300" ref={listRefThree}>
               <Link
                 href={"/contact"}
-                className={currentRoute === "/search" ? "active" : ""}
+                className={currentRoute === "/contact" ? "active" : ""}
               >
                 Contact
               </Link>
@@ -169,12 +170,18 @@ const Navbar = () => {
           </motion.ul>
         </div>
       <motion.div className="hidden sm:flex" variants={listAnimationVariant} animate='animate' initial='init' transition={{duration: .4, type: 'spring'}}>
-      <Link
+      { currentRoute !== '/dashboard' ? <Link
                 href={"/auth/login"}
-                className={`bg-scheme-purple hover:bg-gradient-to-br hover:bg-scheme-purpleOne  px-3 py-1 rounded-md text-white hidden sm:flex  transition-colors duration-300 ${currentRoute === "/contact" ? "active" : ""} ${alata.className}`}
+                className={`bg-scheme-purple hover:bg-gradient-to-br hover:bg-scheme-purpleOne  px-3 py-1 rounded-md text-white  hidden sm:flex  transition-colors duration-300 ${currentRoute === "/auth/login" ? "active" : ""} ${alata.className}`}
               >
                 Log In
-              </Link>
+              </Link> : <button
+                className={`bg-scheme-purple hover:bg-gradient-to-br hover:bg-scheme-purpleOne  px-3 py-1 rounded-md text-white hidden sm:flex  transition-colors duration-300 ${currentRoute === "/dashboard" ? "active" : ""} ${alata.className}`}
+              >
+                Log Out
+              </button>   }
+              {/* ====== */}
+    
       </motion.div>
       
         {!toggle ? <MobileNavbar alata={alata} setToggle={setToggle} toggle={toggle}/> : (

@@ -1,11 +1,79 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { FaEnvelope, FaUser, FaPhone, FaEye } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
 
 const SignUpForm = () => {
+  const [firstName, setFirstName] = useState("");
+  const [secondName, setSecondName] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const router = useRouter()
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
+    if (
+      !firstName ||
+      !secondName ||
+      !mobileNumber ||
+      !email ||
+      !password ||
+      !confirmPassword
+    ) {
+      setError("Please make sure to fill all form fields");
+      return;
+    }
+
+    try {
+      const userExistsResponse = await fetch("/api/userExists", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const { user } = await userExistsResponse.json()
+
+      if(user){
+        setError('User already exists')
+        return;
+      }
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName,
+          secondName,
+          mobileNumber,
+          email,
+          password,
+        }),
+      });
+
+      if (response.ok) {
+        const form = e.target;
+        form.reset();
+        router.push('/dashboard')
+      } else {
+      }
+    } catch (error) {
+      console.log("Error during registration:", error);
+    }
+  };
+
   return (
-    <div className="sm:w-[50%] flex flex-col gap-5">
-      <h2 className="text-2xl font-semibold capitalize">Sign up to <span className="text-scheme-purple">Explore!</span></h2>
+    <form onSubmit={handleSignUp} className="sm:w-[50%] flex flex-col gap-5">
+      <h2 className="text-2xl font-semibold capitalize">
+        Sign up to <span className="text-scheme-purple">Explore!</span>
+      </h2>
       <div className="flex flex-col gap-2 w-full">
         <label htmlFor="first_name" className="text-gray-600">
           First Name
@@ -13,6 +81,7 @@ const SignUpForm = () => {
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
             type="text"
+            onChange={(e) => setFirstName(e.target.value)}
             name="first_name"
             className="rounded-lg  p-1 focus:outline-none text-gray-700 w-[90%]"
             placeholder="Joe"
@@ -27,6 +96,7 @@ const SignUpForm = () => {
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
             type="text"
+            onChange={(e) => setSecondName(e.target.value)}
             name="last_name"
             className="rounded-lg  p-1 focus:outline-none text-gray-700 w-[90%]"
             placeholder="Schmoe"
@@ -42,6 +112,7 @@ const SignUpForm = () => {
           <input
             type="text"
             name="mobile_number"
+            onChange={(e) => setMobileNumber(e.target.value)}
             className="rounded-lg  p-1 focus:outline-none text-gray-700 w-[90%]"
             placeholder="XXXXX"
           />
@@ -56,6 +127,7 @@ const SignUpForm = () => {
           <input
             type="email"
             name="email"
+            onChange={(e) => setEmail(e.target.value)}
             className="rounded-lg  p-1 focus:outline-none text-gray-700 w-[90%]"
             placeholder="someone@gmail.com"
           />
@@ -70,6 +142,7 @@ const SignUpForm = () => {
           <input
             type="password"
             name="password"
+            onChange={(e) => setPassword(e.target.value)}
             className="rounded-lg  p-1 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
           />
@@ -83,6 +156,7 @@ const SignUpForm = () => {
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
             type="password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
             name="password2"
             className="rounded-lg  p-1 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
@@ -90,17 +164,24 @@ const SignUpForm = () => {
           <FaEye className="text-gray-700 text-base " />
         </div>
       </div>
+      {error && (
+        <div className="bg-red-500 p-1 rounded-md transition-opacity duration-300 lg:w-[70%]">
+          <p className="text-white text-center">{error}</p>
+        </div>
+      )}
+      <button className="rounded-lg bg-scheme-purple text-white p-2 hover:bg-scheme-purpleOne duration-300 transition-colors lg:w-[70%]">
+        Sign Up
+      </button>
       <div className="flex items-center gap-1">
         <p className="text-sm sm:text-sm md:text-sm">
-          Already a member? 
-           <Link
-          href={"/auth/login"}
-          className=" text-scheme-purple"
-        > Login
-        </Link>
+          Already a member?
+          <Link href={"/auth/login"} className=" text-scheme-purple">
+            {" "}
+            Login
+          </Link>
         </p>
       </div>
-    </div>
+    </form>
   );
 };
 

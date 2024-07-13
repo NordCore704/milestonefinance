@@ -20,23 +20,23 @@ const TestimonialsMain = () => {
           <p className="text-center">What our people say</p>
         </div>
         <article className="">
-          <h1 class="sr-only">Glassy Profile</h1>
+          <h1 className="sr-only">Glassy Profile</h1>
           <input
             type="checkbox"
             id="data"
-            class="sr-only peer/data"
+            className="sr-only peer/data"
             role="switch"
             aria-label="Data Toggle"
           />
           <input
             type="checkbox"
             id="content"
-            class="sr-only peer/content"
+            className="sr-only peer/content"
             role="switch"
             aria-label="Content Toggle"
           />
           <div
-            class="z-10 rounded-xl overflow-hiddenS group relative
+            className="z-10 rounded-xl overflow-hiddenS group relative
         before:absolute
         before:w-32
         before:aspect-square
@@ -67,23 +67,23 @@ const TestimonialsMain = () => {
         peer-checked/content:[&_#panel-content]:pointer-events-auto
        "
           >
-            <div class="relative bg-white rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 w-60 p-8 text-center shadow-md">
+            <div className="relative bg-white rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 w-60 p-8 text-center shadow-md">
               <Image
                 src={peterson}
-                class="rounded-full mx-auto w-20 h-20 border-4 border-white/70  opacity-70 group-hover:opacity-100 object-cover transition" alt="headshot"
+                className="rounded-full mx-auto w-20 h-20 border-4 border-white/70  opacity-70 group-hover:opacity-100 object-cover transition" alt="headshot"
               />
 
-              <h3 class="font-bold mt-6">John Peterson</h3>
-              <p class="flex items-center justify-center gap-1 text-sm">
-                <span class="material-symbols-outlined text-lg">
+              <h3 className="font-bold mt-6">John Peterson</h3>
+              <p className="flex items-center justify-center gap-1 text-sm">
+                <span className="material-symbols-outlined text-lg">
                   <RiUserLocationFill />
                 </span>
                 Atlanta, GA
               </p>
 
               <label
-                for="content"
-                class="block mt-4 cursor-pointer  text-xs rounded-full p-2 px-3 bg-scheme-purple text-white transition hover:shadow-xl hover:scale-110"
+                htmlFor="content"
+                className="block mt-4 cursor-pointer  text-xs rounded-full p-2 px-3 bg-scheme-purple text-white transition hover:shadow-xl hover:scale-110"
               >
                 View Testimonial
               </label>
@@ -91,8 +91,8 @@ const TestimonialsMain = () => {
 
             <label
               id="toggle-data"
-              for="data"
-              class="grid [grid-template-areas:'stack'] place-content-center absolute top-4 right-4 cursor-pointer hover:scale-150 transition 
+              htmlFor="data"
+              className="grid [grid-template-areas:'stack'] place-content-center absolute top-4 right-4 cursor-pointer hover:scale-150 transition 
             *:[grid-area:stack]
             *:transition-all
             *:duration-300
@@ -100,24 +100,24 @@ const TestimonialsMain = () => {
             last:*:scale-0
         "
             >
-              <span class="material-symbols-outlined">
+              <span className="material-symbols-outlined">
                 <FaPlus />
               </span>
-              <span class="material-symbols-outlined">
+              <span className="material-symbols-outlined">
                 <RiCloseCircleFill />
               </span>
             </label>
 
             <div
               id="panel-data"
-              class="absolute -top-4 left-8 right-8 w-8/10 h-40  -z-20 bg-scheme-purple rounded-t-md text-white p-6 pt-4 transition duration-300 text-center flex justify-center"
+              className="absolute -top-4 left-8 right-8 w-8/10 h-40  -z-20 bg-scheme-purple rounded-t-md text-white p-6 pt-4 transition duration-300 text-center flex justify-center"
             >
               <p>John Peterson</p>
             </div>
 
             <div
               id="panel-social"
-              class="absolute transition duration-300 -bottom-4 left-8 right-8 p-6 pb-2 w-8/10 h-20 -z-20 bg-scheme-purple text-white rounded-b-md flex items-center justify-center gap-2 [&>svg]:cursor-pointer [&>svg]:w-5 [&>svg]:h-5 [&>svg:hover]:scale-125 [&>svg]:transition"
+              className="absolute transition duration-300 -bottom-4 left-8 right-8 p-6 pb-2 w-8/10 h-20 -z-20 bg-scheme-purple text-white rounded-b-md flex items-center justify-center gap-2 [&>svg]:cursor-pointer [&>svg]:w-5 [&>svg]:h-5 [&>svg:hover]:scale-125 [&>svg]:transition"
             >
               <RiStarFill />
               <RiStarFill />
@@ -125,22 +125,22 @@ const TestimonialsMain = () => {
               <RiStarFill />
             </div>
 
-            <div class="absolute bg-white inset-0 -z-20 rounded-xl"></div>
+            <div className="absolute bg-white inset-0 -z-20 rounded-xl"></div>
 
             <div
               id="panel-content"
-              class="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-5 space-y-4"
+              className="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-5 space-y-4"
             >
-              <h2 class="font-bold">John Peterson</h2>
-              <p class="text-sm">
+              <h2 className="font-bold">John Peterson</h2>
+              <p className="text-sm">
                 Choosing Milestone Financial Management was a game-changer for
                 me. Their expertise across crypto, stocks, and real estate
                 helped me navigate the markets with confidence. Thanks to their
                 strategic advice, my investments have flourished.
               </p>
               <label
-                for="content"
-                class="cursor-pointer absolute top-0 right-4  w-6 h-6 text-base text-gray-500 grid place-items-center material-symbols-outlined hover:scale-150  transition"
+                htmlFor="content"
+                className="cursor-pointer absolute top-0 right-4  w-6 h-6 text-base text-gray-500 grid place-items-center material-symbols-outlined hover:scale-150  transition"
               >
                 <RiCloseCircleFill />
               </label>
@@ -162,7 +162,7 @@ const TestimonialsMain = () => {
           <input
             type="checkbox"
             id="data3"
-            class="sr-only peer/data3"
+            className="sr-only peer/data3"
             role="switch"
             aria-label="Data Toggle"
           />
@@ -171,13 +171,13 @@ const TestimonialsMain = () => {
           <input
             type="checkbox"
             id="content3"
-            class="sr-only peer/content3"
+            className="sr-only peer/content3"
             role="switch"
             aria-label="Content Toggle"
           />
 
           <div
-            class="z-10 rounded-xl overflow-hiddenS group relative
+            className="z-10 rounded-xl overflow-hiddenS group relative
     before:absolute
     before:w-32
     before:aspect-square
@@ -208,17 +208,17 @@ const TestimonialsMain = () => {
     peer-checked/content3:[&_#panel-content3]:pointer-events-auto
   "
           >
-            <div class="relative bg-white rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 w-60 p-8 text-center shadow-md">
+            <div className="relative bg-white rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 w-60 p-8 text-center shadow-md">
               
               <Image
                 src={elizabeth}
                 alt="Profile"
-                class="rounded-full mx-auto w-20 h-20 border-4 border-white/70  opacity-70 group-hover:opacity-100 object-cover transition"
+                className="rounded-full mx-auto w-20 h-20 border-4 border-white/70  opacity-70 group-hover:opacity-100 object-cover transition"
               />
 
-              <h3 class="font-bold mt-6">Elizabeth Nguyen</h3>
-              <p class="flex items-center justify-center gap-1 text-sm">
-                <span class="material-symbols-outlined text-lg">
+              <h3 className="font-bold mt-6">Elizabeth Nguyen</h3>
+              <p className="flex items-center justify-center gap-1 text-sm">
+                <span className="material-symbols-outlined text-lg">
                   <RiUserLocationFill />
                 </span>
                 Los Angeles, CA
@@ -226,8 +226,8 @@ const TestimonialsMain = () => {
 
               {/* Label to view content */}
               <label
-                for="content3"
-                class="block mt-4 cursor-pointer  text-xs rounded-full p-2 px-3 bg-scheme-purple text-white transition hover:shadow-xl hover:scale-110"
+                htmlFor="content3"
+                className="block mt-4 cursor-pointer  text-xs rounded-full p-2 px-3 bg-scheme-purple text-white transition hover:shadow-xl hover:scale-110"
               >
                 View Testimonial
               </label>
@@ -236,8 +236,8 @@ const TestimonialsMain = () => {
             {/* Toggle data panel */}
             <label
               id="toggle-data3"
-              for="data3"
-              class="grid [grid-template-areas:'stack'] place-content-center absolute top-4 right-4 cursor-pointer hover:scale-150 transition 
+              htmlFor="data3"
+              className="grid [grid-template-areas:'stack'] place-content-center absolute top-4 right-4 cursor-pointer hover:scale-150 transition 
         *:[grid-area:stack]
         *:transition-all
         *:duration-300
@@ -245,10 +245,10 @@ const TestimonialsMain = () => {
         last:*:scale-0
       "
             >
-              <span class="material-symbols-outlined">
+              <span className="material-symbols-outlined">
                 <FaPlus />
               </span>
-              <span class="material-symbols-outlined">
+              <span className="material-symbols-outlined">
                 <RiCloseCircleFill />
               </span>
             </label>
@@ -256,7 +256,7 @@ const TestimonialsMain = () => {
             {/* Data panel */}
             <div
               id="panel-data3"
-              class="absolute -top-4 left-8 right-8 w-8/10 h-40  -z-20 bg-scheme-purple rounded-t-md text-white p-6 pt-4 transition duration-300 text-center flex justify-center"
+              className="absolute -top-4 left-8 right-8 w-8/10 h-40  -z-20 bg-scheme-purple rounded-t-md text-white p-6 pt-4 transition duration-300 text-center flex justify-center"
             >
               <p>Elizabeth Nguyen</p>
             </div>
@@ -264,7 +264,7 @@ const TestimonialsMain = () => {
             {/* Social panel */}
             <div
               id="panel-social3"
-              class="absolute transition duration-300 -bottom-4 left-8 right-8 p-6 pb-2 w-8/10 h-20 -z-20 bg-scheme-purple text-white rounded-b-md flex items-center justify-center gap-2 [&>svg]:cursor-pointer [&>svg]:w-5 [&>svg]:h-5 [&>svg:hover]:scale-125 [&>svg]:transition"
+              className="absolute transition duration-300 -bottom-4 left-8 right-8 p-6 pb-2 w-8/10 h-20 -z-20 bg-scheme-purple text-white rounded-b-md flex items-center justify-center gap-2 [&>svg]:cursor-pointer [&>svg]:w-5 [&>svg]:h-5 [&>svg:hover]:scale-125 [&>svg]:transition"
             >
               <RiStarFill />
               <RiStarFill />
@@ -273,23 +273,23 @@ const TestimonialsMain = () => {
             </div>
 
             {/* Background overlay */}
-            <div class="absolute bg-white inset-0 -z-20 rounded-xl"></div>
+            <div className="absolute bg-white inset-0 -z-20 rounded-xl"></div>
 
             {/* Content panel */}
             <div
               id="panel-content3"
-              class="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-5 space-y-4"
+              className="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-5 space-y-4"
             >
-              <h2 class="font-bold">Elizabeth Nguyen</h2>
-              <p class="text-sm">
+              <h2 className="font-bold">Elizabeth Nguyen</h2>
+              <p className="text-sm">
                 Choosing Milestone Financial Management was a game-changer.
                 Their strategic advice across various sectors like crypto and
                 stocks has consistently delivered excellent results. Trustworthy
                 and knowledgeable, they've exceeded my expectations.
               </p>
               <label
-                for="content3"
-                class="cursor-pointer absolute top-0 right-4  w-6 h-6 text-base text-gray-500 grid place-items-center material-symbols-outlined hover:scale-150  transition"
+                htmlFor="content3"
+                className="cursor-pointer absolute top-0 right-4  w-6 h-6 text-base text-gray-500 grid place-items-center material-symbols-outlined hover:scale-150  transition"
               >
                 <RiCloseCircleFill />
               </label>
@@ -304,7 +304,7 @@ const TestimonialsMain = () => {
           <input
             type="checkbox"
             id="data2"
-            class="sr-only peer/data2"
+            className="sr-only peer/data2"
             role="switch"
             aria-label="Data Toggle"
           />
@@ -313,13 +313,13 @@ const TestimonialsMain = () => {
           <input
             type="checkbox"
             id="content2"
-            class="sr-only peer/content2"
+            className="sr-only peer/content2"
             role="switch"
             aria-label="Content Toggle"
           />
 
           <div
-            class="z-10 rounded-xl overflow-hiddenS group relative
+            className="z-10 rounded-xl overflow-hiddenS group relative
     before:absolute
     before:w-32
     before:aspect-square
@@ -350,17 +350,17 @@ const TestimonialsMain = () => {
     peer-checked/content2:[&_#panel-content2]:pointer-events-auto
   "
           >
-            <div class="relative bg-white rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 w-60 p-8 text-center shadow-md">
+            <div className="relative bg-white rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 w-60 p-8 text-center shadow-md">
               {/* Replace with your image component */}
               <Image
                 src={thompson}
                 alt="Profile"
-                class="rounded-full mx-auto w-20 h-20 border-4 border-white/70  opacity-70 group-hover:opacity-100 object-cover transition"
+                className="rounded-full mx-auto w-20 h-20 border-4 border-white/70  opacity-70 group-hover:opacity-100 object-cover transition"
               />
 
-              <h3 class="font-bold mt-6">David Thompson</h3>
-              <p class="flex items-center justify-center gap-1 text-sm">
-                <span class="material-symbols-outlined text-lg">
+              <h3 className="font-bold mt-6">David Thompson</h3>
+              <p className="flex items-center justify-center gap-1 text-sm">
+                <span className="material-symbols-outlined text-lg">
                   <RiUserLocationFill />
                 </span>
                 New York, NY
@@ -368,8 +368,8 @@ const TestimonialsMain = () => {
 
               {/* Label to view content */}
               <label
-                for="content2"
-                class="block mt-4 cursor-pointer  text-xs rounded-full p-2 px-3 bg-scheme-purple text-white transition hover:shadow-xl hover:scale-110"
+                htmlFor="content2"
+                className="block mt-4 cursor-pointer  text-xs rounded-full p-2 px-3 bg-scheme-purple text-white transition hover:shadow-xl hover:scale-110"
               >
                 View Testimonial
               </label>
@@ -378,8 +378,8 @@ const TestimonialsMain = () => {
             {/* Toggle data panel */}
             <label
               id="toggle-data2"
-              for="data2"
-              class="grid [grid-template-areas:'stack'] place-content-center absolute top-4 right-4 cursor-pointer hover:scale-150 transition 
+              htmlFor="data2"
+              className="grid [grid-template-areas:'stack'] place-content-center absolute top-4 right-4 cursor-pointer hover:scale-150 transition 
         *:[grid-area:stack]
         *:transition-all
         *:duration-300
@@ -387,10 +387,10 @@ const TestimonialsMain = () => {
         last:*:scale-0
       "
             >
-              <span class="material-symbols-outlined">
+              <span className="material-symbols-outlined">
                 <FaPlus />
               </span>
-              <span class="material-symbols-outlined">
+              <span className="material-symbols-outlined">
                 <RiCloseCircleFill />
               </span>
             </label>
@@ -398,7 +398,7 @@ const TestimonialsMain = () => {
             {/* Data panel */}
             <div
               id="panel-data2"
-              class="absolute -top-4 left-8 right-8 w-8/10 h-40  -z-20 bg-scheme-purple rounded-t-md text-white p-6 pt-4 transition duration-300 text-center flex justify-center"
+              className="absolute -top-4 left-8 right-8 w-8/10 h-40  -z-20 bg-scheme-purple rounded-t-md text-white p-6 pt-4 transition duration-300 text-center flex justify-center"
             >
               <p>David Thompson</p>
             </div>
@@ -406,7 +406,7 @@ const TestimonialsMain = () => {
             {/* Social panel */}
             <div
               id="panel-social2"
-              class="absolute transition duration-300 -bottom-4 left-8 right-8 p-6 pb-2 w-8/10 h-20 -z-20 bg-scheme-purple text-white rounded-b-md flex items-center justify-center gap-2 [&>svg]:cursor-pointer [&>svg]:w-5 [&>svg]:h-5 [&>svg:hover]:scale-125 [&>svg]:transition"
+              className="absolute transition duration-300 -bottom-4 left-8 right-8 p-6 pb-2 w-8/10 h-20 -z-20 bg-scheme-purple text-white rounded-b-md flex items-center justify-center gap-2 [&>svg]:cursor-pointer [&>svg]:w-5 [&>svg]:h-5 [&>svg:hover]:scale-125 [&>svg]:transition"
             >
               <RiStarFill />
               <RiStarFill />
@@ -415,15 +415,15 @@ const TestimonialsMain = () => {
             </div>
 
             {/* Background overlay */}
-            <div class="absolute bg-white inset-0 -z-20 rounded-xl"></div>
+            <div className="absolute bg-white inset-0 -z-20 rounded-xl"></div>
 
             {/* Content panel */}
             <div
               id="panel-content2"
-              class="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-5 space-y-4"
+              className="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-5 space-y-4"
             >
-              <h2 class="font-bold">David Thompson</h2>
-              <p class="text-sm">
+              <h2 className="font-bold">David Thompson</h2>
+              <p className="text-sm">
                 Milestone Financial Management has transformed my investments.
                 Their focus on responsible strategies in real estate and
                 agriculture aligns perfectly with my values. I confidently
@@ -431,8 +431,8 @@ const TestimonialsMain = () => {
                 future.
               </p>
               <label
-                for="content2"
-                class="cursor-pointer absolute top-0 right-4  w-6 h-6 text-base text-gray-500 grid place-items-center material-symbols-outlined hover:scale-150  transition"
+                htmlFor="content2"
+                className="cursor-pointer absolute top-0 right-4  w-6 h-6 text-base text-gray-500 grid place-items-center material-symbols-outlined hover:scale-150  transition"
               >
                 <RiCloseCircleFill />
               </label>

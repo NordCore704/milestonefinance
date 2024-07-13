@@ -33,6 +33,7 @@ import SignUpForm from "@/components/signup/SignUpForm";
 import LogInMain from "@/components/login/LogInMain";
 import LoginForm from "@/components/login/LoginForm";
 import LoginHero from "@/components/login/LoginHero";
+import DashboardMain from "@/components/dashboard/DashboardMain";
 
 export {
     HomeIntro,
@@ -70,4 +71,5 @@ export {
     LogInMain,
     LoginHero,
     LoginForm,
+    DashboardMain,
 }
