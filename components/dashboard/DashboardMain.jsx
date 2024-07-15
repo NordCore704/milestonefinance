@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 const DashboardMain = () => {
-
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   console.log(session?.user?.firstName);
   return (
@@ -19,13 +19,19 @@ const DashboardMain = () => {
           </p>
         </div>
         <div className="flex flex-col gap-2 md:flex-row md:items-center">
-          <button className="text-white text-center p-2 rounded-md bg-scheme-purple hover:bg-scheme-purpleOne duration-300 transition-colors">
+          <Link
+            href={"/dashboard/investment-plans"}
+            className="text-white text-center p-2 rounded-md bg-scheme-purple hover:bg-scheme-purpleOne duration-300 transition-colors"
+          >
             Choose a plan!
-          </button>
-          <button className="text-white text-center p-2 rounded-md bg-green-500">
+          </Link>
+          <button className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700">
             Withdraw
           </button>
-          <button className="text-white text-center p-2 rounded-md bg-red-500" onClick={() => signOut()}>
+          <button
+            className="text-white text-center p-2 rounded-md bg-red-500 hover:bg-red-700 duration-300 transition-colors"
+            onClick={() => signOut()}
+          >
             Logout
           </button>
         </div>
@@ -61,12 +67,13 @@ const DashboardMain = () => {
           </p>
           <div className="flex flex-row justify-between">
             <div className="flex flex-col gap-2">
-              <p className="uppercase text-sm text-gray-600">this month(pending inclusive)</p>
+              <p className="uppercase text-sm text-gray-600">
+                this month(pending inclusive)
+              </p>
               <p className="text-sm">
                 100 <span className="text-gray-500">USD</span>
               </p>
             </div>
-        
           </div>
         </div>
         {/* ==== 3 ===== */}
@@ -82,7 +89,6 @@ const DashboardMain = () => {
                 100 <span className="text-gray-500">USD</span>
               </p>
             </div>
-            
           </div>
         </div>
       </div>

@@ -34,6 +34,10 @@ import LogInMain from "@/components/login/LogInMain";
 import LoginForm from "@/components/login/LoginForm";
 import LoginHero from "@/components/login/LoginHero";
 import DashboardMain from "@/components/dashboard/DashboardMain";
+import InvestmentPlansMain from "@/components/dashboard/investmentPlans/InvestmentPlansMain";
+import PlansGrid from "@/components/dashboard/investmentPlans/PlansGrid";
+import CryptoGrid from "@/components/dashboard/investmentPlans/CryptoGrid";
+import PaymentMain from "@/components/dashboard/payment/PaymentMain";
 
 export {
     HomeIntro,
@@ -72,4 +76,8 @@ export {
     LoginHero,
     LoginForm,
     DashboardMain,
+    InvestmentPlansMain,
+    PlansGrid,
+    CryptoGrid,
+    PaymentMain,
 }
