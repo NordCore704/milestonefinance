@@ -28,12 +28,12 @@ const DashboardMain = () => {
           <button className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700">
             Withdraw
           </button>
-          <button
+          {/* <button
             className="text-white text-center p-2 rounded-md bg-red-500 hover:bg-red-700 duration-300 transition-colors"
             onClick={() => signOut()}
           >
             Logout
-          </button>
+          </button> */}
         </div>
       </div>
 
