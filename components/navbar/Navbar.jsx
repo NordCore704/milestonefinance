@@ -1,14 +1,16 @@
-'use client'
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { logo, hamburger, closeburger } from "@/exports/image-exports";
 import MobileNavbar from "./MobileNavbar";
 import gsap, { Power3 } from "gsap";
-import { RiCloseFill, RiMenu4Fill } from 'react-icons/ri'
+import { RiCloseFill, RiMenu4Fill } from "react-icons/ri";
 import { Inter, Poppins, Archivo, Alatsi, Alata } from "next/font/google";
+import { signOut, useSession } from "next-auth/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,17 +18,17 @@ const inter = Inter({
 });
 
 const archivo = Archivo({
-    subsets: ['latin'],
-})
+  subsets: ["latin"],
+});
 const alatsi = Alatsi({
-    subsets: ['latin'],
-    weight: '400',
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const alata = Alata({
-    subsets: ['latin'],
-    weight: "400",
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 const poppins = Poppins({
   subsets: ["latin"],
   weight: "500",
@@ -34,13 +36,14 @@ const poppins = Poppins({
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(true);
+  const { data: session, status } = useSession();
 
   const toggleNav = () => {
     setToggle((prev) => !prev);
   };
   const router = useRouter();
-  const currentRoute = router.pathname;
-  console.log(currentRoute);
+  const currentRoute = usePathname();
+  
 
   const navRef = useRef();
   const logoRef = useRef();
@@ -49,13 +52,26 @@ const Navbar = () => {
   const listRefThree = useRef();
   const listRefFour = useRef();
   let timeline = gsap.timeline();
+
+  const handleButtonClick = () => {
+    if (session) {
+      if (currentRoute !== "/dashboard") {
+        router.push("/dashboard");
+      } else if (currentRoute === '/dashboard') {
+        signOut()
+      }
+    } else if (!session) {
+      router.push("/auth/login");
+    }
+  };
+
   useEffect(() => {
     timeline
       .to(logoRef.current, {
         x: 0,
         opacity: 1,
         ease: "ease-in",
-        duration: .6,
+        duration: 0.6,
       })
       .to(listRefOne.current, {
         x: 0,
@@ -96,15 +112,12 @@ const Navbar = () => {
       opacity: 1,
       scale: 1,
     },
-
-  }
-
+  };
 
   useEffect(() => {
     !toggle
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto");
-
   }, [toggle]);
 
   return (
@@ -117,9 +130,11 @@ const Navbar = () => {
           className="logo--div py-3 flex justify-center items-center h-[64px] opacity-0 -translate-x-8"
           ref={logoRef}
         >
-          <Link href={'/'}>
-          <Image src={logo} height={40} alt={"logo"} />
-          <p className={`text-xl font-extrabold self-end ${alatsi.className}`}></p>
+          <Link href={"/"}>
+            <Image src={logo} height={40} alt={"logo"} />
+            <p
+              className={`text-xl font-extrabold self-end ${alatsi.className}`}
+            ></p>
           </Link>
         </div>
         <div className="flex items-center">
@@ -142,49 +157,80 @@ const Navbar = () => {
               <RiCloseFill />
             </button>
           )}
-          <motion.ul variants={listAnimationVariant} animate='animate' initial='init' transition={{ duration: .4, delay: .2, type: 'spring',
-        }} className={`gap-4 hidden list-none lg:flex md:flex sm:flex font-semibold ${alata.className} rounded-full bg-scheme-darkGrey py-1.5 px-5`}>
-            <li className="-translate-x-8 opacity-0 hover:text-scheme-purpleOne text-white transition-colors duration-300" ref={listRefOne}>
-              <Link href={"/"} className={currentRoute === "/" ? "active" : ""}>
+          <motion.ul
+            variants={listAnimationVariant}
+            animate="animate"
+            initial="init"
+            transition={{ duration: 0.4, delay: 0.2, type: "spring" }}
+            className={`gap-4 hidden list-none lg:flex md:flex sm:flex font-semibold ${alata.className} rounded-full bg-scheme-darkGrey py-1.5 px-5`}
+          >
+            <li
+              className="-translate-x-8 opacity-0 hover:text-scheme-purpleOne text-white transition-colors duration-300"
+              ref={listRefOne}
+            >
+              <Link
+                href={"/"}
+                className={currentRoute === "/" ? "text-scheme-purple" : ""}
+              >
                 Home
               </Link>
             </li>
-            <li className="-translate-x-8 opacity-0 hover:text-scheme-purpleOne text-white transition-colors duration-300" ref={listRefTwo}>
+            <li
+              className="-translate-x-8 opacity-0 hover:text-scheme-purpleOne text-white transition-colors duration-300"
+              ref={listRefTwo}
+            >
               <Link
                 href={"/about"}
-                className={currentRoute === "/about" ? "active" : ""}
+                className={
+                  currentRoute === "/about" ? "text-scheme-purple" : ""
+                }
               >
                 {" "}
                 About
               </Link>
             </li>
-            <li className="-translate-x-8 opacity-0 hover:text-scheme-purpleOne text-white transition-colors duration-300" ref={listRefThree}>
+            <li
+              className="-translate-x-8 opacity-0 hover:text-scheme-purpleOne text-white transition-colors duration-300"
+              ref={listRefThree}
+            >
               <Link
                 href={"/contact"}
-                className={currentRoute === "/contact" ? "active" : ""}
+                className={
+                  currentRoute === "/contact" ? "text-scheme-purple" : ""
+                }
               >
                 Contact
               </Link>
             </li>
-
           </motion.ul>
         </div>
-      <motion.div className="hidden sm:flex" variants={listAnimationVariant} animate='animate' initial='init' transition={{duration: .4, type: 'spring'}}>
-      { currentRoute !== '/dashboard' ? <Link
-                href={"/auth/login"}
-                className={`bg-scheme-purple hover:bg-gradient-to-br hover:bg-scheme-purpleOne  px-3 py-1 rounded-md text-white  hidden sm:flex  transition-colors duration-300 ${currentRoute === "/auth/login" ? "active" : ""} ${alata.className}`}
-              >
-                Log In
-              </Link> : <button
-                className={`bg-scheme-purple hover:bg-gradient-to-br hover:bg-scheme-purpleOne  px-3 py-1 rounded-md text-white hidden sm:flex  transition-colors duration-300 ${currentRoute === "/dashboard" ? "active" : ""} ${alata.className}`}
-              >
-                Log Out
-              </button>   }
-              {/* ====== */}
-    
-      </motion.div>
-      
-        {!toggle ? <MobileNavbar alata={alata} setToggle={setToggle} toggle={toggle}/> : (
+        <motion.div
+          className="hidden sm:flex"
+          variants={listAnimationVariant}
+          animate="animate"
+          initial="init"
+          transition={{ duration: 0.4, type: "spring" }}
+        >
+          {
+            <button
+              onClick={handleButtonClick}
+              className={`bg-scheme-purple hover:bg-gradient-to-br hover:bg-scheme-purpleOne  px-3 py-1 rounded-md text-white hidden sm:flex  transition-colors duration-300 ${
+                currentRoute === "/dashboard" ? "active" : ""
+              } ${alata.className}`}
+            >
+              {session
+                ? currentRoute !== "/dashboard"
+                  ? "Dashboard"
+                  : "Log Out"
+                : "Log In"}
+            </button>
+          }
+          {/* ====== */}
+        </motion.div>
+
+        {!toggle ? (
+          <MobileNavbar alata={alata} setToggle={setToggle} toggle={toggle} />
+        ) : (
           <></>
         )}
       </nav>

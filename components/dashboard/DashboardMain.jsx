@@ -6,7 +6,7 @@ import Link from "next/link";
 const DashboardMain = () => {
   const { data: session } = useSession();
 
-  console.log(session?.user?.firstName);
+ 
   return (
     <section className="flex flex-col gap-10 p-3 sm:p-4">
       <div className="flex flex-col sm:flex-row justify-between gap-5">
