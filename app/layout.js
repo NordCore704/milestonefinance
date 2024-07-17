@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import SharedLayout from "@/components/shared/SharedLayout";
 import { AuthProvider } from "./Providers";
+import { TelegramContact } from "@/exports";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <SharedLayout>{children}</SharedLayout>
         </AuthProvider>
+        <TelegramContact />
       </body>
     </html>
   );

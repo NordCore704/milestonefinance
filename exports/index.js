@@ -38,6 +38,8 @@ import InvestmentPlansMain from "@/components/dashboard/investmentPlans/Investme
 import PlansGrid from "@/components/dashboard/investmentPlans/PlansGrid";
 import CryptoGrid from "@/components/dashboard/investmentPlans/CryptoGrid";
 import PaymentMain from "@/components/dashboard/payment/PaymentMain";
+import WithdrawMain from "@/components/dashboard/withdraw/WithdrawMain";
+import TelegramContact from "@/components/contact/TelegramContact";
 
 export {
     HomeIntro,
@@ -80,4 +82,6 @@ export {
     PlansGrid,
     CryptoGrid,
     PaymentMain,
+    WithdrawMain,
+    TelegramContact,
 }

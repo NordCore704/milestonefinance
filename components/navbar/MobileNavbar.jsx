@@ -8,9 +8,9 @@ import { signOut, useSession } from "next-auth/react";
 const MobileNavbar = ({ alata, toggle, setToggle }) => {
   // const [toggle, setToggle] = useState(true);
 
-  const currentRoute = usePathname();
   const router = useRouter();
-  const session = useSession();
+  const currentRoute = usePathname();
+  const { data: session, status } = useSession();
 
   const parentAnimationVariants = {
     init: {
@@ -29,8 +29,8 @@ const MobileNavbar = ({ alata, toggle, setToggle }) => {
     if (session) {
       if (currentRoute !== "/dashboard") {
         router.push("/dashboard");
-      } else if (currentRoute === "/dashboard") {
-        signOut();
+      } else if (currentRoute === '/dashboard') {
+        signOut()
       }
     } else if (!session) {
       router.push("/auth/login");
@@ -86,7 +86,7 @@ const MobileNavbar = ({ alata, toggle, setToggle }) => {
         </ul>
         {
           <button
-            onClick={() => signOut()}
+            onClick={handleButtonClick}
             className={`hover:bg-gradient-to-br hover:text-green-400 hover:border-green-400 font-bold text-xl px-4 py-1 rounded-md text-scheme-purple  sm:hidden flex  transition-colors duration-300 border-2  border-scheme-purple ${
               currentRoute === "/dashboard" ? "text-green-400" : ""
             } ${alata.className}`}
