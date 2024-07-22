@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import SharedLayout from "@/components/shared/SharedLayout";
 import { AuthProvider } from "./Providers";
 import { TelegramContact } from "@/exports";
+import { CryptoProvider } from "@/context/CryptoContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
+          <CryptoProvider>
           <SharedLayout>{children}</SharedLayout>
+          </CryptoProvider>
         </AuthProvider>
         <TelegramContact />
       </body>
