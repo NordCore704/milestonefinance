@@ -29,6 +29,10 @@ const SignUpForm = () => {
       return;
     }
 
+    if (confirmPassword !== password) {
+      setError('password confirmation does not match set password')
+    }
+
     try {
       const userExistsResponse = await fetch("/api/userExists", {
         method: "POST",
