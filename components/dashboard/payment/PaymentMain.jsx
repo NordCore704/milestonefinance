@@ -35,12 +35,12 @@ const PaymentMain = () => {
           <span className="font-semibold">${amount}</span> using the selected
           cryptocurrency
         </p>
-        <p className="text-2xl font-semibold">{selectedCrypto.address}</p>
+        <p className="sm:text-2xl text-[10px] font-semibold text-wrap">{selectedCrypto.address}</p>
         <p className="uppercase">
           {selectedCrypto.name} <span className="capitalize">Address:</span>
         </p>
         <div className="flex border rounded-lg justify-between">
-          <p className="p-2">{selectedCrypto.address}</p>
+          <p className="p-2 text-[10px] sm:text-base ">{selectedCrypto.address}</p>
           <button className="border p-2 hover:bg-gray-200 duration-300 transition-colors" onClick={copyToClipboard}>
             <FaCopy />
           </button>

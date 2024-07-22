@@ -29,11 +29,13 @@ const MobileNavbar = ({ alata, toggle, setToggle }) => {
     if (session) {
       if (currentRoute !== "/dashboard") {
         router.push("/dashboard");
+        setToggle((prev) => !prev)
       } else if (currentRoute === '/dashboard') {
         signOut()
       }
     } else if (!session) {
       router.push("/auth/login");
+      setToggle((prev) => !prev)
     }
   };
 
