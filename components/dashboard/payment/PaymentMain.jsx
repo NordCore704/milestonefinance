@@ -4,7 +4,7 @@ import { FaCopy } from "react-icons/fa6";
 import CryptoContext from "@/context/CryptoContext";
 
 const PaymentMain = () => {
-  const { selectedCrypto, selectedPlan, amount } = useContext(CryptoContext);
+  const { selectedCrypto, amount } = useContext(CryptoContext);
   const [copySuccess, setCopySuccess] = useState('');
 
   const copyToClipboard = () => {
