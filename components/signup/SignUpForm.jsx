@@ -31,6 +31,7 @@ const SignUpForm = () => {
 
     if (confirmPassword !== password) {
       setError('password confirmation does not match set password')
+      return
     }
 
     try {
