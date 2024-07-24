@@ -1,7 +1,13 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { FaEnvelope, FaUser, FaPhone, FaEye } from "react-icons/fa6";
+import {
+  FaEnvelope,
+  FaUser,
+  FaPhone,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa6";
 import { useRouter } from "next/navigation";
 
 const SignUpForm = () => {
@@ -10,10 +16,12 @@ const SignUpForm = () => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isPasswordVisible, setPasswordVisible] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [ isConfirmPasswordVisible, setConfirmPasswordVisible ] = useState(false)
   const [error, setError] = useState("");
 
-  const router = useRouter()
+  const router = useRouter();
   const handleSignUp = async (e) => {
     e.preventDefault();
 
@@ -30,8 +38,8 @@ const SignUpForm = () => {
     }
 
     if (confirmPassword !== password) {
-      setError('password confirmation does not match set password')
-      return
+      setError("password confirmation does not match set password");
+      return;
     }
 
     try {
@@ -43,10 +51,10 @@ const SignUpForm = () => {
         body: JSON.stringify({ email }),
       });
 
-      const { user } = await userExistsResponse.json()
+      const { user } = await userExistsResponse.json();
 
-      if(user){
-        setError('User already exists')
+      if (user) {
+        setError("User already exists");
         return;
       }
       const response = await fetch("/api/register", {
@@ -66,12 +74,19 @@ const SignUpForm = () => {
       if (response.ok) {
         const form = e.target;
         form.reset();
-        router.push('/dashboard')
+        router.push("/dashboard");
       } else {
       }
     } catch (error) {
       console.log("Error during registration:", error);
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible((prevState) => !prevState);
+  };
+  const toggleConfirmPasswordVisibility = () => {
+    setConfirmPasswordVisible((prevState) => !prevState);
   };
 
   return (
@@ -145,13 +160,19 @@ const SignUpForm = () => {
         </label>
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
-            type="password"
+            type={isPasswordVisible ? "text" : "password"}
             name="password"
             onChange={(e) => setPassword(e.target.value)}
             className="rounded-lg  p-1 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
           />
-          <FaEye className="text-gray-700 text-base " />
+          <button className="" onClick={togglePasswordVisibility}>
+            {isPasswordVisible ? (
+              <FaEyeSlash className="text-gray-700 text-base " />
+            ) : (
+              <FaEye className="text-gray-700 text-base " />
+            )}
+          </button>
         </div>
       </div>
       <div className="flex flex-col gap-2 w-full">
@@ -160,13 +181,19 @@ const SignUpForm = () => {
         </label>
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
-            type="password"
+            type={isConfirmPasswordVisible ? 'text' : 'password'}
             onChange={(e) => setConfirmPassword(e.target.value)}
             name="password2"
             className="rounded-lg  p-1 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
           />
-          <FaEye className="text-gray-700 text-base " />
+            <button className="" onClick={toggleConfirmPasswordVisibility}>
+            {isConfirmPasswordVisible ? (
+              <FaEyeSlash className="text-gray-700 text-base " />
+            ) : (
+              <FaEye className="text-gray-700 text-base " />
+            )}
+          </button>
         </div>
       </div>
       {error && (

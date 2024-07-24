@@ -1,35 +1,41 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { FaMessage, FaEnvelope, FaEye } from "react-icons/fa6";
+import { FaMessage, FaEnvelope, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isPasswordVisible, setPasswordVisible] = useState(false);
   const [error, setError] = useState("");
 
-  const router = useRouter()
+  const router = useRouter();
 
   const handleLogin = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      const res = await signIn('credentials', {
-        email, password,
+      const res = await signIn("credentials", {
+        email,
+        password,
         redirect: false,
-      })
+      });
 
       if (res.error) {
-        setError('Invalid Credentials')
+        setError("Invalid Credentials");
         return;
       }
 
-      router.push('/dashboard')
+      router.push("/dashboard");
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible((prevState) => !prevState);
   };
 
   return (
@@ -56,13 +62,19 @@ const LoginForm = () => {
         </label>
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
-            type="password"
+            type={isPasswordVisible ? "text" : "password"}
             name="password"
             onChange={(e) => setPassword(e.target.value)}
             className="rounded-lg  p-2 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
           />
-          <FaEye className="text-gray-700 text-base " />
+         <button className="" onClick={togglePasswordVisibility}>
+            {isPasswordVisible ? (
+              <FaEyeSlash className="text-gray-700 text-base " />
+            ) : (
+              <FaEye className="text-gray-700 text-base " />
+            )}
+          </button>
         </div>
       </div>
       {error && (
@@ -70,7 +82,7 @@ const LoginForm = () => {
           <p className="text-white text-center">{error}</p>
         </div>
       )}
-         <button className="rounded-lg bg-scheme-purple text-white p-2 hover:bg-scheme-purpleOne duration-300 transition-colors lg:w-[70%]">
+      <button className="rounded-lg bg-scheme-purple text-white p-2 hover:bg-scheme-purpleOne duration-300 transition-colors lg:w-[70%]">
         Login
       </button>
       <div className="flex items-center gap-1">
@@ -81,7 +93,6 @@ const LoginForm = () => {
           </Link>
         </p>
       </div>
-   
     </form>
   );
 };
