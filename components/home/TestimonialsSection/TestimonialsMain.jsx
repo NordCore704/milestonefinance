@@ -1,3 +1,4 @@
+'use client'
 import { elizabeth, houseOne, houseThree, houseTwo, peterson, thompson } from "@/exports/image-exports";
 import Image from "next/image";
 import React from "react";
@@ -156,7 +157,7 @@ const TestimonialsMain = () => {
         </div>
 
         <article className="relative">
-          <h1 class="sr-only">Glassy Profile</h1>
+          <h1 className="sr-only">Glassy Profile</h1>
 
           {/* Toggle checkbox for data */}
           <input

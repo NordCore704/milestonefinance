@@ -40,6 +40,12 @@ import CryptoGrid from "@/components/dashboard/investmentPlans/CryptoGrid";
 import PaymentMain from "@/components/dashboard/payment/PaymentMain";
 import WithdrawMain from "@/components/dashboard/withdraw/WithdrawMain";
 import TelegramContact from "@/components/contact/TelegramContact";
+import AdminSignUp from "@/components/admin/signUp/AdminSignUp";
+import AdminSignUpForm from "@/components/admin/signUp/AdminSignUpForm";
+import AdminSignUpHero from "@/components/admin/signUp/AdminSignUpHero";
+import AdminLogin from "@/components/admin/login/AdminLogin";
+import AdminLoginHero from "@/components/admin/login/AdminLoginHero";
+import AdminLoginForm from "@/components/admin/login/AdminLoginForm";
 
 export {
     HomeIntro,
@@ -84,4 +90,10 @@ export {
     PaymentMain,
     WithdrawMain,
     TelegramContact,
+    AdminLogin,
+    AdminLoginForm,
+    AdminLoginHero,
+    AdminSignUp,
+    AdminSignUpHero,
+    AdminSignUpForm,
 }

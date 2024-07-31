@@ -36,6 +36,8 @@ import tether from "@/images/tether.svg";
 import solana from "@/images/solana.svg";
 import litecoin from "@/images/litecoin.svg";
 import ripple from "@/images/ripple.svg";
+import adminLoginHero from '@/images/AminHeroOne.svg'
+import adminSigupHero from '@/images/AdminHeroTwo.svg'
 
 export {
   closeburger,
@@ -76,4 +78,6 @@ export {
   tether,
   ripple,
   litecoin,
+  adminLoginHero,
+  adminSigupHero,
 };

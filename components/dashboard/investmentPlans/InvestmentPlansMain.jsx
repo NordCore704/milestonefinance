@@ -56,7 +56,7 @@ const InvestmentPlansMain = () => {
       <div className="flex flex-col gap-2">
         <h3 className="text-xl font-semibold">Investment Plan</h3>
         <p className="text-gray-600">
-          Fund your account to get started with pur numerous investment options
+          Fund your account to get started with our numerous investment options
           today!
         </p>
       </div>

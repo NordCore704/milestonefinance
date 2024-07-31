@@ -132,9 +132,9 @@ const Navbar = () => {
         >
           <Link href={"/"}>
             <Image src={logo} height={40} alt={"logo"} />
-            <p
+            {/* <p
               className={`text-xl font-extrabold self-end ${alatsi.className}`}
-            ></p>
+            ></p> */}
           </Link>
         </div>
         <div className="flex items-center">

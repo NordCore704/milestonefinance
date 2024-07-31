@@ -8,7 +8,7 @@ const PlansGrid = ({ handlePlanSelection, selectedPlan, handleAmountChange, amou
       <h4 className="text-lg">Select Package</h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
         <button
-          className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors ${ selectedPlan === 'Basic' && 'bg-gray-300' }`}
+          className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors justify-between ${ selectedPlan === 'Basic' && 'bg-gray-300' }`}
           onClick={() => handlePlanSelection("Basic")}
         >
           <div className="flex justify-between gap-1">
@@ -19,18 +19,18 @@ const PlansGrid = ({ handlePlanSelection, selectedPlan, handleAmountChange, amou
               </p>
             </div>
             <p className="p-1 border self-start rounded-2xl font-semibold sm:text-sm text-xs text-center ">
-              Renewable in 15 days
+              $5000
             </p>
           </div>
           <p className="font-semibold text-3xl">
-            +50%
+            +2.5%
             <span className="text-sm text-gray-600 font-medium">
               {" "}
-              ROI weekly
+              ROI
             </span>
           </p>
         </button>
-        <button className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors ${ selectedPlan === 'Standard' && 'bg-gray-300' }`}  onClick={() => handlePlanSelection('Standard')} 
+        <button className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors justify-between ${ selectedPlan === 'Standard' && 'bg-gray-300' }`}  onClick={() => handlePlanSelection('Standard')} 
                     >
           <div className="flex justify-between gap-1">
             <div className="flex-col flex gap-1">
@@ -40,14 +40,14 @@ const PlansGrid = ({ handlePlanSelection, selectedPlan, handleAmountChange, amou
               </p>
             </div>
             <p className="p-1 border self-start rounded-2xl font-semibold sm:text-sm text-xs text-center ">
-              Renewable in 25 days
+              $50,000
             </p>
           </div>
           <p className="font-semibold text-3xl">
-            +100%
+            +3.5%
             <span className="text-sm text-gray-600 font-medium">
               {" "}
-              ROI weekly
+              ROI
             </span>
           </p>
         </button>
@@ -61,14 +61,14 @@ const PlansGrid = ({ handlePlanSelection, selectedPlan, handleAmountChange, amou
               </p>
             </div>
             <p className="p-1 border self-start rounded-2xl font-semibold sm:text-sm text-xs text-center ">
-              Renewable in 35 days
+              $250,000
             </p>
           </div>
           <p className="font-semibold text-3xl">
-            +200%
+            +5%
             <span className="text-sm text-gray-600 font-medium">
               {" "}
-              ROI weekly
+              ROI
             </span>
           </p>
         </button>
@@ -82,14 +82,14 @@ const PlansGrid = ({ handlePlanSelection, selectedPlan, handleAmountChange, amou
               </p>
             </div>
             <p className="p-1 border self-start rounded-2xl font-semibold sm:text-sm text-xs text-center ">
-              Renewable in 50 days
+              $500K - $1M
             </p>
           </div>
           <p className="font-semibold text-3xl">
-            +500%
+            +10%
             <span className="text-sm text-gray-600 font-medium">
               {" "}
-              ROI weekly
+              ROI
             </span>
           </p>
         </button>

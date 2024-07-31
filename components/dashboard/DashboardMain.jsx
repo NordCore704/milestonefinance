@@ -48,7 +48,7 @@ const DashboardMain = () => {
             <div className="flex flex-col gap-2">
               <p className="uppercase text-sm text-gray-600">total balance</p>
               <p className="text-sm">
-                100 <span className="text-gray-500">USD</span>
+                0.00 <span className="text-gray-500">USD</span>
               </p>
             </div>
             <div className="flex flex-col gap-2 text-center">
@@ -71,7 +71,7 @@ const DashboardMain = () => {
                 this month(pending inclusive)
               </p>
               <p className="text-sm">
-                100 <span className="text-gray-500">USD</span>
+                0.00 <span className="text-gray-500">USD</span>
               </p>
             </div>
           </div>
@@ -86,7 +86,7 @@ const DashboardMain = () => {
             <div className="flex flex-col gap-2">
               <p className="uppercase text-sm text-gray-600">this month</p>
               <p className="text-sm">
-                100 <span className="text-gray-500">USD</span>
+                0.00 <span className="text-gray-500">USD</span>
               </p>
             </div>
           </div>
