@@ -1,3 +1,4 @@
+'use client'
 import { AdminSignUp } from "@/exports";
 import React from "react";
 import { useEffect } from "react";
