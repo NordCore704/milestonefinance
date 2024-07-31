@@ -5,7 +5,7 @@ import React from 'react'
 const AdminLoginHero = () => {
   return (
     <div className='sm:w-[50%] self-center'>
-    <Image src={adminSigupHero} alt='' className='w-full' />
+    <Image src={adminSigupHero} alt='' className='w-full'/>
   </div>
   )
 }

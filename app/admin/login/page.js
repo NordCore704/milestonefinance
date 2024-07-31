@@ -13,8 +13,10 @@ export default function AdminAuthLogin() {
   useEffect(() => {
     if (session?.user?.role === 'admin') {
       router.push('/adminDashboard');
-    } else {
+    } else if (session?.user?.role === 'user') {
       router.push('/dashboard')
+    } else {
+      return
     }
   }, [session]);
 

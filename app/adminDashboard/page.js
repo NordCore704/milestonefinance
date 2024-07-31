@@ -9,10 +9,12 @@ export default function AdminDashboard() {
   const router = useRouter();
 
   useEffect(() => {
-    if (session?.user?.role === "admin") {
-      router.push("/adminDashboard");
+    if (session?.user?.role === 'admin') {
+      router.push('/adminDashboard');
+    } else if (session?.user?.role === 'user') {
+      router.push('/dashboard')
     } else {
-      router.push("/dashboard");
+      return
     }
   }, [session]);
   return <main className="flex flex-col gap-5 bg-scheme-white p-4"></main>;

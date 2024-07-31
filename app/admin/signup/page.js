@@ -10,10 +10,12 @@ export default function AdminAuthSignUp() {
   const router = useRouter();
 
   useEffect(() => {
-    if (session?.user?.role === "admin") {
-      router.push("/adminDashboard");
+    if (session?.user?.role === 'admin') {
+      router.push('/adminDashboard');
+    } else if (session?.user?.role === 'user') {
+      router.push('/dashboard')
     } else {
-      router.push("/dashboard");
+      return
     }
   }, [session]);
   return (
