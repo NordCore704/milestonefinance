@@ -20,6 +20,7 @@ const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [ isConfirmPasswordVisible, setConfirmPasswordVisible ] = useState(false)
   const [error, setError] = useState("");
+  const role = 'user'
 
   const router = useRouter();
   const handleSignUp = async (e) => {
@@ -68,6 +69,7 @@ const SignUpForm = () => {
           mobileNumber,
           email,
           password,
+          role,
         }),
       });
 

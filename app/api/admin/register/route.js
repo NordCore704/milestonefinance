@@ -12,7 +12,7 @@ import bcrypt from 'bcryptjs'
 
         console.log('FirstName', firstName);
 
-        return NextResponse.json({ message: 'User registered'}, { status: 201 })
+        return NextResponse.json({ message: 'Admin registered'}, { status: 201 })
 } catch (error) {
     return NextResponse.json(
         {

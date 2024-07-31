@@ -58,7 +58,7 @@ const AdminSignUpForm = () => {
         setError("User already exists");
         return;
       }
-      const response = await fetch("/api/register", {
+      const response = await fetch("/api/admin/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
