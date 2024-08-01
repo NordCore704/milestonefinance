@@ -25,19 +25,49 @@ const MobileNavbar = ({ alata, toggle, setToggle }) => {
     setToggle((prev) => !prev);
   };
 
+  const getButtonText = () => {
+    if (!session) return 'Log In';
+
+    if (session?.user?.role === 'admin') {
+      return currentRoute === '/adminDashboard' ? 'Log Out' : 'Dashboard';
+    }
+
+    if (session?.user?.role === 'user') {
+      return currentRoute === '/dashboard' ? 'Log Out' : 'Dashboard';
+    }
+
+    return 'Log In';
+  };
+
   const handleButtonClick = () => {
-    if (session) {
-      if (currentRoute !== "/dashboard") {
-        router.push("/dashboard");
-        setToggle((prev) => !prev)
-      } else if (currentRoute === '/dashboard') {
-        signOut()
+    if (!session) {
+      router.push('/auth/login');
+      toggleNav()
+      return;
+    }
+
+    if (session?.user?.role === 'admin') {
+      if (currentRoute !== '/adminDashboard') {
+        router.push('/adminDashboard');
+        toggleNav()
+      } else {
+        signOut();
+        toggleNav()
       }
-    } else if (!session) {
-      router.push("/auth/login");
-      setToggle((prev) => !prev)
+      return;
+    }
+
+    if (session?.user?.role === 'user') {
+      if (currentRoute !== '/dashboard') {
+        router.push('/dashboard');
+        toggleNav()
+      } else {
+        signOut();
+        toggleNav()
+      }
     }
   };
+
 
   return (
     <div
@@ -93,11 +123,7 @@ const MobileNavbar = ({ alata, toggle, setToggle }) => {
               currentRoute === "/dashboard" ? "text-green-400" : ""
             } ${alata.className}`}
           >
-            {session
-              ? (currentRoute !== "/dashboard"
-                ? "Dashboard"
-                : "Log Out")
-              : "Log In"}
+            {getButtonText()}
           </button>
         }
       </motion.div>

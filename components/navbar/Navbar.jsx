@@ -43,7 +43,6 @@ const Navbar = () => {
   };
   const router = useRouter();
   const currentRoute = usePathname();
-  
 
   const navRef = useRef();
   const logoRef = useRef();
@@ -53,15 +52,41 @@ const Navbar = () => {
   const listRefFour = useRef();
   let timeline = gsap.timeline();
 
+  const getButtonText = () => {
+    if (!session) return 'Log In';
+
+    if (session?.user?.role === 'admin') {
+      return currentRoute === '/adminDashboard' ? 'Log Out' : 'Dashboard';
+    }
+
+    if (session?.user?.role === 'user') {
+      return currentRoute === '/dashboard' ? 'Log Out' : 'Dashboard';
+    }
+
+    return 'Log In';
+  };
+
   const handleButtonClick = () => {
-    if (session) {
-      if (currentRoute !== "/dashboard") {
-        router.push("/dashboard");
-      } else if (currentRoute === '/dashboard') {
-        signOut()
+    if (!session) {
+      router.push('/auth/login');
+      return;
+    }
+
+    if (session?.user?.role === 'admin') {
+      if (currentRoute !== '/adminDashboard') {
+        router.push('/adminDashboard');
+      } else {
+        signOut();
       }
-    } else if (!session) {
-      router.push("/auth/login");
+      return;
+    }
+
+    if (session?.user?.role === 'user') {
+      if (currentRoute !== '/dashboard') {
+        router.push('/dashboard');
+      } else {
+        signOut();
+      }
     }
   };
 
@@ -218,11 +243,7 @@ const Navbar = () => {
                 currentRoute === "/dashboard" ? "active" : ""
               } ${alata.className}`}
             >
-              {session
-                ? currentRoute !== "/dashboard"
-                  ? "Dashboard"
-                  : "Log Out"
-                : "Log In"}
+              {getButtonText()}
             </button>
           }
           {/* ====== */}
