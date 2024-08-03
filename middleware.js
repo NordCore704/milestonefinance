@@ -6,8 +6,8 @@ export async function middleware(req) {
   const { pathname } = req.nextUrl;
 
   // Log token and request path for debugging
-  console.log('Middleware: Token:', token);
-  console.log('Middleware: Pathname:', pathname);
+  // console.log('Middleware: Token:', token);
+  // console.log('Middleware: Pathname:', pathname);
 
   // Define public and protected routes
   const publicRoutes = ['/auth/login', '/admin/login'];

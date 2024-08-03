@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.51.21",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "emailjs": "^4.0.3",
@@ -20,7 +21,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
-    "react-intersection-observer": "^9.10.3"
+    "react-intersection-observer": "^9.10.3",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "eslint": "^8",

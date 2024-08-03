@@ -46,6 +46,8 @@ import AdminSignUpHero from "@/components/admin/signUp/AdminSignUpHero";
 import AdminLogin from "@/components/admin/login/AdminLogin";
 import AdminLoginHero from "@/components/admin/login/AdminLoginHero";
 import AdminLoginForm from "@/components/admin/login/AdminLoginForm";
+import AdminDashboardMain from "@/components/adminDashboard/AdminDashboardMain";
+import Spinner from "@/components/utils/Spinner";
 
 export {
     HomeIntro,
@@ -96,4 +98,6 @@ export {
     AdminSignUp,
     AdminSignUpHero,
     AdminSignUpForm,
+    AdminDashboardMain,
+    Spinner,
 }
