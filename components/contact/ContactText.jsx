@@ -12,7 +12,7 @@ const ContactText = () => {
           <h4 className="uppercase text-scheme-purple font-semibold text-sm sm:text-base">
           whatsapp contact
           </h4>
-          <Link href={'https://wa.me/milestonefinance/447586551360'} className="underline">+447586551360</Link>
+          <Link href={'https://wa.link/h1r0l0'} className="underline">+447586551360</Link>
         </div>
         <div className="flex flex-col gap-2">
           <h4 className="uppercase text-scheme-purple font-semibold text-sm sm:text-base">
