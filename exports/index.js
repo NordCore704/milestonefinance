@@ -49,6 +49,7 @@ import AdminLoginForm from "@/components/admin/login/AdminLoginForm";
 import AdminDashboardMain from "@/components/adminDashboard/AdminDashboardMain";
 import Spinner from "@/components/utils/Spinner";
 import withAuth from "@/components/HOC/withAuth";
+import EditUser from "@/components/adminDashboard/[id]/EditUser";
 
 export {
     HomeIntro,
@@ -102,4 +103,5 @@ export {
     AdminDashboardMain,
     Spinner,
     withAuth,
+    EditUser,
 }

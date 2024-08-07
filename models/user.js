@@ -38,6 +38,10 @@ const userSchema = new Schema(
       type: String,
       default: "",
     },
+    totalProfit: {
+      type: 'String',
+      default: ''
+    },
   },
   { timestamps: true }
 );

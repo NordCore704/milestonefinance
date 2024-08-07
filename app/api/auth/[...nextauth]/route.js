@@ -44,14 +44,15 @@ export const authOptions = {
     signIn: "/dashboard",
   },
   callbacks: {
-    async jwt({ token, user, }) {
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
         token.firstName = user.firstName;
         token.role = user.role;
         token.plan = user.plan;
         token.amountPaid = user.amountPaid;
-        token.withdawableBalance = user.withdawableBalance
+        token.withdawableBalance = user.withdawableBalance;
+        token.totalProfit = user.totalProfit;
       }
       return token;
     },
@@ -61,7 +62,8 @@ export const authOptions = {
       session.user.firstName = token.firstName;
       session.user.plan = token.plan;
       session.user.amountPaid = token.amountPaid;
-      session.withdawableBalance = token.withdawableBalance
+      session.withdawableBalance = token.withdawableBalance;
+      session.totalProfit = token.totalProfit;
       return session;
     },
   },

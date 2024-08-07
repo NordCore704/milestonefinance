@@ -105,7 +105,7 @@ const AdminDashboardMain = () => {
               <p>Withdrawable Balance: {user.withdrawableBalance}</p>
               </div>
               <div className=" p-2 flex flex-col gap-2">
-                <Link href={''} className="hover:text-purple-600">
+                <Link href={`/adminDasboard/${user._id}`} className="hover:text-purple-600">
                   <FaPenToSquare />
                 </Link>
                 <button onClick={() => handleDelete(user._id)} className="hover:text-purple-600">
@@ -116,7 +116,7 @@ const AdminDashboardMain = () => {
             </motion.li>
           ))
         ) : (
-          <p>No users available</p>
+          <p className="text-2xl text-scheme-purple">No users available</p>
         )}
         </ul>
       </div>
