@@ -3,8 +3,8 @@ import React from "react";
 
 const ContactText = () => {
   return (
-    <div className="min-h-screen items-start flex flex-col gap-16 sm:w-[40%]">
-      <h3 className="sm:text-5xl md:text-6xl lg:text-8xl text-2xl uppercase font-bold text-black">
+    <div className=" items-start flex flex-col gap-8 sm:gap-16 sm:w-[40%] h-[50%] sm:h-[100%]">
+      <h3 className="sm:text-6xl md:text-6xl lg:text-8xl text-4xl uppercase font-bold text-black">
         Contact
       </h3>
       <div className="flex flex-col gap-10">
