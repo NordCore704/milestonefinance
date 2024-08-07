@@ -93,7 +93,7 @@ const AdminDashboardMain = () => {
               animate="animate"
               initial="init"
               key={user._id}
-              className="p-2 sm:p-3 rounded-md shadow-md w-full justify-between flex "
+              className="p-2 sm:p-3 rounded-md shadow-md w-full justify-between flex border-b-2 border-scheme-purple"
             >
               <div className="flex flex-col p-2 gap-2 w-full">
               <p>

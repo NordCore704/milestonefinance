@@ -56,7 +56,7 @@ const UserPage = ({ params }) => {
 
   return (
     <div className="min-h-screen flex flex-col gap-5 p-2 sm:p-4 lg:p-5 w-full">
-      <div className="flex flex-col gap-3 p-2 sm:p-3 shadow-md rounded-lg">
+      <div className="flex flex-col gap-3 p-2 sm:p-3 shadow-md rounded-lg border-b-2 border-scheme-purple">
         <h1 className="text-xl sm:text-2xl font-semibold">User Details</h1>
         <p>
           Name: {user.firstName} {user.secondName}
@@ -72,7 +72,7 @@ const UserPage = ({ params }) => {
         <p className="">Total Withdrawals: ${user.totalWithdrawals || "0.00"}</p>
       </div>
       {/* === Edit user details === */}
-      <div className="flex flex-col gap-3 p-2 sm:p-3 shadow-md rounded-lg">
+      <div className="flex flex-col gap-3 p-2 sm:p-3 shadow-md rounded-lg border-b-2 border-scheme-purpleOne">
         <h1 className="text-xl sm:text-2xl font-semibold">Edit User Details</h1>
         <form onSubmit={handleUpdate} className="flex flex-col gap-4">
           {/* ==== withdrawable balance ==== */}
