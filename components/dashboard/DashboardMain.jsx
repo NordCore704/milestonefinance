@@ -2,12 +2,34 @@
 import React from "react";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import { Spinner, withAuth, } from "@/exports";
+import { useRouter } from "next/navigation";
+
 
 const DashboardMain = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  // Redirect if not authenticated or not an admin
+  if (status === "loading") {
+    return <Spinner />;
+  }
+
+  if (!session) {
+    if (typeof window !== "undefined") {
+      router.push("/auth/login");
+    }
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <p className="text-2xl text-scheme-purple">Redirecting...</p>
+      </div>
+    );
+  }
+
+  const totalBalance = session?.user?.withdrawableBalance + session?.user?.amountPaid
 
   return (
-    <section className="flex flex-col gap-10 p-3 sm:p-4">
+    <section className="flex flex-col gap-10 p-3 sm:p-4 min-h-screen">
       <div className="flex flex-col sm:flex-row justify-between gap-5">
         <div className="flex flex-col gap-2">
           <p className="text-gray-400">Welcome!</p>
@@ -50,7 +72,7 @@ const DashboardMain = () => {
             <div className="flex flex-col gap-2">
               <p className="uppercase text-sm text-gray-600">total balance</p>
               <p className="text-sm">
-              {Number(session?.user?.withdrawableBalance) || "0.00"} <span className="text-gray-500"> USD</span>
+              {Number(totalBalance) || "0.00"} <span className="text-gray-500"> USD</span>
               </p>
             </div>
             <div className="flex flex-col gap-2 text-center">

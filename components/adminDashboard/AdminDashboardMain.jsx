@@ -46,7 +46,9 @@ const AdminDashboardMain = () => {
     if (typeof window !== 'undefined') {
       router.push('/auth/login');
     }
-    return <p>Redirecting...</p>;
+    return <div className="flex justify-center items-center min-h-screen">
+    <p className="text-2xl text-scheme-purple">Redirecting...</p>
+  </div>
   }
 
   if (isLoading) return <Spinner />;

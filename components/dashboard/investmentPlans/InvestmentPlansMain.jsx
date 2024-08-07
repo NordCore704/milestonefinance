@@ -1,30 +1,20 @@
 "use client";
-import {
-  binance,
-  bitcoin,
-  ethereum,
-  litecoin,
-  ripple,
-  solana,
-  tether,
-  ton,
-} from "@/exports/image-exports";
 import { PlansGrid, CryptoGrid } from "@/exports";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import CryptoContext from "@/context/CryptoContext";
 
 const InvestmentPlansMain = () => {
+  const { data: session, status } = useSession()
   const { setSelectedCrypto, setSelectedPlan, setAmount } =
     useContext(CryptoContext);
-
+  const router = useRouter();
   const [selectedCrypto, setSelectedCryptoState] = useState(null);
   const [selectedPlan, setSelectedPlanState] = useState(null);
   const [amount, setAmountState] = useState("");
-
-  const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleCryptoSelection = (crypto) => {
     setSelectedCryptoState(crypto);
@@ -38,19 +28,49 @@ const InvestmentPlansMain = () => {
     setAmountState(e.target.value);
   };
 
-  const handleSubmit = () => {
-    if (selectedCrypto && selectedPlan && amount) {
+  const handleSubmit = async () => {
+    if (!selectedCrypto || !selectedPlan || !amount) {
+      alert("Please select a crypto payment method, a plan, and enter the amount.");
+      return;
+    }
+  
+    setIsSubmitting(true);
+  
+    try {
+      const response = await fetch("/api/updates/plans", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: session?.user?.id,
+          selectedPlan,
+          amountPaid: amount,
+        }),
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error response:", errorData);
+        alert(errorData.message || "Error updating plan");
+        return;
+      }
+  
+      const data = await response.json();
+  
       setSelectedCrypto(selectedCrypto);
       setSelectedPlan(selectedPlan);
       setAmount(amount);
+  
       router.push("/dashboard/investment-plans/payment");
-    } else {
-      alert(
-        "Please select a crypto payment method, a plan, and enter the amount."
-      );
+    } catch (error) {
+      console.error("Error updating plan:", error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
-
+  
   return (
     <section className="flex flex-col gap-10">
       <div className="flex flex-col gap-2">
@@ -76,9 +96,11 @@ const InvestmentPlansMain = () => {
             <button
               onClick={handleSubmit}
               className={`p-2 rounded-lg hover:bg-scheme-purpleOne duration-300 transition-colors text-white bg-scheme-purple self-start ${"disabled:bg-scheme-purpleOne"}`}
-              disabled={amount && selectedCrypto && selectedPlan ? false : true}
+              disabled={
+                isSubmitting || !amount || !selectedCrypto || !selectedPlan
+              }
             >
-              Proceed to Payment
+              {isSubmitting ? "Processing..." : "Proceed to Payment"}
             </button>
           </div>
         </div>

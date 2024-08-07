@@ -48,6 +48,7 @@ import AdminLoginHero from "@/components/admin/login/AdminLoginHero";
 import AdminLoginForm from "@/components/admin/login/AdminLoginForm";
 import AdminDashboardMain from "@/components/adminDashboard/AdminDashboardMain";
 import Spinner from "@/components/utils/Spinner";
+import withAuth from "@/components/HOC/withAuth";
 
 export {
     HomeIntro,
@@ -100,4 +101,5 @@ export {
     AdminSignUpForm,
     AdminDashboardMain,
     Spinner,
+    withAuth,
 }
