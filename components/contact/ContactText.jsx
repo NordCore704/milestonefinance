@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const ContactText = () => {
@@ -15,9 +16,9 @@ const ContactText = () => {
         </div>
         <div className="flex flex-col gap-2">
           <h4 className="uppercase text-scheme-purple font-semibold text-sm">
-            send email
+            chat support 
           </h4>
-          <p className="underline">hello@milestone.app</p>
+          <Link href={'https://t.me/milestonefinance'} className="underline">t.me/milestonefinance</Link>
         </div>
         <div className="flex flex-col gap-2">
           <h4 className="uppercase text-scheme-purple font-semibold text-sm">
