@@ -1,4 +1,4 @@
-// src/app/api/users/[id]/route.js
+// src/app/api/users/deleteUser/[id]/route.js
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
 import { getServerSession } from "next-auth";

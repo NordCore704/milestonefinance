@@ -100,9 +100,9 @@ const AdminDashboardMain = () => {
                 {user.firstName} {user.secondName}
               </p>
               <p>Email: {user.email}</p>
-              <p>Plan: {user.plan}</p>
-              <p>Amount Paid: {user.amountPaid}</p>
-              <p>Withdrawable Balance: {user.withdrawableBalance}</p>
+              <p>Plan: {user.plan || 'None Selected'}</p>
+              <p>Amount Paid: ${user.amountPaid || '0.00'}</p>
+              <p>Withdrawable Balance: ${user.withdrawableBalance || '0.00'}</p>
               </div>
               <div className=" p-2 flex flex-col gap-2">
                 <Link href={`/adminDashboard/${user._id}`} className="hover:text-purple-600">

@@ -2,9 +2,8 @@
 import React from "react";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { Spinner, withAuth, } from "@/exports";
+import { Spinner, withAuth } from "@/exports";
 import { useRouter } from "next/navigation";
-
 
 const DashboardMain = () => {
   const { data: session, status } = useSession();
@@ -26,7 +25,8 @@ const DashboardMain = () => {
     );
   }
 
-  const totalBalance = session?.user?.withdrawableBalance + session?.user?.amountPaid
+  const totalBalance =
+    session?.user?.withdrawableBalance + session?.user?.amountPaid;
 
   return (
     <section className="flex flex-col gap-10 p-3 sm:p-4 min-h-screen">
@@ -72,13 +72,15 @@ const DashboardMain = () => {
             <div className="flex flex-col gap-2">
               <p className="uppercase text-sm text-gray-600">total balance</p>
               <p className="text-sm">
-              {Number(totalBalance) || "0.00"} <span className="text-gray-500"> USD</span>
+                {Number(totalBalance) || "0.00"}{" "}
+                <span className="text-gray-500"> USD</span>
               </p>
             </div>
             <div className="flex flex-col gap-2 text-center">
               <p className="uppercase text-sm text-gray-600">total profit</p>
               <p className="text-sm">
-              {Number(session?.user?.withdrawableBalance) || "0.00"} <span className="text-gray-500"> USD</span>
+                {Number(session?.user?.totalProfit) || "0.00"}{" "}
+                <span className="text-gray-500"> USD</span>
               </p>
             </div>
           </div>
@@ -87,7 +89,8 @@ const DashboardMain = () => {
         <div className="shadow-md rounded-lg p-2 sm:p-3 flex flex-col gap-3 border-b-2 border-scheme-darkerGrey">
           <p className="text-lg">Total Active Investment</p>
           <p className="">
-          {Number(session?.user?.amonutPaid) || "0.00"}<span className="text-gray-500"> USD</span>
+            {Number(session?.user?.amonutPaid) || "0.00"}
+            <span className="text-gray-500"> USD</span>
           </p>
           <div className="flex flex-row justify-between">
             <div className="flex flex-col gap-2">
@@ -95,7 +98,8 @@ const DashboardMain = () => {
                 this month(pending inclusive)
               </p>
               <p className="text-sm">
-              {Number(session?.user?.amountPaid) || "0.00"}<span className="text-gray-500"> USD</span>
+                {Number(session?.user?.amountPaid) || "0.00"}
+                <span className="text-gray-500"> USD</span>
               </p>
             </div>
           </div>
@@ -104,14 +108,14 @@ const DashboardMain = () => {
         <div className="shadow-md rounded-lg p-2 sm:p-3 flex flex-col gap-5 border-b-2 border-yellow-400">
           <p className="text-lg">Total Withdrawals</p>
           <p className="">
-          {Number(session?.user?.withdrawableBalance) || "0.00"}
+            {Number(session?.user?.totalWithdrawals) || "0.00"}
             <span className="text-gray-500"> USD</span>
           </p>
           <div className="flex flex-row justify-between">
             <div className="flex flex-col gap-2">
               <p className="uppercase text-sm text-gray-600">this month</p>
               <p className="text-sm">
-              {Number(session?.user?.withdrawableBalance) || "0.00"} 
+                {Number(session?.user?.totalWithdrawals) || "0.00"}
                 <span className="text-gray-500"> USD</span>
               </p>
             </div>

@@ -53,6 +53,7 @@ export const authOptions = {
         token.amountPaid = user.amountPaid;
         token.withdawableBalance = user.withdawableBalance;
         token.totalProfit = user.totalProfit;
+        token.totalWithdrawals = user.totalWithdrawals;
       }
       return token;
     },
@@ -64,6 +65,7 @@ export const authOptions = {
       session.user.amountPaid = token.amountPaid;
       session.withdawableBalance = token.withdawableBalance;
       session.totalProfit = token.totalProfit;
+      session.totalWithdrawals = token.totalWithdrawals;
       return session;
     },
   },
