@@ -105,7 +105,7 @@ const AdminDashboardMain = () => {
               <p>Withdrawable Balance: {user.withdrawableBalance}</p>
               </div>
               <div className=" p-2 flex flex-col gap-2">
-                <Link href={`/adminDasboard/${user._id}`} className="hover:text-purple-600">
+                <Link href={`/adminDashboard/${user._id}`} className="hover:text-purple-600">
                   <FaPenToSquare />
                 </Link>
                 <button onClick={() => handleDelete(user._id)} className="hover:text-purple-600">
