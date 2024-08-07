@@ -9,6 +9,7 @@ import {
   FaEyeSlash,
 } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -74,10 +75,20 @@ const SignUpForm = () => {
       });
 
       if (response.ok) {
-        const form = e.target;
-        form.reset();
-        router.push("/dashboard");
+        // Log the user in after successful registration
+        const result = await signIn("credentials", {
+          redirect: false,
+          email,
+          password,
+        });
+
+        if (!result.error) {
+          router.push("/dashboard");
+        } else {
+          setError("Failed to log in after registration");
+        }
       } else {
+        setError("Registration failed");
       }
     } catch (error) {
       console.log("Error during registration:", error);
