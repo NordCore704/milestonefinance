@@ -51,7 +51,7 @@ export const authOptions = {
         token.role = user.role;
         token.plan = user.plan;
         token.amountPaid = user.amountPaid;
-        token.withdawableBalance = user.withdawableBalance;
+        token.withdrawableBalance = user.withdrawableBalance;
         token.totalProfit = user.totalProfit;
         token.totalWithdrawals = user.totalWithdrawals;
       }
@@ -63,9 +63,9 @@ export const authOptions = {
       session.user.firstName = token.firstName;
       session.user.plan = token.plan;
       session.user.amountPaid = token.amountPaid;
-      session.withdawableBalance = token.withdawableBalance;
-      session.totalProfit = token.totalProfit;
-      session.totalWithdrawals = token.totalWithdrawals;
+      session.user.withdrawableBalance = token.withdrawableBalance;
+      session.user.totalProfit = token.totalProfit;
+      session.user.totalWithdrawals = token.totalWithdrawals;
       return session;
     },
   },
