@@ -12,7 +12,7 @@ import useSWR from "swr";
 
 // Function to delete a user
 const deleteUser = async (id) => {
-  const response = await fetch(`/api/users/${id}`, {
+  const response = await fetch(`/api/users/deleteUser/${id}`, {
     method: 'DELETE',
   });
   if (!response.ok) {
