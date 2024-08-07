@@ -16,7 +16,7 @@ const ContactText = () => {
         </div>
         <div className="flex flex-col gap-2">
           <h4 className="uppercase text-scheme-purple font-semibold text-sm sm:text-base">
-            chat support 
+            Telegram support 
           </h4>
           <Link href={'https://t.me/milestonefinance'} className="underline">milestonefinance</Link>
         </div>
