@@ -28,7 +28,7 @@ const DashboardMain = () => {
   }
 
   const totalBalance =
-    Number(session?.user?.withdrawableBalance) + Number(session?.user?.amountPaid) + Number(session?.user?.totalProfit);
+    Number(session?.user?.withdrawableBalance) + Number(session?.user?.amountPaid);
 
   return (
     <section className="flex flex-col gap-10 p-3 sm:p-4 min-h-screen">

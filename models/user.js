@@ -46,6 +46,22 @@ const userSchema = new Schema(
       type: 'String',
       default: '',
     },
+    planStatus: {
+      type: 'String',
+      default: '',
+    },
+    hasUserActivatedPlan:{
+      type: 'Boolean',
+      default: false,
+    },
+    hasUserPaid: {
+      type: 'Boolean',
+      default: false,
+    },
+    withdrawalHistory: {
+      type: 'Array',
+      default: [],
+    }
   },
   { timestamps: true }
 );

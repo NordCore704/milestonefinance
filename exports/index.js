@@ -50,6 +50,8 @@ import AdminDashboardMain from "@/components/adminDashboard/AdminDashboardMain";
 import Spinner from "@/components/utils/Spinner";
 import withAuth from "@/components/HOC/withAuth";
 import EditUser from "@/components/adminDashboard/[id]/EditUser";
+import PaymentConfirmationModal from "@/components/dashboard/payment/PaymentModal";
+import WithdrawalConfirmationModal from "@/components/dashboard/withdraw/WithdrawalConfirmationModal";
 
 export {
     HomeIntro,
@@ -104,4 +106,6 @@ export {
     Spinner,
     withAuth,
     EditUser,
+    PaymentConfirmationModal,
+    WithdrawalConfirmationModal,
 }

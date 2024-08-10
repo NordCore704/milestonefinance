@@ -48,6 +48,7 @@ export const authOptions = {
       if (user) {
         token.id = user.id;
         token.firstName = user.firstName;
+        token.secondName = user.secondName
         token.role = user.role;
         token.plan = user.plan;
         token.amountPaid = user.amountPaid;
@@ -61,6 +62,7 @@ export const authOptions = {
       session.user.id = token.id;
       session.user.role = token.role;
       session.user.firstName = token.firstName;
+      session.user.secondName = token.secondName;
       session.user.plan = token.plan;
       session.user.amountPaid = token.amountPaid;
       session.user.withdrawableBalance = token.withdrawableBalance;
