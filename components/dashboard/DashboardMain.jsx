@@ -9,7 +9,6 @@ const DashboardMain = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
   console.log(session);
-  
 
   // Redirect if not authenticated or not an admin
   if (status === "loading") {
@@ -28,7 +27,15 @@ const DashboardMain = () => {
   }
 
   const totalBalance =
-    Number(session?.user?.withdrawableBalance) + Number(session?.user?.amountPaid);
+    Number(session?.user?.withdrawableBalance) +
+    Number(session?.user?.amountPaid);
+
+  const plans = {
+    Basic: "Basic",
+    Standard: "Standard",
+    Premium: "Premium",
+    Deluxe: "Deluxe",
+  };
 
   return (
     <section className="flex flex-col gap-10 p-3 sm:p-4 min-h-screen">
@@ -42,12 +49,19 @@ const DashboardMain = () => {
           </p>
         </div>
         <div className="flex flex-col gap-2 md:flex-row md:items-center">
-          <Link
-            href={"/dashboard/investment-plans"}
-            className="text-white text-center p-2 rounded-md bg-scheme-purple hover:bg-scheme-purpleOne duration-300 transition-colors"
-          >
-            Choose a plan!
-          </Link>
+          {session.user?.plan === plans[session.user?.plan] ? (
+            <div className="text-white text-center p-2 rounded-md bg-scheme-purple duration-300 transition-colors">
+              {session?.user?.plan} Plan
+            </div>
+          ) : (
+            <Link
+              href={"/dashboard/investment-plans"}
+              className="text-white text-center p-2 rounded-md bg-scheme-purple hover:bg-scheme-purpleOne duration-300 transition-colors"
+            >
+              Choose a plan!
+            </Link>
+          )}
+
           <Link
             href={"dashboard/withdraw"}
             className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700"
@@ -68,7 +82,8 @@ const DashboardMain = () => {
         <div className="shadow-md rounded-lg p-2 sm:p-3 flex flex-col gap-3 border-b-2 border-scheme-purple">
           <p className="text-lg">Withdrawable Balance</p>
           <p className="">
-          {Number(session?.user?.withdrawableBalance) || "0.00"}<span className="text-gray-500"> USD</span>
+            {Number(session?.user?.withdrawableBalance) || "0.00"}
+            <span className="text-gray-500"> USD</span>
           </p>
           <div className="flex flex-row justify-between text-center">
             <div className="flex flex-col gap-2">
@@ -81,7 +96,7 @@ const DashboardMain = () => {
             <div className="flex flex-col gap-2 text-center">
               <p className="uppercase text-sm text-gray-600">total profit</p>
               <p className="text-sm">
-                {session?.user?.totalProfit || "0.00"}{" "}
+                {Number(session?.user?.totalProfit).toFixed(2) || "0.00"}{" "}
                 <span className="text-gray-500"> USD</span>
               </p>
             </div>
@@ -91,7 +106,7 @@ const DashboardMain = () => {
         <div className="shadow-md rounded-lg p-2 sm:p-3 flex flex-col gap-3 border-b-2 border-scheme-darkerGrey">
           <p className="text-lg">Total Active Investment</p>
           <p className="">
-            {session?.user?.amonutPaid || "0.00"}
+            {Number(session?.user?.amountPaid) || "0.00"}
             <span className="text-gray-500"> USD</span>
           </p>
           <div className="flex flex-row justify-between">

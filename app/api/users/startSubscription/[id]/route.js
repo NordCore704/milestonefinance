@@ -65,6 +65,7 @@ export async function POST(request, { params }) {
     user.totalProfit = totalProfit;
     user.planStatus = "active";
     user.plan = plan;
+    user.withdrawableBalance = totalProfit
     user.subscriptionStartDate = currentDate;
 
     

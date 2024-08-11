@@ -21,6 +21,7 @@ export async function POST(request, { params }) {
         user.plan = ''
         user.hasUserPaid = ''
         user.totalProfit = 0
+        user.withdrawableBalance = ''
         user.subscriptionEndDate = new Date(); // Store the end date
 
         await user.save();
