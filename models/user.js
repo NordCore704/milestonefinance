@@ -39,8 +39,8 @@ const userSchema = new Schema(
       default: "",
     },
     totalProfit: {
-      type: 'String',
-      default: ''
+      type: 'Number',
+      default: 0,
     },
     totalWithdrawals: {
       type: 'String',
@@ -48,20 +48,32 @@ const userSchema = new Schema(
     },
     planStatus: {
       type: 'String',
-      default: '',
+      default: 'inactive',
     },
     hasUserActivatedPlan:{
-      type: 'Boolean',
-      default: false,
+      type: 'String',
+      default: 'inactive',
     },
     hasUserPaid: {
-      type: 'Boolean',
-      default: false,
+      type: 'String',
+      default: 'not paid',
     },
     withdrawalHistory: {
       type: 'Array',
       default: [],
-    }
+    },
+    lastProfitUpdate: {
+      type: Date,
+      default: null,
+  },
+  subscriptionStartDate: {
+      type: Date,
+      default: null,
+  },
+  subscriptionEndDate: {
+      type: Date,
+      default: null,
+  },
   },
   { timestamps: true }
 );

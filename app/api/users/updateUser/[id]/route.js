@@ -3,14 +3,14 @@ import User from "@/models/user";
 
 export async function PUT(request, { params }) {
   const { id } = params;
-  const { withdrawableBalance, totalProfit } = await request.json();
+  const { withdrawableBalance, totalProfit, hasUserPaid, plan } = await request.json();
 
   await connectMongoDB();
 
   try {
     const user = await User.findByIdAndUpdate(
       id,
-      { withdrawableBalance, totalProfit },
+      { withdrawableBalance, totalProfit, hasUserPaid, plan },
       { new: true, runValidators: true }
     );
 
