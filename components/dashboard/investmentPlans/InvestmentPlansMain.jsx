@@ -1,13 +1,15 @@
 "use client";
 import { PlansGrid, CryptoGrid } from "@/exports";
 import Link from "next/link";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import CryptoContext from "@/context/CryptoContext";
+import { Spinner } from "@/exports";
+import useUserPlan from "@/hooks/useUserPlan";
 
 const InvestmentPlansMain = () => {
-  const { data: session, status } = useSession()
+  const { data: session, status } = useSession();
   const { setSelectedCrypto, setSelectedPlan, setAmount } =
     useContext(CryptoContext);
   const router = useRouter();
@@ -15,6 +17,7 @@ const InvestmentPlansMain = () => {
   const [selectedPlan, setSelectedPlanState] = useState(null);
   const [amount, setAmountState] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { user, isLoading, isError } = useUserPlan();
 
   const handleCryptoSelection = (crypto) => {
     setSelectedCryptoState(crypto);
@@ -28,14 +31,25 @@ const InvestmentPlansMain = () => {
     setAmountState(e.target.value);
   };
 
+  useEffect(() => {
+    if (!isLoading && !isError) {
+      const restrictedPlans = ["Basic", "Standard", "Premium", "Deluxe"];
+      if (restrictedPlans.includes(user?.plan)) {
+        router.push("/dashboard"); // Redirect to the dashboard or another page
+      }
+    }
+  }, [user, isLoading, isError, router]);
+
   const handleSubmit = async () => {
     if (!selectedCrypto || !selectedPlan || !amount) {
-      alert("Please select a crypto payment method, a plan, and enter the amount.");
+      alert(
+        "Please select a crypto payment method, a plan, and enter the amount."
+      );
       return;
     }
-  
+
     setIsSubmitting(true);
-  
+
     try {
       const response = await fetch("/api/updates/plans", {
         method: "POST",
@@ -48,20 +62,20 @@ const InvestmentPlansMain = () => {
           amountPaid: amount,
         }),
       });
-  
+
       if (!response.ok) {
         const errorData = await response.json();
         console.error("Error response:", errorData);
         alert(errorData.message || "Error updating plan");
         return;
       }
-  
+
       const data = await response.json();
-  
+
       setSelectedCrypto(selectedCrypto);
       setSelectedPlan(selectedPlan);
       setAmount(amount);
-  
+
       router.push("/dashboard/investment-plans/payment");
     } catch (error) {
       console.error("Error updating plan:", error);
@@ -70,7 +84,10 @@ const InvestmentPlansMain = () => {
       setIsSubmitting(false);
     }
   };
-  
+
+  if (isLoading) return <Spinner />;
+  if (isError) return <p>Error loading user data</p>;
+
   return (
     <section className="flex flex-col gap-10">
       <div className="flex flex-col gap-2">

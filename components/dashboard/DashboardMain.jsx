@@ -4,11 +4,24 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Spinner, withAuth } from "@/exports";
 import { useRouter } from "next/navigation";
+import { fetcher } from "@/lib/fetcher";
+import useSWR from "swr";
 
 const DashboardMain = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
   console.log(session);
+
+  const {
+    data: userData,
+    error,
+    isLoading,
+  } = useSWR(
+    session?.user?.id
+      ? `/api/users/getUserWithProfitUpdate/${session.user.id}`
+      : null,
+    fetcher
+  );
 
   // Redirect if not authenticated or not an admin
   if (status === "loading") {
@@ -27,8 +40,7 @@ const DashboardMain = () => {
   }
 
   const totalBalance =
-    Number(session?.user?.withdrawableBalance) +
-    Number(session?.user?.amountPaid);
+    Number(userData?.withdrawableBalance) + Number(userData?.amountPaid);
 
   const plans = {
     Basic: "Basic",
@@ -36,6 +48,7 @@ const DashboardMain = () => {
     Premium: "Premium",
     Deluxe: "Deluxe",
   };
+  console.log(userData);
 
   return (
     <section className="flex flex-col gap-10 p-3 sm:p-4 min-h-screen">
@@ -49,9 +62,9 @@ const DashboardMain = () => {
           </p>
         </div>
         <div className="flex flex-col gap-2 md:flex-row md:items-center">
-          {session.user?.plan === plans[session.user?.plan] ? (
+          {session.user?.plan === plans[userData?.plan] ? (
             <div className="text-white text-center p-2 rounded-md bg-scheme-purple duration-300 transition-colors">
-              {session?.user?.plan} Plan
+              {userData?.plan} Plan
             </div>
           ) : (
             <Link
@@ -64,7 +77,8 @@ const DashboardMain = () => {
 
           <Link
             href={"dashboard/withdraw"}
-            className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700"
+            className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700 disabled:bg-green-300"
+            aria-disabled={userData?.totalProfit > 0}
           >
             Withdraw
           </Link>
@@ -82,7 +96,7 @@ const DashboardMain = () => {
         <div className="shadow-md rounded-lg p-2 sm:p-3 flex flex-col gap-3 border-b-2 border-scheme-purple">
           <p className="text-lg">Withdrawable Balance</p>
           <p className="">
-            {Number(session?.user?.withdrawableBalance) || "0.00"}
+            {Number(userData?.withdrawableBalance) || "0.00"}
             <span className="text-gray-500"> USD</span>
           </p>
           <div className="flex flex-row justify-between text-center">
@@ -96,7 +110,7 @@ const DashboardMain = () => {
             <div className="flex flex-col gap-2 text-center">
               <p className="uppercase text-sm text-gray-600">total profit</p>
               <p className="text-sm">
-                {Number(session?.user?.totalProfit).toFixed(2) || "0.00"}{" "}
+                {Number(userData?.totalProfit).toFixed(2) || "0.00"}{" "}
                 <span className="text-gray-500"> USD</span>
               </p>
             </div>
@@ -106,7 +120,7 @@ const DashboardMain = () => {
         <div className="shadow-md rounded-lg p-2 sm:p-3 flex flex-col gap-3 border-b-2 border-scheme-darkerGrey">
           <p className="text-lg">Total Active Investment</p>
           <p className="">
-            {Number(session?.user?.amountPaid) || "0.00"}
+            {Number(userData?.amountPaid) || "0.00"}
             <span className="text-gray-500"> USD</span>
           </p>
           <div className="flex flex-row justify-between">
@@ -115,7 +129,7 @@ const DashboardMain = () => {
                 this month(pending inclusive)
               </p>
               <p className="text-sm">
-                {Number(session?.user?.amountPaid) || "0.00"}
+                {Number(userData?.amountPaid) || "0.00"}
                 <span className="text-gray-500"> USD</span>
               </p>
             </div>
@@ -125,14 +139,14 @@ const DashboardMain = () => {
         <div className="shadow-md rounded-lg p-2 sm:p-3 flex flex-col gap-5 border-b-2 border-yellow-400">
           <p className="text-lg">Total Withdrawals</p>
           <p className="">
-            {Number(session?.user?.totalWithdrawals) || "0.00"}
+            {Number(userData?.totalWithdrawals) || "0.00"}
             <span className="text-gray-500"> USD</span>
           </p>
           <div className="flex flex-row justify-between">
             <div className="flex flex-col gap-2">
               <p className="uppercase text-sm text-gray-600">this month</p>
               <p className="text-sm">
-                {Number(session?.user?.totalWithdrawals) || "0.00"}
+                {Number(userData?.totalWithdrawals) || "0.00"}
                 <span className="text-gray-500"> USD</span>
               </p>
             </div>

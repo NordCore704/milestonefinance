@@ -47,7 +47,7 @@ export async function GET(request, { params }) {
     } else {
       // If lastProfitUpdate is null, initialize it
       user.lastProfitUpdate = currentDate;
-      await user.save()
+      await user.save();
     }
 
     return new Response(JSON.stringify(user), { status: 200 });
