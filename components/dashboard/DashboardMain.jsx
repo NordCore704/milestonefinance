@@ -40,7 +40,7 @@ const DashboardMain = () => {
   }
 
   const totalBalance =
-    Number(userData?.withdrawableBalance) + Number(userData?.amountPaid);
+    Number(userData?.totalProfit) + Number(userData?.amountPaid);
 
   const plans = {
     Basic: "Basic",
@@ -48,7 +48,6 @@ const DashboardMain = () => {
     Premium: "Premium",
     Deluxe: "Deluxe",
   };
-  console.log(userData);
 
   return (
     <section className="flex flex-col gap-10 p-3 sm:p-4 min-h-screen">
@@ -63,7 +62,23 @@ const DashboardMain = () => {
         </div>
         <div className="flex flex-col gap-2 md:flex-row md:items-center">
           {session.user?.plan === plans[userData?.plan] ? (
-            <div className="text-white text-center p-2 rounded-md bg-scheme-purple duration-300 transition-colors">
+            <div
+              className={`text-white text-center p-2 rounded-md ${
+                userData?.plan === "Basic"
+                  ? "bg-scheme-purple"
+                  : "bg-scheme-purple"
+              } ${
+                userData?.plan === "Standard"
+                  ? "bg-blue-400"
+                  : "bg-scheme-purple"
+              } ${
+                userData?.plan === "Premium"
+                  ? "bg-orange-400"
+                  : "bg-scheme-purple"
+              } ${
+                userData?.plan === "Deluxe" ? "bg-red-500" : "bg-scheme-purple"
+              } duration-300 transition-colors`}
+            >
               {userData?.plan} Plan
             </div>
           ) : (
@@ -96,7 +111,7 @@ const DashboardMain = () => {
         <div className="shadow-md rounded-lg p-2 sm:p-3 flex flex-col gap-3 border-b-2 border-scheme-purple">
           <p className="text-lg">Withdrawable Balance</p>
           <p className="">
-            {Number(userData?.withdrawableBalance) || "0.00"}
+            {Number(userData?.totalProfit).toFixed(2) || "0.00"}
             <span className="text-gray-500"> USD</span>
           </p>
           <div className="flex flex-row justify-between text-center">

@@ -12,7 +12,10 @@ const UserPage = ({ params }) => {
   const [withdrawableBalance, setWithdrawableBalance] = useState("");
   const [totalProfit, setTotalProfit] = useState("");
   const [hasUserPaid, sethasUserPaid] = useState("");
-  const [ plan, setPlan ] = useState('')
+  const [plan, setPlan] = useState("");
+  const [investment, setInvestment] = useState("");
+  const [profitWithdrawn, setprofitWithdrawn] = useState("");
+  const [profitPlan, setProfitPlan] = useState("");
 
   useEffect(() => {
     if (user) {
@@ -91,13 +94,46 @@ const UserPage = ({ params }) => {
     }
   };
 
+  const addWithdrawalHistory = async () => {
+    try {
+      const response = await fetch(
+        `/api/users/updateWithdrawalHistory/${_id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            investment,
+            plan: profitPlan,
+            profitWithdrawn,
+          }),
+        }
+      );
+
+      const responseText = await response.text();
+      const responseData = responseText ? JSON.parse(responseText) : {};
+
+      if (!response.ok) {
+        throw new Error(
+          responseData.message || "Failed to update withdrawal history"
+        );
+      }
+
+      alert("Withdrawal history updated successfully!");
+    } catch (error) {
+      console.error("Error updating withdrawal history:", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
+
   if (error) return <p>Error: {error.message}</p>;
   if (!user) return <Spinner />;
-  console.log(user);
+  console.log(profitPlan, investment, profitWithdrawn, _id);
   
 
   return (
-    <div className="min-h-screen flex flex-col gap-5 p-2 sm:p-4 lg:p-5 w-full">
+    <section className="min-h-screen flex flex-col gap-5 sm:gap-8 p-2 sm:p-4 lg:p-5 w-full">
       <div className="flex flex-col gap-3 p-2 sm:p-3 shadow-md rounded-lg border-b-2 border-scheme-purple">
         <h1 className="text-xl sm:text-2xl font-semibold">User Details</h1>
         <p>
@@ -108,9 +144,11 @@ const UserPage = ({ params }) => {
         <p className="">Mobile Number: {user.mobileNumber}</p>
         <p className="">Amount Paid: ${user.amountPaid || "0.00"}</p>
         <p className="">
-          Withdrawable Balance: ${user.withdrawableBalance || "0.00"}
+          Withdrawable Balance: ${Number(user.totalProfit).toFixed(2) || "0.00"}
         </p>
-        <p className="">Total Profit: ${Number(user.totalProfit).toFixed(2) || "0.00"}</p>
+        <p className="">
+          Total Profit: ${Number(user.totalProfit).toFixed(2) || "0.00"}
+        </p>
         <p className="">
           Total Withdrawals: ${user.totalWithdrawals || "0.00"}
         </p>
@@ -254,16 +292,77 @@ const UserPage = ({ params }) => {
             their subscription as you wish! Have fun
           </p>
           <div className="flex w-full items-center justify-center gap-3 sm:gap-5">
-            <button className="p-2 bg-green-500 hover:bg-green-600 duration-300 transition-colors self-start text-white rounded-lg" onClick={startSubscription}>
+            <button
+              className="p-2 bg-green-500 hover:bg-green-600 duration-300 transition-colors self-start text-white rounded-lg"
+              onClick={startSubscription}
+            >
               Start Subscription
             </button>
-            <button className="p-2 bg-red-500 hover:bg-red-600 duration-300 transition-colors self-start text-white rounded-lg" onClick={stopSubscription}>
+            <button
+              className="p-2 bg-red-500 hover:bg-red-600 duration-300 transition-colors self-start text-white rounded-lg"
+              onClick={stopSubscription}
+            >
               Cancel Subscription
             </button>
           </div>
         </div>
       )}
-    </div>
+      <div className="border-b-2 rounded-xl border-scheme-purple px-2 py-4 flex flex-col gap-3 shadow-md">
+        <h3 className="font-semibold text-xl">
+          Create User Withdrawal Order History
+        </h3>
+        <form
+          action=""
+          onSubmit={addWithdrawalHistory}
+          className="flex flex-col gap-3"
+        >
+          <div className="flex flex-col gap-2">
+            <label htmlFor="investedAmount" className="">
+              Amount Invested:
+            </label>
+            <input
+              type="number"
+              value={investment}
+              onChange={(e) => setInvestment(e.target.value)}
+              className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="withdrawnAmount" className="">
+              Withdrawn Amount:
+            </label>
+            <input
+              type="number"
+              value={profitWithdrawn}
+              onChange={(e) => setprofitWithdrawn(e.target.value)}
+              className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="profitWithdrawn" className="">
+              Plan Selected:
+            </label>
+            <select
+              type="text"
+              onChange={(e) => setProfitPlan(e.target.value)}
+              className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 bg-transparent border"
+            >
+              <option value="">Select Plan</option>
+              <option value="Basic">Basic</option>
+              <option value="Standard">Standard</option>
+              <option value="Premium">Premium</option>
+              <option value="Deluxe">Deluxe</option>
+            </select>
+          </div>{" "}
+          <button
+            type="submit"
+            className="p-2 bg-scheme-purple hover:bg-scheme-purpleOne duration-300 transition-colors self-start text-white rounded-lg"
+          >
+            Update Withdrawal History
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 
