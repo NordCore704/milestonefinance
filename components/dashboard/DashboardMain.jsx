@@ -10,7 +10,7 @@ import useSWR from "swr";
 const DashboardMain = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
-  console.log(session);
+
 
   const {
     data: userData,

@@ -320,62 +320,69 @@ const UserPage = ({ params }) => {
           </div>
         </div>
       )}
-      <div className="border-b-2 rounded-xl border-scheme-purple px-2 py-4 flex flex-col gap-3 shadow-md">
-        <h3 className="font-semibold text-xl">
-          Create User Withdrawal Order History
-        </h3>
-        <form
-          action=""
-          onSubmit={addWithdrawalHistory}
-          className="flex flex-col gap-3"
-        >
-          <div className="flex flex-col gap-2">
-            <label htmlFor="investedAmount" className="">
-              Amount Invested:
-            </label>
-            <input
-              type="text"
-              value={investment}
-              onChange={(e) => setInvestment(e.target.value)}
-              className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="withdrawnAmount" className="">
-              Withdrawn Amount:
-            </label>
-            <input
-              type="text"
-              value={profitWithdrawn}
-              onChange={(e) => setprofitWithdrawn(e.target.value)}
-              className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="profitWithdrawn" className="">
-              Plan Selected:
-            </label>
-            <select
-              type="text"
-              value={profitPlan}
-              onChange={(e) => setProfitPlan(e.target.value)}
-              className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 bg-transparent border"
-            >
-              <option value="">Select Plan</option>
-              <option value="Basic">Basic</option>
-              <option value="Standard">Standard</option>
-              <option value="Premium">Premium</option>
-              <option value="Deluxe">Deluxe</option>
-            </select>
-          </div>{" "}
-          <button
-            type="submit"
-            className="p-2 bg-scheme-purple hover:bg-scheme-purpleOne duration-300 transition-colors self-start text-white rounded-lg"
+      {user.hasUserActivatedWithdrawal === "yes" && (
+        <div className="border-b-2 rounded-xl border-scheme-purple px-2 py-4 flex flex-col gap-3 shadow-md">
+          <p className="font-semibold text-center lg:text-left">
+            This user has activated a withdrawal request and an email should
+            have been sent to you by now, please proceed to create a withdrawal
+            order history based on what you must have sent to them.
+          </p>
+          <h3 className="font-semibold text-xl">
+            Create User Withdrawal Order History
+          </h3>
+          <form
+            action=""
+            onSubmit={addWithdrawalHistory}
+            className="flex flex-col gap-3"
           >
-            Update Withdrawal History
-          </button>
-        </form>
-      </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="investedAmount" className="">
+                Amount Invested:
+              </label>
+              <input
+                type="text"
+                value={investment}
+                onChange={(e) => setInvestment(e.target.value)}
+                className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="withdrawnAmount" className="">
+                Withdrawn Amount:
+              </label>
+              <input
+                type="text"
+                value={profitWithdrawn}
+                onChange={(e) => setprofitWithdrawn(e.target.value)}
+                className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="profitWithdrawn" className="">
+                Plan Selected:
+              </label>
+              <select
+                type="text"
+                value={profitPlan}
+                onChange={(e) => setProfitPlan(e.target.value)}
+                className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 bg-transparent border"
+              >
+                <option value="">Select Plan</option>
+                <option value="Basic">Basic</option>
+                <option value="Standard">Standard</option>
+                <option value="Premium">Premium</option>
+                <option value="Deluxe">Deluxe</option>
+              </select>
+            </div>{" "}
+            <button
+              type="submit"
+              className="p-2 bg-scheme-purple hover:bg-scheme-purpleOne duration-300 transition-colors self-start text-white rounded-lg"
+            >
+              Update Withdrawal History
+            </button>
+          </form>
+        </div>
+      )}
     </section>
   );
 };

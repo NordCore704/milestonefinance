@@ -55,7 +55,7 @@ const userSchema = new Schema(
       default: "inactive",
     },
     hasUserActivatedWithdrawal: {
-      type: "String",
+      type: String,
       default: "no",
     },
     hasUserPaid: {

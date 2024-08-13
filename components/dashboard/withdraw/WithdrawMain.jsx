@@ -14,27 +14,42 @@ const WithdrawMain = () => {
 
   const handleWithdraw = async (e) => {
     e.preventDefault();
-
+  
     // Validate input fields
     if (!withdrawalAccount || !amount || !address || !paymentMethod) {
       alert("Please fill in all the fields");
       return;
     }
-    const serviceId = "service_m8th0rc";
-    const publicKey = "DPdRzMaNJKGH1ga1W";
-    const templateId = "template_12mjyot";
-
-    const templateParams = {
-      from_name: "Milestone Finance Payments",
-      from_email: "",
-      to_name: "Admin",
-      message: `Hello admin, a withdrawal request has been submitted by ${session?.user?.firstName} ${session?.user?.secondName} with the address ${address} on the ${paymentMethod} cryptocurrency and the amount they requested is ${amount}. Please review this with the user involved and make valid confirmations.`
-    }
+  
+    // Call the API to activate withdrawal
     try {
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-      setModalVisible(true);
+      const response = await fetch("/api/updates/updateWithdrawalCall", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId: session?.user?.id }), // Pass the user ID from the session
+      });
+  
+      if (response.ok) {
+        // Withdrawal activated successfully, proceed with sending the email
+        const serviceId = "service_m8th0rc";
+        const publicKey = "DPdRzMaNJKGH1ga1W";
+        const templateId = "template_12mjyot";
+  
+        const templateParams = {
+          from_name: "Milestone Finance Payments",
+          to_name: "Admin",
+          message: `Hello admin, a withdrawal request has been submitted by ${session?.user?.firstName} ${session?.user?.secondName} with the address ${address} on the ${paymentMethod} cryptocurrency and the amount they requested is ${amount}. Please review this with the user involved and make valid confirmations.`,
+        };
+  
+        await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        setModalVisible(true);
+      } else {
+        console.log("Failed to activate withdrawal");
+      }
     } catch (error) {
-      console.log("error sending mail", error);
+      console.log("Error activating withdrawal:", error);
     }
   };
 
@@ -45,7 +60,7 @@ const WithdrawMain = () => {
   return (
     <form
       onSubmit={handleWithdraw}
-      className="flex flex-col gap-5 p-2 sm:p-5 justify-center w-full min-h-screen"
+      className="flex flex-col gap-5 p-2 sm:p-5 justify-start w-full min-h-screen"
     >
       <h3 className="text-2xl font-semibold">Withdraw Funds</h3>
       <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
@@ -64,16 +79,16 @@ const WithdrawMain = () => {
               <option value="" className="">
                 Select Account
               </option>
-              <option value="basic" className="">
+              <option value="Basic" className="">
                 Basic
               </option>
-              <option value="standard" className="">
+              <option value="Standard" className="">
                 Standard
               </option>
-              <option value="premium" className="">
+              <option value="Premium" className="">
                 Premium
               </option>
-              <option value="deluxe" className="">
+              <option value="Deluxe" className="">
                 Deluxe
               </option>
             </select>
