@@ -95,29 +95,26 @@ const UserPage = ({ params }) => {
   };
 
   const addWithdrawalHistory = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       // Capture the current date and time in UTC
       const currentDate = new Date();
       const date = currentDate.toISOString().split("T")[0]; // Format: YYYY-MM-DD
       const time = currentDate.toISOString().split("T")[1].split(".")[0]; // Format: HH:MM:SS
 
-      const response = await fetch(
-        `/api/updates/userWithdrawals/${_id}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            investment,
-            plan: profitPlan,
-            profitWithdrawn: Number(profitWithdrawn),
-            date, // Send the UTC date
-            time, // Send the UTC time
-          }),
-        }
-      );
+      const response = await fetch(`/api/updates/userWithdrawals/${_id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          investment,
+          plan: profitPlan,
+          profitWithdrawn: Number(profitWithdrawn),
+          date, // Send the UTC date
+          time, // Send the UTC time
+        }),
+      });
 
       const responseText = await response.text();
       const responseData = responseText ? JSON.parse(responseText) : {};
@@ -160,7 +157,16 @@ const UserPage = ({ params }) => {
           Total Withdrawals: ${user.totalWithdrawals || "0.00"}
         </p>
         <p className="capitalize">
-          Plan Status: {user.planStatus || "No Plans Active"}
+          Plan Status:{" "}
+          <span
+            className={`${
+              user.planSatus === "active" ? "text-green-500" : ""
+            } ${
+              user.planStatus === "inactive" ? " text-red-500" : ""
+            } capitalize`}
+          >
+            {user.planStatus || "No Plans Active"}
+          </span>
         </p>
         <p className="">
           Payment Status:
@@ -314,7 +320,7 @@ const UserPage = ({ params }) => {
           </div>
         </div>
       )}
-       <div className="border-b-2 rounded-xl border-scheme-purple px-2 py-4 flex flex-col gap-3 shadow-md">
+      <div className="border-b-2 rounded-xl border-scheme-purple px-2 py-4 flex flex-col gap-3 shadow-md">
         <h3 className="font-semibold text-xl">
           Create User Withdrawal Order History
         </h3>
@@ -368,7 +374,7 @@ const UserPage = ({ params }) => {
           >
             Update Withdrawal History
           </button>
-        </form> 
+        </form>
       </div>
     </section>
   );
