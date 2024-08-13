@@ -66,6 +66,8 @@ export async function POST(request, { params }) {
     user.plan = plan;
     user.subscriptionStartDate = currentDate;
 
+    await user.save()
+
     
 
 

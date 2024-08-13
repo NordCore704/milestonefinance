@@ -168,6 +168,15 @@ const DashboardMain = () => {
           </div>
         </div>
       </div>
+      <aside className=" sm:w-[40%] flex flex-col gap-5">
+        <h4 className="font-semibold text-lg">Investment History</h4>
+        <Link
+          className="bg-gray-200 p-2 rounded-md transition-colors duration-300 hover:text-orange-400 text-green-700 "
+          href={"/dashboard/history"}
+        >
+          View All
+        </Link>
+      </aside>
     </section>
   );
 };

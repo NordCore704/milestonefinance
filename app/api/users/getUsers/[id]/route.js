@@ -16,7 +16,6 @@ export async function GET(request, { params }) {
     let totalProfit = parseFloat(user.totalProfit) || 0;
     const amountPaid = parseFloat(user.amountPaid) || 0;
 
-
     const currentDate = new Date();
     const lastUpdateDate = user.lastProfitUpdate
       ? new Date(user.lastProfitUpdate)
@@ -40,9 +39,8 @@ export async function GET(request, { params }) {
         // Add profit for each day since the last update
         user.totalProfit += dailyProfit * daysDifference;
         console.log(dailyProfit, daysDifference);
-        user.withdrawableBalance = parseFloat(dailyProfit * daysDifference) || 0
-
-        
+        user.withdrawableBalance =
+          parseFloat(dailyProfit * daysDifference) || 0;
 
         // Update the last profit update date
         user.lastProfitUpdate = currentDate;
@@ -50,10 +48,10 @@ export async function GET(request, { params }) {
     } else {
       // If lastProfitUpdate is null, initialize it
       user.lastProfitUpdate = currentDate;
-      await user.save()
+      await user.save();
     }
 
-
+    await user.save();
     return new Response(JSON.stringify(user), { status: 200 });
   } catch (error) {
     return new Response(JSON.stringify({ message: "Error fetching user" }), {

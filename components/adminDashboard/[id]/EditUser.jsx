@@ -94,7 +94,8 @@ const UserPage = ({ params }) => {
     }
   };
 
-  const addWithdrawalHistory = async () => {
+  const addWithdrawalHistory = async (e) => {
+    e.preventDefault()
     try {
       // Capture the current date and time in UTC
       const currentDate = new Date();
@@ -102,7 +103,7 @@ const UserPage = ({ params }) => {
       const time = currentDate.toISOString().split("T")[1].split(".")[0]; // Format: HH:MM:SS
 
       const response = await fetch(
-        `/api/updates/updateWithdrawalHistory/${_id}`,
+        `/api/updates/userWithdrawals/${_id}`,
         {
           method: "POST",
           headers: {
@@ -111,7 +112,7 @@ const UserPage = ({ params }) => {
           body: JSON.stringify({
             investment,
             plan: profitPlan,
-            profitWithdrawn,
+            profitWithdrawn: Number(profitWithdrawn),
             date, // Send the UTC date
             time, // Send the UTC time
           }),
@@ -239,7 +240,7 @@ const UserPage = ({ params }) => {
             <label htmlFor="plan" className="">
               Set Plan Status:
             </label>
-            <div className="flex gap-10 w-full flex-wrap">
+            <div className="flex gap-3 sm:gap-5 lg:gap-7 w-full flex-wrap">
               <div className="flex gap-2">
                 <p className="">Basic</p>
                 <input
@@ -313,7 +314,7 @@ const UserPage = ({ params }) => {
           </div>
         </div>
       )}
-      {/* <div className="border-b-2 rounded-xl border-scheme-purple px-2 py-4 flex flex-col gap-3 shadow-md">
+       <div className="border-b-2 rounded-xl border-scheme-purple px-2 py-4 flex flex-col gap-3 shadow-md">
         <h3 className="font-semibold text-xl">
           Create User Withdrawal Order History
         </h3>
@@ -368,7 +369,7 @@ const UserPage = ({ params }) => {
             Update Withdrawal History
           </button>
         </form> 
-      </div> */}
+      </div>
     </section>
   );
 };

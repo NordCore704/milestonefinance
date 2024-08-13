@@ -54,6 +54,10 @@ const userSchema = new Schema(
       type: "String",
       default: "inactive",
     },
+    hasUserActivatedWithdrawal: {
+      type: "String",
+      default: "no",
+    },
     hasUserPaid: {
       type: "String",
       default: "not paid",
@@ -62,7 +66,7 @@ const userSchema = new Schema(
       {
         investment: { type: String, required: true },
         plan: { type: String, required: true },
-        profitWithdrawn: { type: String, required: true },
+        profitWithdrawn: { type: Number, required: true },
         date: { type: String, required: true },
         time: { type: String, required: true },
       },
