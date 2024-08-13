@@ -96,8 +96,13 @@ const UserPage = ({ params }) => {
 
   const addWithdrawalHistory = async () => {
     try {
+      // Capture the current date and time in UTC
+      const currentDate = new Date();
+      const date = currentDate.toISOString().split("T")[0]; // Format: YYYY-MM-DD
+      const time = currentDate.toISOString().split("T")[1].split(".")[0]; // Format: HH:MM:SS
+
       const response = await fetch(
-        `/api/users/updateWithdrawalHistory/${_id}`,
+        `/api/updates/updateWithdrawalHistory/${_id}`,
         {
           method: "POST",
           headers: {
@@ -107,6 +112,8 @@ const UserPage = ({ params }) => {
             investment,
             plan: profitPlan,
             profitWithdrawn,
+            date, // Send the UTC date
+            time, // Send the UTC time
           }),
         }
       );
@@ -130,7 +137,6 @@ const UserPage = ({ params }) => {
   if (error) return <p>Error: {error.message}</p>;
   if (!user) return <Spinner />;
   console.log(profitPlan, investment, profitWithdrawn, _id);
-  
 
   return (
     <section className="min-h-screen flex flex-col gap-5 sm:gap-8 p-2 sm:p-4 lg:p-5 w-full">
@@ -183,7 +189,7 @@ const UserPage = ({ params }) => {
               id="withdrawableBalance"
               value={withdrawableBalance}
               onChange={handleWithdrawableBalanceChange}
-              type="number"
+              type="text"
               className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"
             />
           </div>
@@ -194,10 +200,10 @@ const UserPage = ({ params }) => {
             </label>
             <input
               id="totalProfit"
-              value={Number(totalProfit).toFixed(2)}
+              value={totalProfit}
               onChange={handleTotalProfitChange}
-              type="number"
-              className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"
+              type="text"
+              className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border text-black"
             />
           </div>
           {/* ==== payment update ==== */}
@@ -205,7 +211,7 @@ const UserPage = ({ params }) => {
             <label htmlFor="hasUserPaid" className="">
               Payment Status:
             </label>
-            <div className="flex gap-10 w-full ">
+            <div className="flex gap-10 w-full flex-wrap ">
               <div className="flex gap-2">
                 <p className="">Paid</p>
                 <input
@@ -233,7 +239,7 @@ const UserPage = ({ params }) => {
             <label htmlFor="plan" className="">
               Set Plan Status:
             </label>
-            <div className="flex gap-10 w-full ">
+            <div className="flex gap-10 w-full flex-wrap">
               <div className="flex gap-2">
                 <p className="">Basic</p>
                 <input
@@ -307,7 +313,7 @@ const UserPage = ({ params }) => {
           </div>
         </div>
       )}
-      <div className="border-b-2 rounded-xl border-scheme-purple px-2 py-4 flex flex-col gap-3 shadow-md">
+      {/* <div className="border-b-2 rounded-xl border-scheme-purple px-2 py-4 flex flex-col gap-3 shadow-md">
         <h3 className="font-semibold text-xl">
           Create User Withdrawal Order History
         </h3>
@@ -321,7 +327,7 @@ const UserPage = ({ params }) => {
               Amount Invested:
             </label>
             <input
-              type="number"
+              type="text"
               value={investment}
               onChange={(e) => setInvestment(e.target.value)}
               className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"
@@ -332,7 +338,7 @@ const UserPage = ({ params }) => {
               Withdrawn Amount:
             </label>
             <input
-              type="number"
+              type="text"
               value={profitWithdrawn}
               onChange={(e) => setprofitWithdrawn(e.target.value)}
               className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"
@@ -344,6 +350,7 @@ const UserPage = ({ params }) => {
             </label>
             <select
               type="text"
+              value={profitPlan}
               onChange={(e) => setProfitPlan(e.target.value)}
               className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 bg-transparent border"
             >
@@ -360,8 +367,8 @@ const UserPage = ({ params }) => {
           >
             Update Withdrawal History
           </button>
-        </form>
-      </div>
+        </form> 
+      </div> */}
     </section>
   );
 };

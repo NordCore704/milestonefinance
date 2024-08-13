@@ -52,6 +52,7 @@ import withAuth from "@/components/HOC/withAuth";
 import EditUser from "@/components/adminDashboard/[id]/EditUser";
 import PaymentConfirmationModal from "@/components/dashboard/payment/PaymentModal";
 import WithdrawalConfirmationModal from "@/components/dashboard/withdraw/WithdrawalConfirmationModal";
+import WithdrawalHistoryMain from "@/components/history/WithdrawalHistoryMain";
 
 export {
     HomeIntro,
@@ -108,4 +109,5 @@ export {
     EditUser,
     PaymentConfirmationModal,
     WithdrawalConfirmationModal,
+    WithdrawalHistoryMain,
 }

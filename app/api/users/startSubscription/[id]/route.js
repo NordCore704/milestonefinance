@@ -52,26 +52,23 @@ export async function POST(request, { params }) {
 
         // Add profit for each day since the last update
         totalProfit += dailyProfit * daysDifference;
-
-        // Update the last profit update date
-        user.lastProfitUpdate = currentDate;
       }
     } else {
       // If lastProfitUpdate is null, initialize it
       user.lastProfitUpdate = currentDate;
+          // Save user to database
+    await user.save();
     }
 
     // Update user fields
     user.totalProfit = totalProfit;
     user.planStatus = "active";
     user.plan = plan;
-    user.withdrawableBalance = totalProfit
     user.subscriptionStartDate = currentDate;
 
     
 
-    // Save user to database
-    await user.save();
+
 
     // Log for debugging
     console.log(`User ${id} updated. Total Profit: ${user.totalProfit}`);

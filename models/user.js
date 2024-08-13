@@ -35,11 +35,11 @@ const userSchema = new Schema(
       default: "",
     },
     withdrawableBalance: {
-      type: String,
-      default: "",
+      type: Number,
+      default: 0,
     },
     totalProfit: {
-      type: "Number",
+      type: Number,
       default: 0,
     },
     totalWithdrawals: {
