@@ -31,9 +31,9 @@ const PaymentMain = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const serviceId = "service_32p4w92";
-    const publicKey = "DPdRzMaNJKGH1ga1W";
-    const templateId = "template_12mjyot";
+    const serviceId = "service_qqmnriv";
+    const publicKey = "ZnGdl7CpxUBXeiw0j";
+    const templateId = "template_tg2uvs8";
 
     const templateParams = {
       from_name: "Milestone Finance Payments",
