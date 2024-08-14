@@ -40,7 +40,7 @@ const WithdrawMain = () => {
         const templateParams = {
           from_name: "Milestone Finance Payments",
           to_name: "Admin",
-          message: `Hello admin, a withdrawal request has been submitted by ${session?.user?.firstName} ${session?.user?.secondName} with the address ${address} on the ${paymentMethod} cryptocurrency and the amount they requested is ${amount}. Please review this with the user involved and make valid confirmations.`,
+          message: `Hello admin, a withdrawal request has been submitted by ${session?.user?.firstName} ${session?.user?.secondName} with the address ${address} on the ${paymentMethod} cryptocurrency and the amount they requested is $${amount}. Please review this with the user involved and make valid confirmations.`,
         };
   
         await emailjs.send(serviceId, templateId, templateParams, publicKey);
