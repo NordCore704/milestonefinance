@@ -32,7 +32,7 @@ const PaymentMain = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const serviceId = "service_qqmnriv";
-    const publicKey = "ZnGdl7CpxUBXeiw0j";
+    const publicKey = "ZnGdI7CpxUBXeiw0j";
     const templateId = "template_tg2uvs8";
 
     const templateParams = {

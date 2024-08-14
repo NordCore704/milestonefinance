@@ -34,7 +34,7 @@ const WithdrawMain = () => {
       if (response.ok) {
         // Withdrawal activated successfully, proceed with sending the email
         const serviceId = "service_qqmnriv";
-        const publicKey = "ZnGdl7CpxUBXeiw0j";
+        const publicKey = "ZnGdI7CpxUBXeiw0J";
         const templateId = "template_tg2uvs8";
   
         const templateParams = {
