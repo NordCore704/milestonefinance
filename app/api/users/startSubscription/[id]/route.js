@@ -42,10 +42,10 @@ export async function POST(request, { params }) {
       if (daysDifference > 0) {
         // Calculate the daily profit based on the plan
         const profitRates = {
-          basic: 0.025,
-          standard: 0.035,
-          premium: 0.05,
-          deluxe: 0.1,
+          Basic: 0.025,
+          Standard: 0.035,
+          Premium: 0.05,
+          Deluxe: 0.1,
         };
 
         const dailyProfit = amountPaid * (profitRates[plan] || 0);

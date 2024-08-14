@@ -16,6 +16,7 @@ const UserPage = ({ params }) => {
   const [investment, setInvestment] = useState("");
   const [profitWithdrawn, setprofitWithdrawn] = useState("");
   const [profitPlan, setProfitPlan] = useState("");
+  const [amountPaid, setAmountPaid ] = useState('')
 
   useEffect(() => {
     if (user) {
@@ -27,6 +28,9 @@ const UserPage = ({ params }) => {
   const handleWithdrawableBalanceChange = (e) =>
     setWithdrawableBalance(e.target.value);
   const handleTotalProfitChange = (e) => setTotalProfit(e.target.value);
+  const handleAmountPaidChange = (e) => {
+    setAmountPaid(e.target.value)
+  }
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -42,6 +46,7 @@ const UserPage = ({ params }) => {
           totalProfit,
           hasUserPaid,
           plan,
+          amountPaid,
         }),
       });
 
@@ -160,7 +165,7 @@ const UserPage = ({ params }) => {
           Plan Status:{" "}
           <span
             className={`${
-              user.planSatus === "active" ? "text-green-500" : ""
+              user.planStatus === "active" ? "text-green-500" : "text-red-500"
             } ${
               user.planStatus === "inactive" ? " text-red-500" : ""
             } capitalize`}
@@ -209,6 +214,19 @@ const UserPage = ({ params }) => {
               id="totalProfit"
               value={totalProfit}
               onChange={handleTotalProfitChange}
+              type="text"
+              className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border text-black"
+            />
+          </div>
+          {/* === set amount paid */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="amountPaid" className="">
+              Set Amount Paid (if not already set by this user):
+            </label>
+            <input
+              id="amountPaid"
+              value={amountPaid}
+              onChange={handleAmountPaidChange}
               type="text"
               className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border text-black"
             />
