@@ -33,7 +33,7 @@ const PaymentMain = () => {
     e.preventDefault();
     const serviceId = "service_qqmnriv";
     const publicKey = "ZnGdI7CpxUBXeiw0j";
-    const templateId = "template_tg2uvs8";
+    const templateId = "template_prmg6o1";
 
     const templateParams = {
       from_name: "Milestone Finance Payments",

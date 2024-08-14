@@ -35,7 +35,7 @@ const WithdrawMain = () => {
         // Withdrawal activated successfully, proceed with sending the email
         const serviceId = "service_qqmnriv";
         const publicKey = "ZnGdI7CpxUBXeiw0J";
-        const templateId = "template_tg2uvs8";
+        const templateId = "template_prmg6o1";
   
         const templateParams = {
           from_name: "Milestone Finance Payments",
