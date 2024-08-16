@@ -11,7 +11,6 @@ const DashboardMain = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-
   const {
     data: userData,
     error,
@@ -89,14 +88,12 @@ const DashboardMain = () => {
               Choose a plan!
             </Link>
           )}
-
-          <Link
-            href={"dashboard/withdraw"}
+          <button
+            disabled={userData?.totalProfit === 0}
             className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700 disabled:bg-green-300"
-            aria-disabled={userData?.totalProfit > 0}
           >
-            Withdraw
-          </Link>
+            <Link href={"dashboard/withdraw"}>Withdraw</Link>
+          </button>
           {/* <button
             className="text-white text-center p-2 rounded-md bg-red-500 hover:bg-red-700 duration-300 transition-colors"
             onClick={() => signOut()}

@@ -24,41 +24,21 @@ const AdminSignUpForm = () => {
   const role = 'admin'
 
   const router = useRouter();
+
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    if (
-      !firstName ||
-      !secondName ||
-      !mobileNumber ||
-      !email ||
-      !password ||
-      !confirmPassword
-    ) {
+    if (!firstName || !secondName || !mobileNumber || !email || !password || !confirmPassword) {
       setError("Please make sure to fill all form fields");
       return;
     }
 
     if (confirmPassword !== password) {
-      setError("password confirmation does not match set password");
+      setError("Password confirmation does not match the set password");
       return;
     }
 
     try {
-      const userExistsResponse = await fetch("/api/userExists", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const { user } = await userExistsResponse.json();
-
-      if (user) {
-        setError("User already exists");
-        return;
-      }
       const response = await fetch("/api/admin/register", {
         method: "POST",
         headers: {
@@ -74,6 +54,8 @@ const AdminSignUpForm = () => {
         }),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         // Log the user in after successful registration
         const result = await signIn("credentials", {
@@ -87,11 +69,14 @@ const AdminSignUpForm = () => {
         } else {
           setError("Failed to log in after registration");
         }
+      } else if (response.status === 409) {
+        setError("User already exists");
       } else {
-        setError("Registration failed");
+        setError(data.message || "Registration failed");
       }
     } catch (error) {
-      console.log("Error during admin registration:", error);
+      console.error("Error during registration:", error);
+      setError("An unexpected error occurred");
     }
   };
 

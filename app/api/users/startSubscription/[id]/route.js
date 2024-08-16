@@ -21,7 +21,7 @@ export async function POST(request, { params }) {
     let totalProfit = parseFloat(user.totalProfit) || 0;
     const amountPaid = parseFloat(user.amountPaid) || 0;
     console.log(amountPaid);
-    
+    let withdrawableBalance = parseFloat(user.withdrawableBalance) || 0;
 
     const currentDate = new Date();
     const lastUpdateDate = user.lastProfitUpdate
@@ -52,6 +52,7 @@ export async function POST(request, { params }) {
 
         // Add profit for each day since the last update
         totalProfit += dailyProfit * daysDifference;
+        withdrawableBalance += dailyProfit * daysDifference
       }
     } else {
       // If lastProfitUpdate is null, initialize it
@@ -65,6 +66,7 @@ export async function POST(request, { params }) {
     user.planStatus = "active";
     user.plan = plan;
     user.subscriptionStartDate = currentDate;
+    user.withdrawableBalance = withdrawableBalance
 
     await user.save()
 

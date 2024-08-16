@@ -76,7 +76,7 @@ const UserPage = ({ params }) => {
       });
 
       if (!response.ok) throw new Error("Failed to start subscription");
-
+      alert(`You have activated this user's subscription`)
       mutate(`/api/users/getUsers/${_id}`);
     } catch (error) {
       console.error(error);
@@ -91,7 +91,7 @@ const UserPage = ({ params }) => {
       });
 
       if (!response.ok) throw new Error("Failed to stop subscription");
-
+      alert(`You have deactivated this user's subscription`)
       mutate(`/api/users/getUsers/${_id}`);
     } catch (error) {
       console.error(error);
@@ -139,7 +139,7 @@ const UserPage = ({ params }) => {
 
   if (error) return <p>Error: {error.message}</p>;
   if (!user) return <Spinner />;
-  console.log(profitPlan, investment, profitWithdrawn, _id);
+
 
   return (
     <section className="min-h-screen flex flex-col gap-5 sm:gap-8 p-2 sm:p-4 lg:p-5 w-full">

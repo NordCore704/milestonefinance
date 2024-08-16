@@ -14,6 +14,7 @@ export async function GET(request, { params }) {
     }
     // Ensure totalProfit is treated as a number
     let totalProfit = parseFloat(user.totalProfit) || 0;
+    let withdrawableBalance = parseFloat(user.withdrawableBalance) || 0;
     const amountPaid = parseFloat(user.amountPaid) || 0;
 
     const currentDate = new Date();
@@ -25,6 +26,7 @@ export async function GET(request, { params }) {
       const daysDifference = Math.floor(
         (currentDate - lastUpdateDate) / (1000 * 60 * 60 * 24)
       );
+
       if (daysDifference > 0) {
         // Calculate the daily profit based on the plan
         const profitRates = {
@@ -37,13 +39,17 @@ export async function GET(request, { params }) {
         const dailyProfit = amountPaid * (profitRates[user.plan] || 0);
 
         // Add profit for each day since the last update
-        user.totalProfit += dailyProfit * daysDifference;
+        totalProfit += dailyProfit * daysDifference;
+        withdrawableBalance += dailyProfit * daysDifference;
         console.log(dailyProfit, daysDifference);
-        user.withdrawableBalance =
-          parseFloat(dailyProfit * daysDifference) || 0;
+
+        user.totalProfit += totalProfit
+        
+        user.withdrawableBalance += withdrawableBalance
 
         // Update the last profit update date
         user.lastProfitUpdate = currentDate;
+        await user.save()
       }
     } else {
       // If lastProfitUpdate is null, initialize it
