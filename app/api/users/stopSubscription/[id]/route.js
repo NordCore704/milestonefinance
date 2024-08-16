@@ -22,7 +22,7 @@ export async function POST(request, { params }) {
         user.hasUserPaid = ''
         user.totalProfit = 0
         user.withdrawableBalance = ''
-        user.user.hasUserActivatedPlan = "inactive" 
+        user.hasUserActivatedPlan = "inactive" 
         user.subscriptionEndDate = new Date(); // Store the end date
 
         await user.save();

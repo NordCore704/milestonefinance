@@ -20,8 +20,8 @@ const UserPage = ({ params }) => {
 
   useEffect(() => {
     if (user) {
-      setWithdrawableBalance(user.withdrawableBalance || "");
-      setTotalProfit(user.totalProfit || "");
+      setWithdrawableBalance(Number(user.withdrawableBalance).toFixed(2) || "");
+      setTotalProfit(Number(user.totalProfit).toFixed(2) || "");
       setAmountPaid(user.amountPaid || "");
       setPlan(user.plan || "");
       setInvestment(user.amountPaid || "");
