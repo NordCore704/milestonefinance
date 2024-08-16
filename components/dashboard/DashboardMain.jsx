@@ -89,7 +89,6 @@ const DashboardMain = () => {
             </Link>
           )}
           <button
-            disabled={userData?.totalProfit === 0}
             className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700 disabled:bg-green-300"
           >
             <Link href={"dashboard/withdraw"}>Withdraw</Link>

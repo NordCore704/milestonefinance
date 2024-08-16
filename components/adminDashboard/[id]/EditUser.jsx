@@ -186,7 +186,11 @@ const UserPage = ({ params }) => {
             {user.hasUserPaid || "No Payment"}
           </span>
         </p>
-        {/* <p className="">Payment Status: {user.hasUserActivatedPlan ? 'Paid': 'No Payment'}</p> */}
+       {user.hasUserActivatedPlan === "yes" &&  <p className="text-green-500">
+          This user has clicked the 'Confirm' button on the payment page of this platform to confirm their payment, you can validate it below if they actually paid
+         
+        </p> }
+  
       </div>
       {/* === Edit user details === */}
       <div className="flex flex-col gap-3 p-2 sm:p-3 shadow-md rounded-lg border-b-2 border-scheme-purpleOne">

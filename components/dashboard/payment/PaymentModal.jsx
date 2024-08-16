@@ -32,7 +32,7 @@ const PaymentConfirmationModal = ({ showModal, onClose }) => {
           <p className="text-center">
             You have initiated a payment of ${amount} {selectedCrypto.name} (
             {selectedCrypto.network}) for the {session?.user?.plan} plan. Please
-            confirm the transfer in your CEX/DEX and click the confirmation
+            make the transfer in your CEX/DEX and click the confirmation
             button below.
           </p>
           <p className="text-center animate-pulse text-red-600 duration-100">
@@ -42,7 +42,7 @@ const PaymentConfirmationModal = ({ showModal, onClose }) => {
             className="rounded-lg bg-scheme-purple text-white p-2 hover:bg-scheme-purpleOne duration-300 transition-colors self-center sm:w-48 w-28"
             onClick={onClose}
           >
-            Close
+            Confirm
           </button>
         </div>
       </div>

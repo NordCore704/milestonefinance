@@ -27,7 +27,9 @@ const WithdrawalHistoryMain = () => {
   const history = data.withdrawalHistory;
 
   if (history.length === 0) {
-    return <div>No history found</div>;
+    return <div className="h-screen flex items-center justify-center p-5 text-center">
+      <p className="text-xl sm:text-2xl lg:text-3xl text-scheme-purple text-center">No history found</p>
+  </div>;
   }
 
   const mainVariant = {

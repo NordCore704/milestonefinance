@@ -49,6 +49,23 @@ const PaymentMain = () => {
       console.log("error sending mail", error);
     }
   };
+  const onClose = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await fetch("/api/updates/updatePaymentActivationCall", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId: session?.user?.id }), // Pass the user ID from the session
+      });
+      if (!response.ok) throw new Error("Failed to activate payment");
+      setShowModal(false)
+    } catch (error) {
+      console.log("Error activating payment:", error);
+    }
+   
+  }
 
   return (
     <section className="flex flex-col gap-3 p-3 sm:p-4 min-h-screen items-center">
@@ -88,7 +105,7 @@ const PaymentMain = () => {
         >
           Submit Payment
         </button>
-        <PaymentConfirmationModal showModal={showModal} onClose={() => setShowModal(false)}/>
+        <PaymentConfirmationModal showModal={showModal} onClose={onClose}/>
       </div>
     </section>
   );
