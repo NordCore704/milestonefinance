@@ -7,7 +7,7 @@ import emailjs from "@emailjs/browser";
 import { PaymentConfirmationModal } from "@/exports";
 
 const PaymentMain = () => {
-  const { selectedCrypto, amount } = useContext(CryptoContext);
+  const { selectedCrypto, amount, selectedPlan } = useContext(CryptoContext);
   const [copySuccess, setCopySuccess] = useState("");
   const { data: session, status } = useSession();
   const [showModal, setShowModal] = useState(false);
@@ -39,7 +39,7 @@ const PaymentMain = () => {
       from_name: "Milestone Finance Payments",
       from_email: "",
       to_name: "Admin",
-      message: `Hello admin, the purpose of this email is to inform you that ${session?.user?.firstName} ${session?.user?.secondName} has initiated a payment window and is now required to transfer $${amount} to your wallet, note that they chose to pay using ${selectedCrypto.name} and in the ${selectedCrypto.network} Network,also they have chosen the ${session?.user?.plan} Plan, please confirm this payment and send word to them.`,
+      message: `Hello admin, the purpose of this email is to inform you that ${session?.user?.firstName} ${session?.user?.secondName} has initiated a payment window and is now required to transfer $${amount} to your wallet, note that they chose to pay using ${selectedCrypto.name} and in the ${selectedCrypto.network} Network,also they have chosen the ${selectedPlan} Plan, please confirm this payment and send word to them.`,
     };
 
     try {
