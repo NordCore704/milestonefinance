@@ -83,9 +83,13 @@ const DashboardMain = () => {
               Choose a plan!
             </Link>
           )}
-          <button className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700 disabled:bg-green-300">
-            <Link href={"dashboard/withdraw"}>Withdraw</Link>
-          </button>
+
+            <Link
+              className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700 disabled:bg-green-300"
+              href={"dashboard/withdraw"}
+            >
+              Withdraw
+            </Link>
           {/* <button
             className="text-white text-center p-2 rounded-md bg-red-500 hover:bg-red-700 duration-300 transition-colors"
             onClick={() => signOut()}
