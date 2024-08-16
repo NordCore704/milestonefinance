@@ -16,12 +16,17 @@ const UserPage = ({ params }) => {
   const [investment, setInvestment] = useState("");
   const [profitWithdrawn, setprofitWithdrawn] = useState("");
   const [profitPlan, setProfitPlan] = useState("");
-  const [amountPaid, setAmountPaid ] = useState('')
+  const [amountPaid, setAmountPaid] = useState("");
 
   useEffect(() => {
     if (user) {
       setWithdrawableBalance(user.withdrawableBalance || "");
       setTotalProfit(user.totalProfit || "");
+      setAmountPaid(user.amountPaid || "");
+      setPlan(user.plan || "");
+      setInvestment(user.amountPaid || "");
+      setProfitPlan(user.plan || "");
+      setprofitWithdrawn(user.profitWithdrawn || "");
     }
   }, [user]);
 
@@ -29,8 +34,8 @@ const UserPage = ({ params }) => {
     setWithdrawableBalance(e.target.value);
   const handleTotalProfitChange = (e) => setTotalProfit(e.target.value);
   const handleAmountPaidChange = (e) => {
-    setAmountPaid(e.target.value)
-  }
+    setAmountPaid(e.target.value);
+  };
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -76,7 +81,7 @@ const UserPage = ({ params }) => {
       });
 
       if (!response.ok) throw new Error("Failed to start subscription");
-      alert(`You have activated this user's subscription`)
+      alert(`You have activated this user's subscription`);
       mutate(`/api/users/getUsers/${_id}`);
     } catch (error) {
       console.error(error);
@@ -91,7 +96,7 @@ const UserPage = ({ params }) => {
       });
 
       if (!response.ok) throw new Error("Failed to stop subscription");
-      alert(`You have deactivated this user's subscription`)
+      alert(`You have deactivated this user's subscription`);
       mutate(`/api/users/getUsers/${_id}`);
     } catch (error) {
       console.error(error);
@@ -140,7 +145,6 @@ const UserPage = ({ params }) => {
   if (error) return <p>Error: {error.message}</p>;
   if (!user) return <Spinner />;
 
-
   return (
     <section className="min-h-screen flex flex-col gap-5 sm:gap-8 p-2 sm:p-4 lg:p-5 w-full">
       <div className="flex flex-col gap-3 p-2 sm:p-3 shadow-md rounded-lg border-b-2 border-scheme-purple">
@@ -186,11 +190,13 @@ const UserPage = ({ params }) => {
             {user.hasUserPaid || "No Payment"}
           </span>
         </p>
-       {user.hasUserActivatedPlan === "yes" &&  <p className="text-green-500">
-          This user has clicked the 'Confirm' button on the payment page of this platform to confirm their payment, you can validate it below if they actually paid
-         
-        </p> }
-  
+        {user.hasUserActivatedPlan === "yes" && (
+          <p className="text-green-500">
+            This user has clicked the 'Confirm' button on the payment page of
+            this platform to confirm their payment, you can validate it below if
+            they actually paid
+          </p>
+        )}
       </div>
       {/* === Edit user details === */}
       <div className="flex flex-col gap-3 p-2 sm:p-3 shadow-md rounded-lg border-b-2 border-scheme-purpleOne">
@@ -304,6 +310,16 @@ const UserPage = ({ params }) => {
                 <input
                   name="plan"
                   value={"Deluxe"}
+                  onChange={(e) => setPlan(e.target.value)}
+                  type="radio"
+                  className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"
+                />
+              </div>
+              <div className="flex gap-2">
+                <p className="">None</p>
+                <input
+                  name="plan"
+                  value={""}
                   onChange={(e) => setPlan(e.target.value)}
                   type="radio"
                   className="outline-none focus:border-scheme-purple rounded-md p-2 border-gray-300 border"

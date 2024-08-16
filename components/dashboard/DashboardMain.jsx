@@ -48,6 +48,15 @@ const DashboardMain = () => {
     Deluxe: "Deluxe",
   };
 
+  const planColors = {
+    Basic: "bg-scheme-purple",
+    Standard: "bg-blue-400",
+    Premium: "bg-orange-400",
+    Deluxe: "bg-red-500",
+  };
+
+  const backgroundColor = planColors[userData?.plan] || "bg-scheme-purple";
+
   return (
     <section className="flex flex-col gap-10 p-3 sm:p-4 min-h-screen">
       <div className="flex flex-col sm:flex-row justify-between gap-5">
@@ -62,21 +71,7 @@ const DashboardMain = () => {
         <div className="flex flex-col gap-2 md:flex-row md:items-center">
           {session.user?.plan === plans[userData?.plan] ? (
             <div
-              className={`text-white text-center p-2 rounded-md ${
-                userData?.plan === "Basic"
-                  ? "bg-scheme-purple"
-                  : "bg-scheme-purple"
-              } ${
-                userData?.plan === "Standard"
-                  ? "bg-blue-400"
-                  : "bg-scheme-purple"
-              } ${
-                userData?.plan === "Premium"
-                  ? "bg-orange-400"
-                  : "bg-scheme-purple"
-              } ${
-                userData?.plan === "Deluxe" ? "bg-red-500" : "bg-scheme-purple"
-              } duration-300 transition-colors`}
+              className={`text-white text-center p-2 rounded-md ${backgroundColor} duration-300 transition-colors`}
             >
               {userData?.plan} Plan
             </div>
@@ -88,9 +83,7 @@ const DashboardMain = () => {
               Choose a plan!
             </Link>
           )}
-          <button
-            className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700 disabled:bg-green-300"
-          >
+          <button className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700 disabled:bg-green-300">
             <Link href={"dashboard/withdraw"}>Withdraw</Link>
           </button>
           {/* <button

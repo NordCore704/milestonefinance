@@ -1,8 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
+import emailjs from "@emailjs/browser";
 import { useSession } from "next-auth/react";
 import { WithdrawalConfirmationModal } from "@/exports";
+import { fetcher } from "@/lib/fetcher";
+import useSWR from "swr";
+import { Spinner } from "@/exports";
 
 const WithdrawMain = () => {
   const { data: session } = useSession();
@@ -12,15 +15,33 @@ const WithdrawMain = () => {
   const [address, setAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
 
+
+
+  const { data, error } = useSWR(
+    `/api/users/getUser/${session?.user?.id}`,
+    fetcher
+  );
+
+  console.log(data);
+  
+
+  useEffect(() => {
+    if (data) {
+      setWithdrawalAccount(data?.plan || "");
+    }
+  }, [data]);
+
+
+
   const handleWithdraw = async (e) => {
     e.preventDefault();
-  
+
     // Validate input fields
     if (!withdrawalAccount || !amount || !address || !paymentMethod) {
       alert("Please fill in all the fields");
       return;
     }
-  
+
     // Call the API to activate withdrawal
     try {
       const response = await fetch("/api/updates/updateWithdrawalCall", {
@@ -30,19 +51,19 @@ const WithdrawMain = () => {
         },
         body: JSON.stringify({ userId: session?.user?.id }), // Pass the user ID from the session
       });
-  
+
       if (response.ok) {
         // Withdrawal activated successfully, proceed with sending the email
         const serviceId = "service_qqmnriv";
         const publicKey = "ZnGdI7CpxUBXeiw0J";
         const templateId = "template_prmg6o1";
-  
+
         const templateParams = {
           from_name: "Milestone Finance Payments",
           to_name: "Admin",
           message: `Hello admin, a withdrawal request has been submitted by ${session?.user?.firstName} ${session?.user?.secondName} with the address ${address} on the ${paymentMethod} cryptocurrency and the amount they requested is $${amount}. Please review this with the user involved and make valid confirmations.`,
         };
-  
+
         await emailjs.send(serviceId, templateId, templateParams, publicKey);
         setModalVisible(true);
       } else {
@@ -57,6 +78,9 @@ const WithdrawMain = () => {
     setModalVisible(false);
   };
 
+    // Handle loading state
+    if (!data && !error) return <Spinner />;
+
   return (
     <form
       onSubmit={handleWithdraw}
@@ -65,34 +89,53 @@ const WithdrawMain = () => {
       <h3 className="text-2xl font-semibold">Withdraw Funds</h3>
       <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
         <div className="flex flex-col gap-5 sm:w-[40%]">
-          <div className="flex flex-col gap-2">
-            <label htmlFor="withdrawal_account" className="text-lg ">
-              Withdrawal Account
-            </label>
-            <select
-              name="withdrawal_account"
-              id=""
-              value={withdrawalAccount}
-              onChange={(e) => setWithdrawalAccount(e.target.value)}
-              className="bg-transparent border rounded-lg px-2 py-1  w-full"
-            >
-              <option value="" className="">
-                Select Account
-              </option>
-              <option value="Basic" className="">
-                Basic
-              </option>
-              <option value="Standard" className="">
-                Standard
-              </option>
-              <option value="Premium" className="">
-                Premium
-              </option>
-              <option value="Deluxe" className="">
-                Deluxe
-              </option>
-            </select>
-          </div>
+          { data.plan === '' ?
+            <div className="flex flex-col gap-2">
+              <label htmlFor="withdrawal_account" className="text-lg ">
+                Withdrawal Account
+              </label>
+              <select
+                name="withdrawal_account"
+                id=""
+                value={withdrawalAccount}
+                onChange={(e) => setWithdrawalAccount(e.target.value)}
+                className="bg-transparent border rounded-lg px-2 py-1  w-full"
+              >
+                <option value="" className="">
+                  Select Account
+                </option>
+                <option value="Basic" className="">
+                  Basic
+                </option>
+                <option value="Standard" className="">
+                  Standard
+                </option>
+                <option value="Premium" className="">
+                  Premium
+                </option>
+                <option value="Deluxe" className="">
+                  Deluxe
+                </option>
+              </select>
+            </div>
+            : 
+            <div className="flex flex-col gap-2">
+               <label htmlFor="withdrawal_account" className="text-lg ">
+                Withdrawal Account
+              </label>
+                <select
+                name="withdrawal_account"
+                id=""
+                value={withdrawalAccount}
+                onChange={(e) => setWithdrawalAccount(e.target.value)}
+                className="bg-transparent border rounded-lg px-2 py-1  w-full"
+              >
+                 <option value={withdrawalAccount} className="">
+                  {data.plan}
+                </option>
+              </select>
+            </div>
+          }
           <div className="flex flex-col gap-2 sm:w-full">
             <label htmlFor="amount" className="">
               Amount (in USD)
@@ -188,7 +231,12 @@ const WithdrawMain = () => {
       >
         Withdraw Now
       </button>
-      { isModalVisible && <WithdrawalConfirmationModal isModalVisible={isModalVisible} closeModal={closeModal} />}
+      {isModalVisible && (
+        <WithdrawalConfirmationModal
+          isModalVisible={isModalVisible}
+          closeModal={closeModal}
+        />
+      )}
     </form>
   );
 };
