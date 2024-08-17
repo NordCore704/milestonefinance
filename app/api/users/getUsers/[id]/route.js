@@ -43,9 +43,9 @@ export async function GET(request, { params }) {
         withdrawableBalance += dailyProfit * daysDifference;
         console.log(dailyProfit, daysDifference);
 
-        user.totalProfit += totalProfit
+        user.totalProfit = totalProfit
         
-        user.withdrawableBalance += withdrawableBalance
+        user.withdrawableBalance = withdrawableBalance
 
         // Update the last profit update date
         user.lastProfitUpdate = currentDate;
