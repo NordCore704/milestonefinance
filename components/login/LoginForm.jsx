@@ -12,6 +12,7 @@ const LoginForm = () => {
   const [error, setError] = useState("");
 
   const router = useRouter();
+  const resetLink = `/auth/resetPassword?email=${email}`
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -34,7 +35,8 @@ const LoginForm = () => {
     }
   };
 
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = (e) => {
+    e.preventDefault()
     setPasswordVisible((prevState) => !prevState);
   };
 
@@ -57,7 +59,7 @@ const LoginForm = () => {
         </div>
       </div>
       <div className="flex flex-col gap-2 w-full">
-        <label htmlFor="email" className="text-gray-600">
+        <label htmlFor="password" className="text-gray-600">
           Password
         </label>
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
@@ -68,7 +70,7 @@ const LoginForm = () => {
             className="rounded-lg  p-2 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
           />
-         <button className="" onClick={togglePasswordVisibility}>
+          <button className="" onClick={togglePasswordVisibility}>
             {isPasswordVisible ? (
               <FaEyeSlash className="text-gray-700 text-base " />
             ) : (
@@ -85,14 +87,26 @@ const LoginForm = () => {
       <button className="rounded-lg bg-scheme-purple text-white p-2 hover:bg-scheme-purpleOne duration-300 transition-colors lg:w-[70%]">
         Login
       </button>
-      <div className="flex items-center gap-1">
-        <p className="text-sm md:text-sm ">
-          Don't have an account?{" "}
-          <Link href={"/auth/signup"} className=" text-scheme-purple">
-            Sign up
-          </Link>
-        </p>
-      </div>
+      <aside className="flex flex-col gap-2">
+        {error !== "" && (
+          <div className="flex items-center gap-1">
+            <p className="text-sm md:text-sm ">
+              {" "}
+              <Link href={resetLink} className=" text-scheme-purple">
+                Forgotten Password?
+              </Link>
+            </p>
+          </div>
+        )}
+        <div className="flex items-center gap-1">
+          <p className="text-sm md:text-sm ">
+            Don't have an account?{" "}
+            <Link href={"/auth/signup"} className=" text-scheme-purple">
+              Sign up
+            </Link>
+          </p>
+        </div>
+      </aside>
     </form>
   );
 };

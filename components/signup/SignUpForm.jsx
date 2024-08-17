@@ -80,10 +80,12 @@ const SignUpForm = () => {
     }
   };
 
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = (e) => {
+    e.preventDefault()
     setPasswordVisible((prevState) => !prevState);
   };
-  const toggleConfirmPasswordVisibility = () => {
+  const toggleConfirmPasswordVisibility = (e) => {
+    e.preventDefault()
     setConfirmPasswordVisible((prevState) => !prevState);
   };
 

@@ -53,6 +53,8 @@ import EditUser from "@/components/adminDashboard/[id]/EditUser";
 import PaymentConfirmationModal from "@/components/dashboard/payment/PaymentModal";
 import WithdrawalConfirmationModal from "@/components/dashboard/withdraw/WithdrawalConfirmationModal";
 import WithdrawalHistoryMain from "@/components/history/WithdrawalHistoryMain";
+import ResetPasswordMain from "@/components/resetPassword/ResetPasswordMain";
+import EditProfile from "@/components/dashboard/editProfile/ChangePasswordForm";
 
 export {
     HomeIntro,
@@ -110,4 +112,6 @@ export {
     PaymentConfirmationModal,
     WithdrawalConfirmationModal,
     WithdrawalHistoryMain,
+    ResetPasswordMain,
+    EditProfile,
 }

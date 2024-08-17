@@ -10,6 +10,8 @@ import useSWR from "swr";
 const DashboardMain = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
+  console.log(session);
+  
 
   const {
     data: userData,
@@ -37,9 +39,21 @@ const DashboardMain = () => {
       </div>
     );
   }
+  console.log(userData);
+
+  const totalProfitWithdrawn = userData?.withdrawalHistory.reduce(
+    (total, entry) => total + (entry.profitWithdrawn || 0),
+    0
+  );
+ 
+  
 
   const totalBalance =
     Number(userData?.totalProfit) + Number(userData?.amountPaid);
+
+  const totalWithdrawn = Number(userData?.totalWithdrawals) + totalProfitWithdrawn;
+
+  console.log(totalProfitWithdrawn, totalWithdrawn);
 
   const plans = {
     Basic: "Basic",
@@ -84,12 +98,12 @@ const DashboardMain = () => {
             </Link>
           )}
 
-            <Link
-              className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700 disabled:bg-green-300"
-              href={"dashboard/withdraw"}
-            >
-              Withdraw
-            </Link>
+          <Link
+            className="text-white text-center p-2 rounded-md bg-green-500 duration-300 transition-colors hover:bg-green-700 disabled:bg-green-300"
+            href={"dashboard/withdraw"}
+          >
+            Withdraw
+          </Link>
           {/* <button
             className="text-white text-center p-2 rounded-md bg-red-500 hover:bg-red-700 duration-300 transition-colors"
             onClick={() => signOut()}
@@ -147,14 +161,14 @@ const DashboardMain = () => {
         <div className="shadow-md rounded-lg p-2 sm:p-3 flex flex-col gap-5 border-b-2 border-yellow-400">
           <p className="text-lg">Total Withdrawals</p>
           <p className="">
-            {Number(userData?.totalWithdrawals) || "0.00"}
+            {totalProfitWithdrawn || "0.00"}
             <span className="text-gray-500"> USD</span>
           </p>
           <div className="flex flex-row justify-between">
             <div className="flex flex-col gap-2">
               <p className="uppercase text-sm text-gray-600">this month</p>
               <p className="text-sm">
-                {Number(userData?.totalWithdrawals) || "0.00"}
+                {totalWithdrawn || "0.00"}
                 <span className="text-gray-500"> USD</span>
               </p>
             </div>
@@ -170,6 +184,9 @@ const DashboardMain = () => {
           View All
         </Link>
       </aside>
+      <div className="">
+      <Link href={'/dashboard/editProfile'} className="font-semibold text-lg hover:text-scheme-purple duration-300 transition-colors">Change Password</Link>
+      </div>
     </section>
   );
 };
