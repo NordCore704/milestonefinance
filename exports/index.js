@@ -55,6 +55,7 @@ import WithdrawalConfirmationModal from "@/components/dashboard/withdraw/Withdra
 import WithdrawalHistoryMain from "@/components/history/WithdrawalHistoryMain";
 import ResetPasswordMain from "@/components/resetPassword/ResetPasswordMain";
 import EditProfile from "@/components/dashboard/editProfile/ChangePasswordForm";
+import ResetAdminPassword from "@/components/resetAdminPassword/ResetAdminPassword";
 
 export {
     HomeIntro,
@@ -114,4 +115,5 @@ export {
     WithdrawalHistoryMain,
     ResetPasswordMain,
     EditProfile,
+    ResetAdminPassword,
 }

@@ -34,9 +34,12 @@ const AdminLoginForm = () => {
     }
   };
 
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = (e) => {
+    e.preventDefault()
     setPasswordVisible((prevState) => !prevState);
   };
+
+  const resetLink = `/admin/resetPassword?email=${email}`
 
   return (
     <form onSubmit={handleLogin} className="sm:w-[50%] flex flex-col gap-5">
@@ -68,7 +71,7 @@ const AdminLoginForm = () => {
             className="rounded-lg  p-2 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
           />
-         <button className="" onClick={togglePasswordVisibility}>
+          <button className="" onClick={togglePasswordVisibility}>
             {isPasswordVisible ? (
               <FaEyeSlash className="text-gray-700 text-base " />
             ) : (
@@ -85,14 +88,24 @@ const AdminLoginForm = () => {
       <button className="rounded-lg bg-scheme-purple text-white p-2 hover:bg-scheme-purpleOne duration-300 transition-colors lg:w-[70%]">
         Login
       </button>
-      <div className="flex items-center gap-1">
-        <p className="text-sm md:text-sm ">
+      <aside className="flex flex-col items-center justify-start gap-2">
+        {error !== "" && (
+          <div className="flex items-start self-start gap-1">
+            <p className="text-sm md:text-sm ">
+              {" "}
+              <Link href={resetLink} className=" text-scheme-purple">
+                Forgotten Password?
+              </Link>
+            </p>
+          </div>
+        )}
+        <p className="text-sm md:text-sm self-start">
           Not an admin?{" "}
           <Link href={"/admin/signup"} className=" text-scheme-purple">
             Become one
           </Link>
         </p>
-      </div>
+      </aside>
     </form>
   );
 };
