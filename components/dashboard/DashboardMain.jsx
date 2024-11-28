@@ -1,16 +1,18 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { Spinner, withAuth } from "@/exports";
+import { Spinner, withAuth, AddInvestmentModal } from "@/exports";
 import { useRouter } from "next/navigation";
 import { fetcher } from "@/lib/fetcher";
 import useSWR from "swr";
+
 
 const DashboardMain = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
   console.log(session);
+  const [showModal, setShowModal] = useState(false);
   
 
   const {
@@ -71,6 +73,11 @@ const DashboardMain = () => {
 
   const backgroundColor = planColors[userData?.plan] || "bg-scheme-purple";
 
+  const handleChooseNewPlan = () => {
+    setShowModal(false);
+    router.push("/dashboard/investment-plans");
+  };
+
   return (
     <section className="flex flex-col gap-10 p-3 sm:p-4 min-h-screen">
       <div className="flex flex-col sm:flex-row justify-between gap-5">
@@ -84,11 +91,12 @@ const DashboardMain = () => {
         </div>
         <div className="flex flex-col gap-2 md:flex-row md:items-center">
           {session.user?.plan === plans[userData?.plan] ? (
-            <div
+            <button 
               className={`text-white text-center p-2 rounded-md ${backgroundColor} duration-300 transition-colors`}
+              onClick={() => setShowModal(true)}
             >
               {userData?.plan} Plan
-            </div>
+            </button>
           ) : (
             <Link
               href={"/dashboard/investment-plans"}
@@ -112,6 +120,10 @@ const DashboardMain = () => {
           </button> */}
         </div>
       </div>
+
+      {/* ==== modal ==== */}
+
+      {showModal && <AddInvestmentModal setShowModal={setShowModal} userData={userData} handleChooseNewPlan={handleChooseNewPlan}/>}
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 ">
         {/* === 1 === */}

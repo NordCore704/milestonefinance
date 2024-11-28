@@ -11,6 +11,7 @@ const PaymentMain = () => {
   const [copySuccess, setCopySuccess] = useState("");
   const { data: session, status } = useSession();
   const [showModal, setShowModal] = useState(false);
+  const [planSuccess, setPlanSuccess ] = useState(false)
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(selectedCrypto.address).then(
@@ -61,6 +62,7 @@ const PaymentMain = () => {
       });
       if (!response.ok) throw new Error("Failed to activate payment");
       setShowModal(false)
+      setPlanSuccess(true)
     } catch (error) {
       console.log("Error activating payment:", error);
     }
@@ -107,6 +109,12 @@ const PaymentMain = () => {
         </button>
         <PaymentConfirmationModal showModal={showModal} onClose={onClose}/>
       </div>
+      {planSuccess && (<div className="shadow-md rounded-xl px-3 py-5 sm:px-4 sm:py-5 flex flex-col gap-1">
+        <p className="text-green-500">
+          Congratulations, you have just confirmed a payment of ${amount} for the {selectedPlan} Plan, your investment will be activated once confirmed on our end
+        </p>
+        <p className="text-green-500">Thanks for making this leap with us!</p>
+      </div>)}
     </section>
   );
 };

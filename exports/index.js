@@ -56,6 +56,7 @@ import WithdrawalHistoryMain from "@/components/history/WithdrawalHistoryMain";
 import ResetPasswordMain from "@/components/resetPassword/ResetPasswordMain";
 import EditProfile from "@/components/dashboard/editProfile/ChangePasswordForm";
 import ResetAdminPassword from "@/components/resetAdminPassword/ResetAdminPassword";
+import AddInvestmentModal from "@/components/dashboard/AddInvestmentModal";
 
 export {
     HomeIntro,
@@ -116,4 +117,5 @@ export {
     ResetPasswordMain,
     EditProfile,
     ResetAdminPassword,
+    AddInvestmentModal,
 }

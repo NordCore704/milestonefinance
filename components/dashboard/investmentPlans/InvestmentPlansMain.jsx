@@ -31,14 +31,14 @@ const InvestmentPlansMain = () => {
     setAmountState(e.target.value);
   };
 
-  useEffect(() => {
-    if (!isLoading && !isError) {
-      const restrictedPlans = ["Basic", "Standard", "Premium", "Deluxe"];
-      if (restrictedPlans.includes(user?.plan)) {
-        router.push("/dashboard"); // Redirect to the dashboard or another page
-      }
-    }
-  }, [user, isLoading, isError, router]);
+  // useEffect(() => {
+  //   if (!isLoading && !isError) {
+  //     const restrictedPlans = ["Basic", "Standard", "Premium", "Deluxe"];
+  //     if (restrictedPlans.includes(user?.plan)) {
+  //       router.push("/dashboard"); // Redirect to the dashboard or another page
+  //     }
+  //   }
+  // }, [user, isLoading, isError, router]);
 
   const handleSubmit = async () => {
     if (!selectedCrypto || !selectedPlan || !amount) {

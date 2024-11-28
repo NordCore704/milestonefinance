@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react";
 
 const PaymentConfirmationModal = ({ showModal, onClose }) => {
   const [timeLeft, setTimeLeft] = useState(300); // 5 minutes in seconds
-  const { selectedCrypto, amount } = useContext(CryptoContext);
+  const { selectedCrypto, amount, selectedPlan } = useContext(CryptoContext);
   const { data: session, status } = useSession();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const PaymentConfirmationModal = ({ showModal, onClose }) => {
         <div className="self-center flex flex-col gap-3 bg-white p-2 sm:p-4 shadow-md rounded-xl sm:w-[80%] w-[95%] lg:w-[40%] border-b-2 border-yellow-500">
           <p className="text-center">
             You have initiated a payment of ${amount} {selectedCrypto.name} (
-            {selectedCrypto.network}) for the {session?.user?.plan} plan. Please
+            {selectedCrypto.network}) for the {selectedPlan} plan. Please
             make the transfer in your CEX/DEX and click the confirmation
             button below.
           </p>
