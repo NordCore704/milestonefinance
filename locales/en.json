@@ -53,6 +53,6 @@
     "about": "About",
     "contact": "Contact",
     "login": "Log In",
-    "rightsReserved": "Milestone Financial Management, © {year} All Rights Reserved"
+    "rightsReserved": "Milestone Financial Management, © ${year} All Rights Reserved"
   }
 }

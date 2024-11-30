@@ -28,7 +28,7 @@ const Footer = () => {
           <Link href={'/auth/signup'} className='hover:text-scheme-purple transition-colors duration-300'>{t('footer.login')}</Link>
         </div>
       </div>
-      <p className="text-sm">{t('footer.rightsReserved', { year: date.getFullYear() })}</p>
+      <p className="text-sm">{t(`footer.rightsReserved`, { year: date.getFullYear() })}</p>
     </footer>
   );
 };

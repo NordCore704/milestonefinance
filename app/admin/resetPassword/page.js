@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { ContactMain, LogInMain, ResetPasswordMain, ResetAdminPassword } from '@/exports';
 import { redirect } from 'next/navigation';
