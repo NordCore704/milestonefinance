@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import { HomeIntro, PartnersMain, SectionFiveMain, SectionFourMain, SectionTwoMain, TestimonialsMain } from "@/exports";
 

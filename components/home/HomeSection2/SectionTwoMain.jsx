@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { SectionTwoHero, SectionTwoText } from "@/exports";
 

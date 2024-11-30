@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
@@ -14,8 +14,6 @@ const ResetPasswordMain = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-
-  
   const handlePasswordReset = async (e) => {
     e.preventDefault();
 
@@ -36,7 +34,7 @@ const ResetPasswordMain = () => {
       if (response.ok) {
         setSuccess("Password reset successfully!");
         setError("");
-        router.push('/auth/login')
+        router.push("/auth/login");
       } else {
         const data = await response.json();
         setError(data.message || "Failed to reset password.");
@@ -47,11 +45,12 @@ const ResetPasswordMain = () => {
   };
 
   const togglePasswordVisibility = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setPasswordVisible((prevState) => !prevState);
   };
+
   const toggleConfirmPasswordVisibility = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setConfirmPasswordVisible((prevState) => !prevState);
   };
 
@@ -70,7 +69,7 @@ const ResetPasswordMain = () => {
             type={isPasswordVisible ? "text" : "password"}
             name="password"
             onChange={(e) => setNewPassword(e.target.value)}
-            className="rounded-lg  p-2 focus:outline-none text-gray-700 w-[90%]"
+            className="rounded-lg p-2 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
           />
           <button className="" onClick={togglePasswordVisibility}>
@@ -88,13 +87,13 @@ const ResetPasswordMain = () => {
         </label>
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
-            type={isConfirmPasswordVisible ? 'text' : 'password'}
+            type={isConfirmPasswordVisible ? "text" : "password"}
             onChange={(e) => setConfirmNewPassword(e.target.value)}
             name="password2"
-            className="rounded-lg  p-1 focus:outline-none text-gray-700 w-[90%]"
+            className="rounded-lg p-1 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
           />
-            <button className="" onClick={toggleConfirmPasswordVisibility}>
+          <button className="" onClick={toggleConfirmPasswordVisibility}>
             {isConfirmPasswordVisible ? (
               <FaEyeSlash className="text-gray-700 text-base " />
             ) : (
@@ -115,4 +114,10 @@ const ResetPasswordMain = () => {
   );
 };
 
-export default ResetPasswordMain;
+const Page = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <ResetPasswordMain />
+  </Suspense>
+);
+
+export default Page;

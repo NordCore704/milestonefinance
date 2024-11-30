@@ -55,17 +55,17 @@ const Navbar = () => {
   let timeline = gsap.timeline();
 
   const getButtonText = () => {
-    if (!session) return t("login");
+    if (!session) return t("Log In");
 
     if (session?.user?.role === 'admin') {
-      return currentRoute === '/adminDashboard' ? t("logout") : t('dashboard');
+      return currentRoute === '/adminDashboard' ? t("Logout") : t('Dashboard');
     }
 
     if (session?.user?.role === 'user') {
-      return currentRoute === '/dashboard' ? t("logout") : t('dashboard');
+      return currentRoute === '/dashboard' ? t("Logout") : t('Dashboard');
     }
 
-    return 'Log In';
+    return t('Log In');
   };
 
   const handleButtonClick = () => {
@@ -199,7 +199,7 @@ const Navbar = () => {
                 href={"/"}
                 className={currentRoute === "/" ? "text-scheme-purple" : ""}
               >
-              {t("home")}
+              {t("Home")}
               </Link>
             </li>
             <li
@@ -213,7 +213,7 @@ const Navbar = () => {
                 }
               >
                 {" "}
-                {t("about")}
+                {t("About")}
               </Link>
             </li>
             <li
@@ -226,7 +226,7 @@ const Navbar = () => {
                   currentRoute === "/contact" ? "text-scheme-purple" : ""
                 }
               >
-              {t("contact")}
+              {t("Contact")}
               </Link>
             </li>
           </motion.ul>

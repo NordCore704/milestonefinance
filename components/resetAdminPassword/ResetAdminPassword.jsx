@@ -1,5 +1,5 @@
-"use client";
-import React, { useState } from "react";
+'use client';
+import React, { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
@@ -113,4 +113,10 @@ const ResetAdminPassword = () => {
   );
 };
 
-export default ResetAdminPassword;
+const Page = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <ResetAdminPassword />
+  </Suspense>
+);
+
+export default Page;
