@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { signOut, useSession } from "next-auth/react";
+import { useTranslation } from "react-i18next";
 
 const MobileNavbar = ({ alata, toggle, setToggle }) => {
   // const [toggle, setToggle] = useState(true);
@@ -11,6 +12,7 @@ const MobileNavbar = ({ alata, toggle, setToggle }) => {
   const router = useRouter();
   const currentRoute = usePathname();
   const { data: session, status } = useSession();
+  const { t } = useTranslation();
 
   const parentAnimationVariants = {
     init: {
@@ -26,18 +28,19 @@ const MobileNavbar = ({ alata, toggle, setToggle }) => {
   };
 
   const getButtonText = () => {
-    if (!session) return 'Log In';
+    if (!session) return t("Log In");
 
     if (session?.user?.role === 'admin') {
-      return currentRoute === '/adminDashboard' ? 'Log Out' : 'Dashboard';
+      return currentRoute === '/adminDashboard' ? t("Logout") : t('Dashboard');
     }
 
     if (session?.user?.role === 'user') {
-      return currentRoute === '/dashboard' ? 'Log Out' : 'Dashboard';
+      return currentRoute === '/dashboard' ? t("Logout") : t('Dashboard');
     }
 
-    return 'Log In';
+    return t('Log In');
   };
+
 
   const handleButtonClick = () => {
     if (!session) {
@@ -94,7 +97,7 @@ const MobileNavbar = ({ alata, toggle, setToggle }) => {
               onClick={toggleNav}
               className={currentRoute === "/" ? "text-green-400" : ""}
             >
-              Home
+              {t('Home')}
             </Link>
           </li>
           <li className="hover:text-green-400 font-semibold transition-colors duration-300 text-xl">
@@ -103,7 +106,7 @@ const MobileNavbar = ({ alata, toggle, setToggle }) => {
               onClick={toggleNav}
               className={currentRoute === "/about" ? "text-green-400" : ""}
             >
-              About
+              {t('About')}
             </Link>
           </li>
           <li className="hover:text-green-400 font-semibold transition-colors duration-300 text-xl">
@@ -112,7 +115,7 @@ const MobileNavbar = ({ alata, toggle, setToggle }) => {
               onClick={toggleNav}
               className={currentRoute === "/search" ? "text-green-400" : ""}
             >
-              Contact
+              {t('Contact')}
             </Link>
           </li>
         </ul>

@@ -54,5 +54,27 @@
     "contact": "Contacto",
     "login": "Iniciar Sesión",
     "rightsReserved": "Milestone Financial Management, © {year} Todos los derechos reservados"
-  }
+  },
+  "aboutUs": "Sobre nosotros",
+  "title": "Somos más que un líder en tecnología financiera",
+  "description": "En Milestone Financial Management, nos dedicamos a empoderar a individuos y empresas para alcanzar sus objetivos financieros a través de inversiones estratégicas. Nuestro portafolio diverso incluye acciones, criptomonedas, terrenos, agricultura y bienes raíces, proporcionando un enfoque equilibrado para la creación y gestión de riqueza.",
+  "contactUs": "Contáctenos",
+  "ourVisionTitle": "Nuestra Visión",
+  "ourVisionDescription": "Nuestra visión es ser un líder de confianza en la industria de inversiones, reconocido por nuestra experiencia, integridad y compromiso inquebrantable con el éxito de los clientes. Imaginamos un futuro donde nuestros clientes puedan confiar en nosotros como su socio principal en la creación de riqueza, beneficiándose de nuestras estrategias innovadoras y soluciones de inversión integrales. Al mantenernos a la vanguardia de las tendencias del mercado y aprovechar las últimas tecnologías financieras, buscamos establecer nuevos estándares de excelencia en la industria. Aspiramos a crear valor duradero para nuestros clientes, empleados y las comunidades a las que servimos, contribuyendo a un mundo más próspero y sostenible.",
+  "ourMissionTitle": "Nuestra Misión",
+  "ourMissionDescription": "Nuestra misión en Milestone Financial Management es empoderar a nuestros clientes con orientación financiera experta y estrategias de inversión innovadoras, fomentando el crecimiento a largo plazo y la seguridad financiera. Nos esforzamos por proporcionar soluciones de inversión personalizadas que se alineen con las necesidades y objetivos únicos de nuestros clientes, asegurando que puedan navegar por las complejidades del mundo financiero con confianza. A través de nuestro compromiso con la excelencia y la mejora continua, buscamos ofrecer un valor y un rendimiento superiores, ayudando a nuestros clientes a alcanzar sus aspiraciones financieras y construir un futuro próspero.",
+  "ourValuesTitle": "Nuestros Valores",
+  "ourValuesDescription": "En Milestone Financial Management, nos guiamos por valores fundamentales que moldean nuestro enfoque hacia los negocios. La integridad nos impulsa a mantener los estándares éticos más altos en todas nuestras interacciones. La transparencia asegura que nuestros procesos sean claros y abiertos, fomentando la confianza y la seguridad. Nuestro enfoque centrado en el cliente significa que adaptamos nuestros servicios para satisfacer los objetivos únicos de cada cliente. Por último, la innovación nos impulsa a buscar estrategias de vanguardia que maximicen los rendimientos y minimicen los riesgos. Juntos, estos valores definen nuestro compromiso con la excelencia y la dedicación al éxito del cliente.",
+  "howToStart": "¿Cómo empezar?",
+  "registerToday": "¡Regístrate con nosotros hoy!",
+  "signUp": "Regístrate",
+  "contact": "Contacto",
+  "whatsappContact": "Contacto de WhatsApp",
+  "telegramSupport": "Soporte de Telegram",
+  "talkToUs": "Habla con nosotros",
+  "whatsappNumber": "+447586551360",
+  "telegramLink": "milestonefinance",
+  "supportMessage": "Para cualquier pregunta o soporte, utilice los canales proporcionados anteriormente. ¡Estamos aquí para ayudar!"
+
+
   }

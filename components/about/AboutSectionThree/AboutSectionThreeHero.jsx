@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { ourVision } from '@/exports/image-exports'
 import Image from 'next/image'

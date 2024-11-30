@@ -1,3 +1,4 @@
+'use client'
 import { contactHero } from '@/exports/image-exports'
 import Image from 'next/image'
 import React from 'react'

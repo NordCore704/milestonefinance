@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { ContactMain } from '@/exports';
 export default function Contact() {

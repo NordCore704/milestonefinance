@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { AboutSectionFourMain, AboutSectionOneMain, AboutSectionThreeMain, AboutSectionTwoMain } from '@/exports';
 

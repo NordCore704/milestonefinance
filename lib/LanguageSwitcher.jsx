@@ -15,7 +15,7 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="relative z-50 px-4 lg:px-10 self-end">
+    <div className="relative z-20 px-4 lg:px-10 self-end">
       {/* Dropdown Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
