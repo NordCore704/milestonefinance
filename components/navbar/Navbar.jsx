@@ -11,6 +11,7 @@ import gsap, { Power3 } from "gsap";
 import { RiCloseFill, RiMenu4Fill } from "react-icons/ri";
 import { Inter, Poppins, Archivo, Alatsi, Alata } from "next/font/google";
 import { signOut, useSession } from "next-auth/react";
+import { useTranslation } from "react-i18next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ const poppins = Poppins({
 const Navbar = () => {
   const [toggle, setToggle] = useState(true);
   const { data: session, status } = useSession();
+  const { t } = useTranslation();
 
   const toggleNav = () => {
     setToggle((prev) => !prev);
@@ -53,14 +55,14 @@ const Navbar = () => {
   let timeline = gsap.timeline();
 
   const getButtonText = () => {
-    if (!session) return 'Log In';
+    if (!session) return t("login");
 
     if (session?.user?.role === 'admin') {
-      return currentRoute === '/adminDashboard' ? 'Log Out' : 'Dashboard';
+      return currentRoute === '/adminDashboard' ? t("logout") : t('dashboard');
     }
 
     if (session?.user?.role === 'user') {
-      return currentRoute === '/dashboard' ? 'Log Out' : 'Dashboard';
+      return currentRoute === '/dashboard' ? t("logout") : t('dashboard');
     }
 
     return 'Log In';
@@ -197,7 +199,7 @@ const Navbar = () => {
                 href={"/"}
                 className={currentRoute === "/" ? "text-scheme-purple" : ""}
               >
-                Home
+              {t("home")}
               </Link>
             </li>
             <li
@@ -211,7 +213,7 @@ const Navbar = () => {
                 }
               >
                 {" "}
-                About
+                {t("about")}
               </Link>
             </li>
             <li
@@ -224,7 +226,7 @@ const Navbar = () => {
                   currentRoute === "/contact" ? "text-scheme-purple" : ""
                 }
               >
-                Contact
+              {t("contact")}
               </Link>
             </li>
           </motion.ul>

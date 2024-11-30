@@ -4,6 +4,8 @@ import SharedLayout from "@/components/shared/SharedLayout";
 import { AuthProvider } from "./Providers";
 import { TelegramContact } from "@/exports";
 import { CryptoProvider } from "@/context/CryptoContext";
+import i18n from "@/i18n";
+import LanguageSwitcher from "@/lib/LanguageSwitcher";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,12 +18,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang={"en"}>
       <body className={inter.className}>
-        <AuthProvider>
-          <CryptoProvider>
-          <SharedLayout>{children}</SharedLayout>
-          </CryptoProvider>
+      <AuthProvider>
+        <SharedLayout>
+
+          <div className="relative flex justify-between items-center px-4 lg:px-10 w-full ">
+            <div className="font-bold text-lg"></div>
+            <LanguageSwitcher />
+          </div>
+          
+            <CryptoProvider>{children}</CryptoProvider>
+          
+        </SharedLayout>
         </AuthProvider>
         <TelegramContact />
       </body>

@@ -9,16 +9,19 @@ import {
   RiStarFill,
   RiUserLocationFill,
 } from "react-icons/ri";
+import { useTranslation } from "react-i18next";
 
 const TestimonialsMain = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="flex flex-col gap-28 mt-28">
       <div className="flex flex-col sm:flex-row sm:gap-5 gap-32 justify-around items-center">
         <div className="self-center flex flex-col gap-2 sm:hidden">
           <h2 className="font-bold text-xl text-center sm:text-2xl ">
-            Testimonials
+          {t('testimonials')}
           </h2>
-          <p className="text-center">What our people say</p>
+          <p className="text-center">{t('whatPeopleSay')}</p>
         </div>
         <article className="">
           <h1 className="sr-only">Glassy Profile</h1>
@@ -74,19 +77,19 @@ const TestimonialsMain = () => {
                 className="rounded-full mx-auto w-20 h-20 border-4 border-white/70  opacity-70 group-hover:opacity-100 object-cover transition" alt="headshot"
               />
 
-              <h3 className="font-bold mt-6">John Peterson</h3>
+              <h3 className="font-bold mt-6">{t('names.john')}</h3>
               <p className="flex items-center justify-center gap-1 text-sm">
                 <span className="material-symbols-outlined text-lg">
                   <RiUserLocationFill />
                 </span>
-                Atlanta, GA
+                {t('locations.atlanta')}
               </p>
 
               <label
                 htmlFor="content"
                 className="block mt-4 cursor-pointer  text-xs rounded-full p-2 px-3 bg-scheme-purple text-white transition hover:shadow-xl hover:scale-110"
               >
-                View Testimonial
+               {t('viewTestimonial')}
               </label>
             </div>
 
@@ -113,7 +116,7 @@ const TestimonialsMain = () => {
               id="panel-data"
               className="absolute -top-4 left-8 right-8 w-8/10 h-40  -z-20 bg-scheme-purple rounded-t-md text-white p-6 pt-4 transition duration-300 text-center flex justify-center"
             >
-              <p>John Peterson</p>
+              <p>{t('names.john')}</p>
             </div>
 
             <div
@@ -132,12 +135,9 @@ const TestimonialsMain = () => {
               id="panel-content"
               className="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-5 space-y-4"
             >
-              <h2 className="font-bold">John Peterson</h2>
+              <h2 className="font-bold">{t('names.john')}</h2>
               <p className="text-sm">
-                Choosing Milestone Financial Management was a game-changer for
-                me. Their expertise across crypto, stocks, and real estate
-                helped me navigate the markets with confidence. Thanks to their
-                strategic advice, my investments have flourished.
+              {t('testimonialsContent.john')}
               </p>
               <label
                 htmlFor="content"
@@ -151,9 +151,9 @@ const TestimonialsMain = () => {
 
         <div className="self-center flex-col gap-2 hidden sm:flex">
           <h2 className="font-bold text-xl text-center sm:text-2xl ">
-            Testimonials
+          {t('testimonials')}
           </h2>
-          <p className="text-center">What our people say</p>
+          <p className="text-center">{t('whatPeopleSay')}</p>
         </div>
 
         <article className="relative">
@@ -217,12 +217,12 @@ const TestimonialsMain = () => {
                 className="rounded-full mx-auto w-20 h-20 border-4 border-white/70  opacity-70 group-hover:opacity-100 object-cover transition"
               />
 
-              <h3 className="font-bold mt-6">Elizabeth Nguyen</h3>
+              <h3 className="font-bold mt-6">{t('names.elizabeth')}</h3>
               <p className="flex items-center justify-center gap-1 text-sm">
                 <span className="material-symbols-outlined text-lg">
                   <RiUserLocationFill />
                 </span>
-                Los Angeles, CA
+                {t('locations.losAngeles')}
               </p>
 
               {/* Label to view content */}
@@ -230,7 +230,7 @@ const TestimonialsMain = () => {
                 htmlFor="content3"
                 className="block mt-4 cursor-pointer  text-xs rounded-full p-2 px-3 bg-scheme-purple text-white transition hover:shadow-xl hover:scale-110"
               >
-                View Testimonial
+                {t('viewTestimonial')}
               </label>
             </div>
 
@@ -259,7 +259,7 @@ const TestimonialsMain = () => {
               id="panel-data3"
               className="absolute -top-4 left-8 right-8 w-8/10 h-40  -z-20 bg-scheme-purple rounded-t-md text-white p-6 pt-4 transition duration-300 text-center flex justify-center"
             >
-              <p>Elizabeth Nguyen</p>
+              <p> {t('names.elizabeth')}</p>
             </div>
 
             {/* Social panel */}
@@ -281,12 +281,9 @@ const TestimonialsMain = () => {
               id="panel-content3"
               className="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-5 space-y-4"
             >
-              <h2 className="font-bold">Elizabeth Nguyen</h2>
+              <h2 className="font-bold"> {t('names.elizabeth')}</h2>
               <p className="text-sm">
-                Choosing Milestone Financial Management was a game-changer.
-                Their strategic advice across various sectors like crypto and
-                stocks has consistently delivered excellent results. Trustworthy
-                and knowledgeable, they've exceeded my expectations.
+              {t('testimonialsContent.elizabeth')}
               </p>
               <label
                 htmlFor="content3"
@@ -359,12 +356,12 @@ const TestimonialsMain = () => {
                 className="rounded-full mx-auto w-20 h-20 border-4 border-white/70  opacity-70 group-hover:opacity-100 object-cover transition"
               />
 
-              <h3 className="font-bold mt-6">David Thompson</h3>
+              <h3 className="font-bold mt-6"> {t('names.david')}</h3>
               <p className="flex items-center justify-center gap-1 text-sm">
                 <span className="material-symbols-outlined text-lg">
                   <RiUserLocationFill />
                 </span>
-                New York, NY
+                {t('locations.newYork')}
               </p>
 
               {/* Label to view content */}
@@ -372,7 +369,7 @@ const TestimonialsMain = () => {
                 htmlFor="content2"
                 className="block mt-4 cursor-pointer  text-xs rounded-full p-2 px-3 bg-scheme-purple text-white transition hover:shadow-xl hover:scale-110"
               >
-                View Testimonial
+                 {t('viewTestimonial')}
               </label>
             </div>
 
@@ -401,7 +398,7 @@ const TestimonialsMain = () => {
               id="panel-data2"
               className="absolute -top-4 left-8 right-8 w-8/10 h-40  -z-20 bg-scheme-purple rounded-t-md text-white p-6 pt-4 transition duration-300 text-center flex justify-center"
             >
-              <p>David Thompson</p>
+              <p> {t('names.david')}</p>
             </div>
 
             {/* Social panel */}
@@ -423,13 +420,9 @@ const TestimonialsMain = () => {
               id="panel-content2"
               className="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-5 space-y-4"
             >
-              <h2 className="font-bold">David Thompson</h2>
+              <h2 className="font-bold"> {t('names.david')}</h2>
               <p className="text-sm">
-                Milestone Financial Management has transformed my investments.
-                Their focus on responsible strategies in real estate and
-                agriculture aligns perfectly with my values. I confidently
-                endorse them for anyone looking to build a secure financial
-                future.
+              {t('testimonialsContent.david')}
               </p>
               <label
                 htmlFor="content2"

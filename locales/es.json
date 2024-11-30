@@ -1,0 +1,58 @@
+{
+    "home": "Inicio",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "login": "Iniciar sesión",
+    "dashboard": "Panel de control",
+    "logout": "Cerrar sesión",
+    "smartInvestments": "Inversiones Inteligentes",
+    "getInOnTheAction": "Únete a la acción con la inversión",
+    "investingDescription": "Invertir puede ser intimidante, pero en realidad no tiene por qué ser así. Aprovecha las ofertas, inversiones en startups con menos riesgos y más potencial de crecimiento.",
+    "getStarted": "Comienza ahora",
+    "language": "Idioma",
+    "english": "Inglés",
+    "french": "Francés",
+    "spanish": "Español",
+    "japanese": "Japonés",
+    "sectionTwoHeading": "Obtén acceso directo a las inversiones de calidad adecuadas",
+    "sectionTwoDescription": "Aprovecha todas las inversiones en etapas tempranas de startups que están teniendo un impacto, desde la salud hasta la tecnología y el comercio minorista, y luego encuentra los negocios que darán forma a nuestro futuro.",
+    "learnMore": "Saber más",
+    "partnersHeading": "Asociándonos con los mejores",
+    "partnersDescription": "Hemos estado activamente en el negocio de traer a los mejores profesionales para facilitar tus planes de inversión y estrategia.",
+    "testimonials": "Testimonios",
+  "whatPeopleSay": "Lo que dicen nuestros clientes",
+  "viewTestimonial": "Ver testimonio",
+  "locations": {
+    "atlanta": "Atlanta, GA",
+    "losAngeles": "Los Ángeles, CA",
+    "newYork": "Nueva York, NY"
+  },
+  "names": {
+    "john": "John Peterson",
+    "elizabeth": "Elizabeth Nguyen",
+    "david": "David Thompson"
+  },
+  "testimonialsContent": {
+    "john": "Elegir Milestone Financial Management fue un cambio total para mí. Su experiencia en criptomonedas, acciones e inmuebles me ayudó a navegar en los mercados con confianza. Gracias a sus consejos estratégicos, mis inversiones han prosperado.",
+    "elizabeth": "Elegir Milestone Financial Management fue una decisión clave. Sus consejos estratégicos en diversos sectores como criptomonedas y acciones han dado resultados excelentes de forma consistente. Confiables y expertos, han superado mis expectativas.",
+    "david": "Milestone Financial Management ha sido clave en mi crecimiento financiero. Sus perspectivas sobre las tendencias del mercado me han permitido tomar decisiones de inversión informadas. Su orientación ha sido invaluable."
+  },
+  "sectionFive": {
+    "header": "Ahorra y Haz Crecer tu Dinero",
+    "paragraph": "La definición de inversión es un activo adquirido o invertido para construir riqueza y ahorrar dinero de los ingresos ganados con esfuerzo o de la apreciación.",
+    "getStarted": "Comenzar",
+    "uniqueTrading": "Estrategias de trading únicas",
+    "yearsOfReputation": "Años de reputación impecable",
+    "investors": "Inversores de todo el mundo"
+  },
+  "footer": {
+    "companyName": "Milestone Financial Management",
+    "aboutUs": "Milestone Financial Management está a su servicio con sus funciones fáciles de usar, infraestructura segura y aplicaciones que marcan la diferencia. Compre, invierta, gane, aprenda.",
+    "quickLinks": "Enlaces Rápidos",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "login": "Iniciar Sesión",
+    "rightsReserved": "Milestone Financial Management, © {year} Todos los derechos reservados"
+  }
+  }

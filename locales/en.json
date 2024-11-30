@@ -1,0 +1,58 @@
+{
+  "smartInvestments": "Smart Investments",
+  "getInOnTheAction": "Get in on the action with Investing",
+  "investingDescription": "Investing can be intimidating but it really doesn't have to be so. Catch offers, startup investments with less risks and more potential for growth.",
+  "getStarted": "Get Started",
+  "home": "Home",
+  "about": "About",
+  "contact": "Contact",
+  "login": "Log In",
+  "dashboard": "Dashboard",
+  "logout": "Log Out",
+  "language": "Language",
+  "english": "English",
+  "french": "Français",
+  "spanish": "Español",
+  "japanese": "Japanese",
+  "sectionTwoHeading": "Gain Direct Access to the Right Quality Investments",
+  "sectionTwoDescription": "Catch all early-stage investments in startups that are making an impact from health to technology to retail, then find the businesses that will shape our future.",
+  "learnMore": "Learn more",
+  "partnersHeading": "Partnering with the best",
+  "partnersDescription": "We have actively been in the business of bringing on the best hands on deck all just to ease your investment plans and strategy.",
+  "testimonials": "Testimonials",
+  "whatPeopleSay": "What our people say",
+  "viewTestimonial": "View Testimonial",
+  "locations": {
+    "atlanta": "Atlanta, GA",
+    "losAngeles": "Los Angeles, CA",
+    "newYork": "New York, NY"
+  },
+  "names": {
+    "john": "John Peterson",
+    "elizabeth": "Elizabeth Nguyen",
+    "david": "David Thompson"
+  },
+  "testimonialsContent": {
+    "john": "Choosing Milestone Financial Management was a game-changer for me. Their expertise across crypto, stocks, and real estate helped me navigate the markets with confidence. Thanks to their strategic advice, my investments have flourished.",
+    "elizabeth": "Choosing Milestone Financial Management was a game-changer. Their strategic advice across various sectors like crypto and stocks has consistently delivered excellent results. Trustworthy and knowledgeable, they've exceeded my expectations.",
+    "david": "Milestone Financial Management has been instrumental in my financial growth. Their insights into market trends have enabled me to make informed investment decisions. Their guidance has been invaluable."
+  },
+  "sectionFive": {
+    "header": "Save And Grow your Money",
+    "paragraph": "Investment definition is an asset acquired or invested in to build wealth and save money from the hard earned income or appreciation.",
+    "getStarted": "Get Started",
+    "uniqueTrading": "Unique trading strategies",
+    "yearsOfReputation": "Years of impeccable reputation",
+    "investors": "Investors from all over the world"
+  },
+  "footer": {
+    "companyName": "Milestone Financial Management",
+    "aboutUs": "Milestone Financial Management is at your service with its user-friendly features, secure infrastructure, and applications that make a difference. Trade, Invest, Earn, Learn.",
+    "quickLinks": "Quick Links",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Log In",
+    "rightsReserved": "Milestone Financial Management, © {year} All Rights Reserved"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "home": "ホーム",
+  "about": "概要",
+  "contact": "お問い合わせ",
+  "login": "ログイン",
+  "dashboard": "ダッシュボード",
+  "logout": "ログアウト",
+  "smartInvestments": "スマート投資",
+  "getInOnTheAction": "投資で行動を起こしましょう",
+  "investingDescription": "投資は intimidating（怖い）かもしれませんが、実際にはそんなことはありません。リスクが少なく、成長の可能性が大きいスタートアップへの投資を見逃すな。",
+  "getStarted": "投資を始める",
+  "language": "言語",
+  "english": "英語",
+  "french": "フランス語",
+  "spanish": "スペイン語",
+  "japanese": "日本語",
+  "sectionTwoHeading": "適切な質の高い投資への直接アクセスを獲得",
+  "sectionTwoDescription": "健康からテクノロジー、小売に至るまで、影響を与えているスタートアップの初期段階の投資をすべてキャッチし、私たちの未来を形作る企業を見つけましょう。",
+  "learnMore": "詳細を見る",
+  "partnersHeading": "最高のパートナーと提携",
+  "partnersDescription": "私たちは、あなたの投資計画と戦略を簡素化するために、最良の専門家を積極的に迎え入れています。",
+  "testimonials": "お客様の声",
+  "whatPeopleSay": "お客様の声",
+  "viewTestimonial": "テストモニアルを見る",
+  "locations": {
+    "atlanta": "アトランタ, GA",
+    "losAngeles": "ロサンゼルス, CA",
+    "newYork": "ニューヨーク, NY"
+  },
+  "names": {
+    "john": "ジョン・ピーターソン",
+    "elizabeth": "エリザベス・グエン",
+    "david": "デヴィッド・トンプソン"
+  },
+  "testimonialsContent": {
+    "john": "Milestone Financial Managementを選んだことは、私にとって画期的な決断でした。彼らの暗号通貨、株式、不動産に関する専門知識は、市場を自信を持ってナビゲートするのに役立ちました。戦略的なアドバイスのおかげで、私の投資は大きく成長しました。",
+    "elizabeth": "Milestone Financial Managementを選ぶことは、私にとって重要な転機となりました。暗号通貨や株式など、さまざまな分野での戦略的なアドバイスは、常に素晴らしい結果をもたらしました。信頼できる知識豊富なパートナーとして、私の期待を上回ってきました。",
+    "david": "Milestone Financial Managementは、私の財務成長にとって欠かせない存在です。市場動向に関する洞察が、私が情報に基づいた投資判断を下す助けとなりました。彼らのアドバイスは非常に貴重でした。"
+  },
+  "sectionFive": {
+    "header": "お金を貯めて増やしましょう",
+    "paragraph": "投資の定義は、富を築くためや、苦労して得た収入や資産の評価からお金を節約するために取得または投資された資産です。",
+    "getStarted": "始める",
+    "uniqueTrading": "ユニークな取引戦略",
+    "yearsOfReputation": "17年の揺るぎない評判",
+    "investors": "世界中からの30万人以上の投資家"
+  },
+  "footer": {
+    "companyName": "マイルストーン・ファイナンシャル・マネジメント",
+    "aboutUs": "マイルストーン・ファイナンシャル・マネジメントは、その使いやすい機能、安全なインフラストラクチャー、そして他とは違うアプリケーションであなたのサービスを提供します。取引、投資、利益、学び。",
+    "quickLinks": "クイックリンク",
+    "home": "ホーム",
+    "about": "会社概要",
+    "contact": "お問い合わせ",
+    "login": "ログイン",
+    "rightsReserved": "マイルストーン・ファイナンシャル・マネジメント、© {year} 全著作権所有"
+  }
+}
