@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import React from "react";
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 
 const ContactText = () => {
   const { t } = useTranslation();

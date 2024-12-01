@@ -20,17 +20,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang={"en"}>
       <body className={inter.className}>
-      <AuthProvider>
-        <SharedLayout>
-
-          <div className="relative flex justify-between items-center px-4 lg:px-10 w-full ">
-            <div className="font-bold text-lg"></div>
-            <LanguageSwitcher />
-          </div>
-          
-            <CryptoProvider>{children}</CryptoProvider>
-          
-        </SharedLayout>
+        <AuthProvider>
+          <CryptoProvider>
+            <SharedLayout>
+              <div className="relative flex justify-between items-center px-4 lg:px-10 w-full">
+                <div className="font-bold text-lg"></div>
+                <LanguageSwitcher />
+              </div>
+              {children}
+            </SharedLayout>
+          </CryptoProvider>
         </AuthProvider>
         <TelegramContact />
       </body>

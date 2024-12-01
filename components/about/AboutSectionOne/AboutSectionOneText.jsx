@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { FaBoltLightning } from 'react-icons/fa6'
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'react-i18next'
 
 const AboutSectionOneText = () => {
   const { t } = useTranslation()

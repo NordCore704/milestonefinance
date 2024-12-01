@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { joyWoman } from '@/exports/image-exports'
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 
 const AboutSectionTwoGridOne = () => {
   const { t } = useTranslation();
