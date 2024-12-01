@@ -74,7 +74,59 @@
   "talkToUs": "Parlez-nous",
   "whatsappNumber": "+447586551360",
   "telegramLink": "milestonefinance",
-  "supportMessage": "Pour toute question ou assistance, veuillez utiliser les canaux ci-dessus. Nous sommes là pour vous aider!"
+  "supportMessage": "Pour toute question ou assistance, veuillez utiliser les canaux ci-dessus. Nous sommes là pour vous aider!",
+  "login": {
+    "welcomeBack": "Bon retour !",
+    "email": "Email",
+    "password": "Mot de passe",
+    "placeholder": {
+      "email": "quelqu'un@gmail.com",
+      "password": "*****"
+    },
+    "error": "Identifiants invalides",
+    "loginButton": "Se connecter",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "signup": "S'inscrire"
+  },
+  "signup": {
+    "header": "Inscrivez-vous pour",
+    "headerHighlight": "Explorer!",
+    "firstName": "Prénom",
+    "firstNamePlaceholder": "Jean",
+    "lastName": "Nom",
+    "lastNamePlaceholder": "Dupont",
+    "mobileNumber": "Numéro de téléphone",
+    "mobileNumberPlaceholder": "Entrez votre numéro de téléphone",
+    "email": "Email",
+    "emailPlaceholder": "ex : vous@example.com",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "confirmPassword": "Confirmez le mot de passe",
+    "confirmPasswordPlaceholder": "Ressaisissez votre mot de passe",
+    "submit": "Créer un compte",
+    "alreadyMember": "Déjà membre ?",
+    "loginLink": "Se connecter",
+    "formError": {
+      "fillFields": "Veuillez remplir tous les champs requis.",
+      "passwordMismatch": "Les mots de passe ne correspondent pas.",
+      "loginAfterRegister": "Inscription réussie. Veuillez vous connecter.",
+      "userExists": "Un utilisateur avec cet email existe déjà.",
+      "default": "Une erreur s'est produite lors du traitement de votre demande.",
+      "unexpected": "Une erreur inattendue s'est produite."
+    }
+  },
+  "resetPassword": {
+    "title": "Réinitialiser le mot de passe",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "passwordPlaceholder": "*****",
+    "passwordsDoNotMatch": "Les mots de passe ne correspondent pas.",
+    "passwordResetSuccess": "Mot de passe réinitialisé avec succès !",
+    "passwordResetFailure": "Échec de la réinitialisation du mot de passe.",
+    "errorOccurred": "Une erreur s'est produite. Veuillez réessayer.",
+    "submitButton": "Réinitialiser le mot de passe"
+  }
 
   }
   

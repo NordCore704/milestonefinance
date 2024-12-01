@@ -74,7 +74,59 @@
   "talkToUs": "お問い合わせください",
   "whatsappNumber": "+447586551360",
   "telegramLink": "milestonefinance",
-  "supportMessage": "ご質問やサポートについては、上記の連絡手段をご利用ください。お手伝いできることがあればお知らせください！"
+  "supportMessage": "ご質問やサポートについては、上記の連絡手段をご利用ください。お手伝いできることがあればお知らせください！",
+  "login": {
+    "welcomeBack": "お帰りなさい！",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "placeholder": {
+      "email": "someone@gmail.com",
+      "password": "*****"
+    },
+    "error": "無効な認証情報",
+    "loginButton": "ログイン",
+    "forgotPassword": "パスワードを忘れましたか？",
+    "noAccount": "アカウントをお持ちではありませんか？",
+    "signup": "サインアップ"
+  },
+  "signup": {
+    "header": "登録して",
+    "headerHighlight": "探検しましょう！",
+    "firstName": "名",
+    "firstNamePlaceholder": "太郎",
+    "lastName": "姓",
+    "lastNamePlaceholder": "山田",
+    "mobileNumber": "電話番号",
+    "mobileNumberPlaceholder": "電話番号を入力してください",
+    "email": "メールアドレス",
+    "emailPlaceholder": "例：you@example.com",
+    "password": "パスワード",
+    "passwordPlaceholder": "パスワードを入力してください",
+    "confirmPassword": "パスワードを確認",
+    "confirmPasswordPlaceholder": "もう一度パスワードを入力してください",
+    "submit": "アカウントを作成",
+    "alreadyMember": "すでに会員ですか？",
+    "loginLink": "ログイン",
+    "formError": {
+      "fillFields": "すべての必須フィールドに記入してください。",
+      "passwordMismatch": "パスワードが一致しません。",
+      "loginAfterRegister": "登録に成功しました。ログインしてください。",
+      "userExists": "このメールアドレスのユーザーはすでに存在します。",
+      "default": "リクエストの処理中にエラーが発生しました。",
+      "unexpected": "予期しないエラーが発生しました。"
+    }
+  },
+  "resetPassword": {
+    "title": "パスワードをリセット",
+    "password": "パスワード",
+    "confirmPassword": "パスワードを確認",
+    "passwordPlaceholder": "*****",
+    "passwordsDoNotMatch": "パスワードが一致しません。",
+    "passwordResetSuccess": "パスワードが正常にリセットされました！",
+    "passwordResetFailure": "パスワードのリセットに失敗しました。",
+    "errorOccurred": "エラーが発生しました。もう一度お試しください。",
+    "submitButton": "パスワードをリセット"
+  }
 
 
 }

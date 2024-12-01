@@ -74,7 +74,59 @@
   "talkToUs": "Habla con nosotros",
   "whatsappNumber": "+447586551360",
   "telegramLink": "milestonefinance",
-  "supportMessage": "Para cualquier pregunta o soporte, utilice los canales proporcionados anteriormente. ¡Estamos aquí para ayudar!"
+  "supportMessage": "Para cualquier pregunta o soporte, utilice los canales proporcionados anteriormente. ¡Estamos aquí para ayudar!",
+  "login": {
+    "welcomeBack": "¡Bienvenido de nuevo!",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "placeholder": {
+      "email": "alguien@gmail.com",
+      "password": "*****"
+    },
+    "error": "Credenciales inválidas",
+    "loginButton": "Iniciar sesión",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes una cuenta?",
+    "signup": "Regístrate"
+  },
+  "signup": {
+    "header": "Regístrate para",
+    "headerHighlight": "Explorar!",
+    "firstName": "Nombre",
+    "firstNamePlaceholder": "Juan",
+    "lastName": "Apellido",
+    "lastNamePlaceholder": "Pérez",
+    "mobileNumber": "Número de teléfono",
+    "mobileNumberPlaceholder": "Ingrese su número de teléfono",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "ej.: you@example.com",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Ingrese su contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "confirmPasswordPlaceholder": "Reingrese su contraseña",
+    "submit": "Crear cuenta",
+    "alreadyMember": "¿Ya tienes una cuenta?",
+    "loginLink": "Inicia sesión",
+    "formError": {
+      "fillFields": "Por favor complete todos los campos obligatorios.",
+      "passwordMismatch": "Las contraseñas no coinciden.",
+      "loginAfterRegister": "Registro exitoso. Por favor inicia sesión.",
+      "userExists": "Ya existe un usuario con ese correo electrónico.",
+      "default": "Se produjo un error al procesar su solicitud.",
+      "unexpected": "Ocurrió un error inesperado."
+    }
+  },
+  "resetPassword": {
+    "title": "Restablecer contraseña",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "passwordPlaceholder": "*****",
+    "passwordsDoNotMatch": "Las contraseñas no coinciden.",
+    "passwordResetSuccess": "¡Contraseña restablecida con éxito!",
+    "passwordResetFailure": "Error al restablecer la contraseña.",
+    "errorOccurred": "Ocurrió un error. Por favor, inténtelo de nuevo.",
+    "submitButton": "Restablecer contraseña"
+  }
 
 
   }

@@ -74,7 +74,59 @@
   "talkToUs": "Talk to us",
   "whatsappNumber": "+447586551360",
   "telegramLink": "milestonefinance",
-  "supportMessage": "For any questions or support, please use the channels provided above. We're here to help!"
+  "supportMessage": "For any questions or support, please use the channels provided above. We're here to help!",
+  "login": {
+    "welcomeBack": "Welcome back!",
+    "email": "Email",
+    "password": "Password",
+    "placeholder": {
+      "email": "someone@gmail.com",
+      "password": "*****"
+    },
+    "error": "Invalid Credentials",
+    "loginButton": "Login",
+    "forgotPassword": "Forgotten Password?",
+    "noAccount": "Don't have an account?",
+    "signup": "Sign up"
+  },
+  "signup": {
+    "header": "Sign up to",
+    "headerHighlight": "Explore!",
+    "firstName": "First Name",
+    "firstNamePlaceholder": "Joe",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "Schmoe",
+    "mobileNumber": "Mobile Number",
+    "mobileNumberPlaceholder": "Enter your mobile number",
+    "email": "Email",
+    "emailPlaceholder": "e.g., you@example.com",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Re-enter your password",
+    "submit": "Create Account",
+    "alreadyMember": "Already a member?",
+    "loginLink": "Log in",
+    "formError": {
+      "fillFields": "Please fill out all required fields.",
+      "passwordMismatch": "Passwords do not match.",
+      "loginAfterRegister": "Successfully registered. Please log in.",
+      "userExists": "A user with that email already exists.",
+      "default": "An error occurred while processing your request.",
+      "unexpected": "An unexpected error occurred."
+    }
+  },
+  "resetPassword": {
+    "title": "Reset Password",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "passwordPlaceholder": "*****",
+    "passwordsDoNotMatch": "Passwords do not match.",
+    "passwordResetSuccess": "Password reset successfully!",
+    "passwordResetFailure": "Failed to reset password.",
+    "errorOccurred": "An error occurred. Please try again.",
+    "submitButton": "Reset Password"
+  }
 
 
 }

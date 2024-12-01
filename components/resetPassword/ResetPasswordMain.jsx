@@ -2,6 +2,7 @@
 import React, { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 const ResetPasswordMain = () => {
   const router = useRouter();
@@ -13,12 +14,13 @@ const ResetPasswordMain = () => {
   const [isConfirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const { t } = useTranslation();
 
   const handlePasswordReset = async (e) => {
     e.preventDefault();
 
     if (newPassword !== confirmNewPassword) {
-      setError("Passwords do not match.");
+      setError(t("resetPassword.passwordsDoNotMatch"));
       return;
     }
 
@@ -32,15 +34,15 @@ const ResetPasswordMain = () => {
       });
 
       if (response.ok) {
-        setSuccess("Password reset successfully!");
+        setSuccess(t("resetPassword.passwordResetSuccess"));
         setError("");
         router.push("/auth/login");
       } else {
         const data = await response.json();
-        setError(data.message || "Failed to reset password.");
+        setError(data.message || t("resetPassword.passwordResetFailure"));
       }
     } catch (error) {
-      setError("An error occurred. Please try again.");
+      setError(t("resetPassword.errorOccurred"));
     }
   };
 
@@ -59,10 +61,10 @@ const ResetPasswordMain = () => {
       onSubmit={handlePasswordReset}
       className="flex flex-col gap-5 justify-self-center"
     >
-      <h2 className="text-2xl font-semibold capitalize">Reset Password</h2>
+      <h2 className="text-2xl font-semibold capitalize">{t("resetPassword.title")}</h2>
       <div className="flex flex-col gap-2 w-full">
         <label htmlFor="password" className="text-gray-600">
-          Password
+          {t("resetPassword.password")}
         </label>
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
@@ -70,7 +72,7 @@ const ResetPasswordMain = () => {
             name="password"
             onChange={(e) => setNewPassword(e.target.value)}
             className="rounded-lg p-2 focus:outline-none text-gray-700 w-[90%]"
-            placeholder="*****"
+            placeholder={t("resetPassword.passwordPlaceholder")}
           />
           <button className="" onClick={togglePasswordVisibility}>
             {isPasswordVisible ? (
@@ -83,7 +85,7 @@ const ResetPasswordMain = () => {
       </div>
       <div className="flex flex-col gap-2 w-full">
         <label htmlFor="password2" className="text-gray-600">
-          Confirm Password
+          {t("resetPassword.confirmPassword")}
         </label>
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
@@ -91,7 +93,7 @@ const ResetPasswordMain = () => {
             onChange={(e) => setConfirmNewPassword(e.target.value)}
             name="password2"
             className="rounded-lg p-1 focus:outline-none text-gray-700 w-[90%]"
-            placeholder="*****"
+            placeholder={t("resetPassword.passwordPlaceholder")}
           />
           <button className="" onClick={toggleConfirmPasswordVisibility}>
             {isConfirmPasswordVisible ? (
@@ -108,7 +110,7 @@ const ResetPasswordMain = () => {
         type="submit"
         className="bg-scheme-purple text-white p-2 rounded-lg"
       >
-        Reset Password
+        {t("resetPassword.submitButton")}
       </button>
     </form>
   );
