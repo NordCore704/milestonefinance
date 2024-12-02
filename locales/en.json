@@ -126,6 +126,33 @@
     "passwordResetFailure": "Failed to reset password.",
     "errorOccurred": "An error occurred. Please try again.",
     "submitButton": "Reset Password"
+  },
+"welcome": "Welcome!",
+  "summary": "Here's a summary of your account. Enjoy your investments!",
+  "choosePlan": "Choose a plan!",
+  "Plan": "Plan",
+  "withdraw": "Withdraw",
+  "redirecting": "Redirecting...",
+  "withdrawableBalance": "Withdrawable Balance",
+  "usd": "USD",
+  "totalBalance": "Total Balance",
+  "totalProfit": "Total Profit",
+  "totalActiveInvestment": "Total Active Investment",
+  "thisMonth": "This Month (pending inclusive)",
+  "thisMonthNoPending": "This Month",
+  "totalWithdrawals": "Total Withdrawals",
+  "investmentHistory": "Investment History",
+  "viewAll": "View All",
+  "changePassword": "Change Password",
+  "Basic": "Basic",
+  "Standard": "Standard",
+  "Premium": "Premium",
+  "Deluxe": "Deluxe",
+  "addInvestmentModal": {
+    "currentPlan": "You're on the {{plan}} Plan",
+    "description": "Would you like to create a new investment plan? Your existing plan will remain active.",
+    "noButton": "No",
+    "yesButton": "Yes"
   }
 
 

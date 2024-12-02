@@ -126,6 +126,33 @@
     "passwordResetFailure": "Échec de la réinitialisation du mot de passe.",
     "errorOccurred": "Une erreur s'est produite. Veuillez réessayer.",
     "submitButton": "Réinitialiser le mot de passe"
+  },
+  "welcome": "Bienvenue!",
+  "summary": "Voici un résumé de votre compte. Profitez de vos investissements!",
+  "choosePlan": "Choisir un plan!",
+  "Plan": "Plan",
+  "withdraw": "Retirer",
+  "redirecting": "Redirection...",
+  "withdrawableBalance": "Solde Retirable",
+  "usd": "USD",
+  "totalBalance": "Solde Total",
+  "totalProfit": "Profit Total",
+  "totalActiveInvestment": "Investissement Actif Total",
+  "thisMonth": "Ce Mois (en attente inclus)",
+  "thisMonthNoPending": "Ce Mois",
+  "totalWithdrawals": "Retraits Totaux",
+  "investmentHistory": "Historique des Investissements",
+  "viewAll": "Voir Tout",
+  "changePassword": "Changer le Mot de Passe",
+  "Basic": "Basic",
+  "Standard": "Standard",
+  "Premium": "Premium",
+  "Deluxe": "Deluxe",
+  "addInvestmentModal": {
+    "currentPlan": "Vous êtes sur le plan {{plan}}",
+    "description": "Souhaitez-vous créer un nouveau plan d'investissement ? Votre plan actuel restera actif.",
+    "noButton": "Non",
+    "yesButton": "Oui"
   }
 
   }

@@ -126,6 +126,33 @@
     "passwordResetFailure": "パスワードのリセットに失敗しました。",
     "errorOccurred": "エラーが発生しました。もう一度お試しください。",
     "submitButton": "パスワードをリセット"
+  },
+  "welcome": "ようこそ！",
+  "summary": "アカウントの概要をご覧ください。投資をお楽しみください！",
+  "choosePlan": "プランを選ぶ！",
+  "Plan": "プラン",
+  "withdraw": "引き出す",
+  "redirecting": "リダイレクト中...",
+  "withdrawableBalance": "引き出し可能残高",
+  "usd": "USD",
+  "totalBalance": "総残高",
+  "totalProfit": "総利益",
+  "totalActiveInvestment": "総アクティブ投資",
+  "thisMonth": "今月（保留中を含む）",
+  "thisMonthNoPending": "今月",
+  "totalWithdrawals": "総引き出し額",
+  "investmentHistory": "投資履歴",
+  "viewAll": "すべて表示",
+  "changePassword": "パスワードを変更",
+  "Basic": "Basic",
+  "Standard": "Standard",
+  "Premium": "Premium",
+  "Deluxe": "Deluxe",
+  "addInvestmentModal": {
+    "currentPlan": "{{plan}} プランに参加中です",
+    "description": "新しい投資プランを作成しますか？現在のプランは引き続き有効です。",
+    "noButton": "いいえ",
+    "yesButton": "はい"
   }
 
 

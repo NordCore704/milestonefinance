@@ -126,6 +126,33 @@
     "passwordResetFailure": "Error al restablecer la contraseña.",
     "errorOccurred": "Ocurrió un error. Por favor, inténtelo de nuevo.",
     "submitButton": "Restablecer contraseña"
+  },
+  "welcome": "¡Bienvenido!",
+  "summary": "Aquí tienes un resumen de tu cuenta. ¡Disfruta de tus inversiones!",
+  "choosePlan": "¡Elige un plan!",
+  "Plan": "Plan",
+  "withdraw": "Retirar",
+  "redirecting": "Redirigiendo...",
+  "withdrawableBalance": "Saldo Retirable",
+  "usd": "USD",
+  "totalBalance": "Saldo Total",
+  "totalProfit": "Beneficio Total",
+  "totalActiveInvestment": "Inversión Activa Total",
+  "thisMonth": "Este Mes (pendientes incluidos)",
+  "thisMonthNoPending": "Este Mes",
+  "totalWithdrawals": "Retiros Totales",
+  "investmentHistory": "Historial de Inversiones",
+  "viewAll": "Ver Todo",
+  "changePassword": "Cambiar Contraseña",
+  "Basic": "Basic",
+  "Standard": "Standard",
+  "Premium": "Premium",
+  "Deluxe": "Deluxe",
+  "addInvestmentModal": {
+    "currentPlan": "Estás en el plan {{plan}}",
+    "description": "¿Te gustaría crear un nuevo plan de inversión? Tu plan actual seguirá activo.",
+    "noButton": "No",
+    "yesButton": "Sí"
   }
 
 
