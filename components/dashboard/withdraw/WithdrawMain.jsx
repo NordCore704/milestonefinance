@@ -6,8 +6,10 @@ import { WithdrawalConfirmationModal } from "@/exports";
 import { fetcher } from "@/lib/fetcher";
 import useSWR from "swr";
 import { Spinner } from "@/exports";
+import { useTranslation } from "react-i18next";
 
 const WithdrawMain = () => {
+  const { t } = useTranslation();
   const { data: session } = useSession();
   const [isModalVisible, setModalVisible] = useState(false);
   const [withdrawalAccount, setWithdrawalAccount] = useState("");
@@ -15,15 +17,10 @@ const WithdrawMain = () => {
   const [address, setAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
 
-
-
   const { data, error } = useSWR(
     `/api/users/getUser/${session?.user?.id}`,
     fetcher
   );
-
-  console.log(data);
-  
 
   useEffect(() => {
     if (data) {
@@ -31,29 +28,24 @@ const WithdrawMain = () => {
     }
   }, [data]);
 
-
-
   const handleWithdraw = async (e) => {
     e.preventDefault();
 
-    // Validate input fields
     if (!withdrawalAccount || !amount || !address || !paymentMethod) {
-      alert("Please fill in all the fields");
+      alert(t("withdrawal.errorMessage"));
       return;
     }
 
-    // Call the API to activate withdrawal
     try {
       const response = await fetch("/api/updates/updateWithdrawalCall", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userId: session?.user?.id }), // Pass the user ID from the session
+        body: JSON.stringify({ userId: session?.user?.id }),
       });
 
       if (response.ok) {
-        // Withdrawal activated successfully, proceed with sending the email
         const serviceId = "service_qqmnriv";
         const publicKey = "ZnGdI7CpxUBXeiw0J";
         const templateId = "template_prmg6o1";
@@ -67,159 +59,93 @@ const WithdrawMain = () => {
         await emailjs.send(serviceId, templateId, templateParams, publicKey);
         setModalVisible(true);
       } else {
-        console.log("Failed to activate withdrawal");
+        console.log(t("withdrawal.errorActivation"));
       }
     } catch (error) {
-      console.log("Error activating withdrawal:", error);
+      console.log(t("withdrawal.errorGeneral"), error);
     }
   };
 
-  const closeModal = () => {
-    setModalVisible(false);
-  };
+  const closeModal = () => setModalVisible(false);
 
-    // Handle loading state
-    if (!data && !error) return <Spinner />;
+  if (!data && !error) return <Spinner />;
 
   return (
     <form
       onSubmit={handleWithdraw}
       className="flex flex-col gap-5 p-2 sm:p-5 justify-start w-full min-h-screen"
     >
-      <h3 className="text-2xl font-semibold">Withdraw Funds</h3>
+      <h3 className="text-2xl font-semibold">{t("withdrawal.header")}</h3>
       <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
         <div className="flex flex-col gap-5 sm:w-[40%]">
-          { data.plan === '' ?
-            <div className="flex flex-col gap-2">
-              <label htmlFor="withdrawal_account" className="text-lg ">
-                Withdrawal Account
-              </label>
-              <select
-                name="withdrawal_account"
-                id=""
-                value={withdrawalAccount}
-                onChange={(e) => setWithdrawalAccount(e.target.value)}
-                className="bg-transparent border rounded-lg px-2 py-1  w-full"
-              >
-                <option value="" className="">
-                  Select Account
+          <div className="flex flex-col gap-2">
+            <label htmlFor="withdrawal_account" className="text-lg ">
+              {t("withdrawal.withdrawalAccount")}
+            </label>
+            <select
+              name="withdrawal_account"
+              id=""
+              value={withdrawalAccount}
+              onChange={(e) => setWithdrawalAccount(e.target.value)}
+              className="bg-transparent border rounded-lg px-2 py-1 w-full"
+            >
+              <option value="" className="">
+                {t("withdrawal.selectAccount")}
+              </option>
+              {["Basic", "Standard", "Premium", "Deluxe"].map((plan) => (
+                <option value={plan} key={plan}>
+                  {t(`withdrawal.plan.${plan.toLowerCase()}`)}
                 </option>
-                <option value="Basic" className="">
-                  Basic
-                </option>
-                <option value="Standard" className="">
-                  Standard
-                </option>
-                <option value="Premium" className="">
-                  Premium
-                </option>
-                <option value="Deluxe" className="">
-                  Deluxe
-                </option>
-              </select>
-            </div>
-            : 
-            <div className="flex flex-col gap-2">
-               <label htmlFor="withdrawal_account" className="text-lg ">
-                Withdrawal Account
-              </label>
-                <select
-                name="withdrawal_account"
-                id=""
-                value={withdrawalAccount}
-                onChange={(e) => setWithdrawalAccount(e.target.value)}
-                className="bg-transparent border rounded-lg px-2 py-1  w-full"
-              >
-                 <option value={withdrawalAccount} className="">
-                  {data.plan}
-                </option>
-              </select>
-            </div>
-          }
+              ))}
+            </select>
+          </div>
+
           <div className="flex flex-col gap-2 sm:w-full">
             <label htmlFor="amount" className="">
-              Amount (in USD)
+              {t("withdrawal.amountLabel")}
             </label>
             <input
               type="text"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="bg-transparent border rounded-lg px-2 py-1 outline-none  w-full"
+              className="bg-transparent border rounded-lg px-2 py-1 outline-none w-full"
               name="amount"
             />
           </div>
         </div>
-        {/* ===== */}
         <div className="flex flex-col gap-5 sm:w-[40%]">
           <div className="flex flex-col gap-2">
             <label htmlFor="address" className="">
-              Address
+              {t("withdrawal.addressLabel")}
             </label>
             <input
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className="bg-transparent border rounded-lg px-2 py-1 outline-none  w-full"
+              className="bg-transparent border rounded-lg px-2 py-1 outline-none w-full"
               name="address"
             />
           </div>
           <div className="flex flex-col gap-2">
             <label htmlFor="payment_methods" className="">
-              Payment Methods
+              {t("withdrawal.paymentMethodLabel")}
             </label>
             <div className="flex gap-3 flex-wrap">
-              <span className="flex gap-1">
-                <p className="text-sm text-gray-500">Litecoin</p>
-                <input
-                  type="radio"
-                  name="payment_methods"
-                  id=""
-                  value={"Litecoin"}
-                  onChange={(e) => setPaymentMethod(e.target.value)}
-                />
-              </span>
-              <span className="flex gap-1">
-                <p className="text-sm text-gray-500">Ripple</p>
-                <input
-                  type="radio"
-                  name="payment_methods"
-                  id=""
-                  value={"Ripple"}
-                  onChange={(e) => setPaymentMethod(e.target.value)}
-                />
-              </span>
-
-              <span className="flex gap-1">
-                <p className="text-sm text-gray-500">Bitcoin</p>
-                <input
-                  type="radio"
-                  name="payment_methods"
-                  id=""
-                  value={"Bitcoin"}
-                  onChange={(e) => setPaymentMethod(e.target.value)}
-                />
-              </span>
-
-              <span className="flex gap-1">
-                <p className="text-sm text-gray-500">Tether</p>
-                <input
-                  type="radio"
-                  name="payment_methods"
-                  id=""
-                  value={"Tether"}
-                />
-              </span>
-
-              <span className="flex gap-1">
-                <p className="text-sm text-gray-500">Ethereum</p>
-                <input
-                  type="radio"
-                  name="payment_methods"
-                  id=""
-                  value={"Ethereum"}
-                  onChange={(e) => setPaymentMethod(e.target.value)}
-                />
-              </span>
+              {["Litecoin", "Ripple", "Bitcoin", "Tether", "Ethereum"].map(
+                (method) => (
+                  <span className="flex gap-1" key={method}>
+                    <p className="text-sm text-gray-500">
+                      {t(`withdrawal.paymentMethod.${method.toLowerCase()}`)}
+                    </p>
+                    <input
+                      type="radio"
+                      name="payment_methods"
+                      value={method}
+                      onChange={(e) => setPaymentMethod(e.target.value)}
+                    />
+                  </span>
+                )
+              )}
             </div>
           </div>
         </div>
@@ -229,7 +155,7 @@ const WithdrawMain = () => {
         type="submit"
         className="text-white rounded-md hover:bg-scheme-purpleOne transition-colors duration-300 bg-scheme-purple px-4 p-2"
       >
-        Withdraw Now
+        {t("withdrawal.submitButton")}
       </button>
       {isModalVisible && (
         <WithdrawalConfirmationModal

@@ -1,25 +1,25 @@
 {
-    "smartInvestments": "Investissements intelligents",
-    "getInOnTheAction": "Participez à l'action avec l'investissement",
-    "investingDescription": "Investir peut être intimidant, mais cela n'a pas à l'être. Profitez des offres, investissez dans des startups avec moins de risques et plus de potentiel de croissance.",
-    "getStarted": "Commencer",
-    "Home": "Accueil",
-    "About": "À propos",
-    "Contact": "Contact",
-    "Log In": "Connexion",
-    "Dashboard": "Tableau de bord",
-    "Logout": "Se déconnecter",
-    "language": "Langue",
-    "english": "Anglais",
-    "french": "Français",
-    "spanish": "Espagnol",
-    "japanese": "Japonais",
-    "sectionTwoHeading": "Accédez directement aux investissements de qualité adaptés",
-    "sectionTwoDescription": "Saisissez toutes les opportunités d'investissements en startups à un stade précoce ayant un impact, de la santé à la technologie en passant par le commerce de détail, puis trouvez les entreprises qui façonneront notre avenir.",
-    "learnMore": "En savoir plus",
-    "partnersHeading": "Partenariat avec les meilleurs",
-    "partnersDescription": "Nous avons activement participé à l'apport des meilleures mains sur le pont pour faciliter vos plans et stratégies d'investissement.",
-    "testimonials": "Témoignages",
+  "smartInvestments": "Investissements intelligents",
+  "getInOnTheAction": "Participez à l'action avec l'investissement",
+  "investingDescription": "Investir peut être intimidant, mais cela n'a pas à l'être. Profitez des offres, investissez dans des startups avec moins de risques et plus de potentiel de croissance.",
+  "getStarted": "Commencer",
+  "Home": "Accueil",
+  "About": "À propos",
+  "Contact": "Contact",
+  "Log In": "Connexion",
+  "Dashboard": "Tableau de bord",
+  "Logout": "Se déconnecter",
+  "language": "Langue",
+  "english": "Anglais",
+  "french": "Français",
+  "spanish": "Espagnol",
+  "japanese": "Japonais",
+  "sectionTwoHeading": "Accédez directement aux investissements de qualité adaptés",
+  "sectionTwoDescription": "Saisissez toutes les opportunités d'investissements en startups à un stade précoce ayant un impact, de la santé à la technologie en passant par le commerce de détail, puis trouvez les entreprises qui façonneront notre avenir.",
+  "learnMore": "En savoir plus",
+  "partnersHeading": "Partenariat avec les meilleurs",
+  "partnersDescription": "Nous avons activement participé à l'apport des meilleures mains sur le pont pour faciliter vos plans et stratégies d'investissement.",
+  "testimonials": "Témoignages",
   "whatPeopleSay": "Ce que disent nos clients",
   "viewTestimonial": "Voir le témoignage",
   "locations": {
@@ -53,7 +53,7 @@
     "about": "À propos",
     "contact": "Contact",
     "login": "Se Connecter",
-    "rightsReserved": "Milestone Financial Management, © {year} Tous droits réservés"
+    "rightsReserved": "Milestone Financial Management, ©{{year}} Tous droits réservés"
   },
   "aboutUs": "À propos de nous",
   "title": "Nous sommes bien plus qu'un leader de la technologie financière",
@@ -153,7 +153,139 @@
     "description": "Souhaitez-vous créer un nouveau plan d'investissement ? Votre plan actuel restera actif.",
     "noButton": "Non",
     "yesButton": "Oui"
+  },
+  "withdrawalHistoryMain": {
+    "error": "Échec du chargement de l'historique",
+    "noHistory": "Aucun historique trouvé",
+    "header": "Historique des transactions de retrait",
+    "description": "Voici vos précédentes transactions de retrait avec des horodatages",
+    "investment": "Investissement",
+    "plan": "Plan",
+    "profitWithdrawn": "Profit retiré",
+    "date": "Date",
+    "time": "Heure"
+  },
+  "editPassword": {
+    "header": "Changer le mot de passe",
+    "labels": {
+      "oldPassword": "Ancien mot de passe",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le nouveau mot de passe"
+    },
+    "error": {
+      "requiredFields": "Tous les champs sont requis.",
+      "mismatch": "Les nouveaux mots de passe ne correspondent pas.",
+      "failed": "Échec du changement de mot de passe.",
+      "general": "Une erreur s'est produite. Veuillez réessayer."
+    },
+    "success": "Mot de passe changé avec succès !",
+    "buttons": {
+      "submit": "Changer le mot de passe"
+    }
+  },
+  "withdrawalModal": {
+    "message": "Votre demande de retrait a été enregistrée et sera examinée.",
+    "closeButton": "Fermer"
+  },
+  "withdrawal": {
+    "header": "Retirer des fonds",
+    "withdrawalAccount": "Compte de retrait",
+    "selectAccount": "Choisir un compte",
+    "plan": {
+      "basic": "De base",
+      "standard": "Standard",
+      "premium": "Premium",
+      "deluxe": "Deluxe"
+    },
+    "amountLabel": "Montant (en USD)",
+    "addressLabel": "Adresse",
+    "paymentMethodLabel": "Méthodes de paiement",
+    "paymentMethod": {
+      "litecoin": "Litecoin",
+      "ripple": "Ripple",
+      "bitcoin": "Bitcoin",
+      "tether": "Tether",
+      "ethereum": "Ethereum"
+    },
+    "submitButton": "Retirer maintenant",
+    "errorMessage": "Veuillez remplir tous les champs",
+    "errorActivation": "Échec de l'activation du retrait",
+    "errorGeneral": "Erreur lors de l'activation du retrait :"
+  },
+  "investmentPlansMain": {
+    "header": "Plan d'Investissement",
+    "subHeader": "Alimentez votre compte pour commencer avec nos nombreuses options d'investissement dès aujourd'hui !",
+    "choosePlan": "Choisissez un plan d'investissement",
+    "paymentMethodHeader": "Choisissez une méthode de paiement dans la liste ci-dessous",
+    "proceedToPaymentButton": {
+      "default": "Procéder au Paiement",
+      "processing": "Traitement en cours..."
+    },
+    "investmentHistory": {
+      "header": "Historique des Investissements",
+      "viewAll": "Voir Tout"
+    },
+    "alert": {
+      "fillFields": "Veuillez sélectionner une méthode de paiement en crypto, un plan et entrer le montant.",
+      "errorUpdatingPlan": "Erreur lors de la mise à jour du plan.",
+      "genericError": "Une erreur s'est produite. Veuillez réessayer."
+    },
+    "errorMessages": {
+      "userLoading": "Chargement des données utilisateur...",
+      "userError": "Erreur lors du chargement des données utilisateur."
+    }
+  },
+  "plansGrid": {
+    "selectPackage": "Sélectionnez un Forfait",
+    "plans": {
+      "basic": {
+        "title": "Plan Basique",
+        "description": "Jusqu'à 5 valeurs mobilières",
+        "price": "$5,000",
+        "roi": "+2.5%"
+      },
+      "standard": {
+        "title": "Plan Standard",
+        "description": "Jusqu'à 10 valeurs mobilières",
+        "price": "$50,000",
+        "roi": "+3.5%"
+      },
+      "premium": {
+        "title": "Plan Premium",
+        "description": "Jusqu'à 20 valeurs mobilières",
+        "price": "$250,000",
+        "roi": "+5%"
+      },
+      "deluxe": {
+        "title": "Plan Luxe",
+        "description": "Jusqu'à 50 valeurs mobilières",
+        "price": "$500K - 1M",
+        "roi": "+10%"
+      }
+    },
+    "enterAmount": "Saisir le Montant",
+    "amountPlaceholder": "Saisir le Montant"
+  },
+  "paymentMain": {
+    "paymentWindow": "Votre fenêtre de paiement",
+    "instruction": "Vous devez effectuer un paiement de",
+    "paymentForCrypto": "en utilisant la cryptomonnaie sélectionnée",
+    "networkType": "Type de réseau",
+    "address": "Adresse",
+    "networkTypeLabel": "Type de réseau",
+    "submitPayment": "Soumettre le paiement",
+    "confirmationMessage": "Félicitations, vous avez confirmé un paiement de ${{amount}}",
+    "thankYou": "Merci d'avoir fait ce pas avec nous!"
+  },
+  "paymentConfirmationModal": {
+    "paymentMessage": "Vous avez initié un paiement de ${{amount}} {{selectedCrypto}} ({{network}}) pour le plan {{selectedPlan}}. Veuillez effectuer le virement dans votre CEX/DEX et cliquer sur le bouton de confirmation ci-dessous.",
+    "timeRemaining": "Temps restant : {{minutes}}:{{seconds}}",
+    "confirmButton": "Confirmer"
+  },
+  "cryptoGrid": {
+    "bitcoin": "Bitcoin",
+    "ethereum": "Ethereum",
+    "tetherERC20": "Tether (ERC-20)",
+    "tetherTRC20": "Tether (TRC-20)"
   }
-
-  }
-  
+}

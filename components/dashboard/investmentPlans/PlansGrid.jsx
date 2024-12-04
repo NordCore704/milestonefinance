@@ -1,109 +1,121 @@
 "use client";
-import React, { useContext } from "react";
-
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 const PlansGrid = ({ handlePlanSelection, selectedPlan, handleAmountChange, amount }) => {
+  const { t } = useTranslation(); // `t` function for translations
+
   return (
     <figure className="flex flex-col w-full">
-      <h4 className="text-lg">Select Package</h4>
+      <h4 className="text-lg">{t("plansGrid.selectPackage")}</h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+        {/* Basic Plan */}
         <button
-          className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors justify-between ${ selectedPlan === 'Basic' && 'bg-gray-300' }`}
+          className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors justify-between ${
+            selectedPlan === "Basic" && "bg-gray-300"
+          }`}
           onClick={() => handlePlanSelection("Basic")}
         >
           <div className="flex justify-between gap-1">
             <div className="flex-col flex gap-1">
-              <h4 className="font-semibold text-lg">Basic Plan</h4>
+              <h4 className="font-semibold text-lg">{t("plansGrid.plans.basic.title")}</h4>
               <p className="text-xs sm:text-sm text-gray-600">
-                Up to 5 securities
+                {t("plansGrid.plans.basic.description")}
               </p>
             </div>
             <p className="p-1 border self-start rounded-2xl font-semibold sm:text-sm text-xs text-center ">
-              $5000
+              {t("plansGrid.plans.basic.price")}
             </p>
           </div>
-          <p className="font-semibold text-3xl">
-            +2.5%
-            <span className="text-sm text-gray-600 font-medium">
-              {" "}
-              ROI
-            </span>
+          <p className="font-semibold text-3xl flex gap-2 items-end">
+            {t("plansGrid.plans.basic.roi")}
+            <span className="text-base uppercase font-normal text-gray-600">roi</span>
           </p>
         </button>
-        <button className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors justify-between ${ selectedPlan === 'Standard' && 'bg-gray-300' }`}  onClick={() => handlePlanSelection('Standard')} 
-                    >
+
+        {/* Standard Plan */}
+        <button
+          className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors justify-between ${
+            selectedPlan === "Standard" && "bg-gray-300"
+          }`}
+          onClick={() => handlePlanSelection("Standard")}
+        >
           <div className="flex justify-between gap-1">
             <div className="flex-col flex gap-1">
-              <h4 className="font-semibold text-lg ">Standard Plan</h4>
+              <h4 className="font-semibold text-lg">{t("plansGrid.plans.standard.title")}</h4>
               <p className="sm:text-sm text-xs text-gray-600">
-                Up to 10 securities
+                {t("plansGrid.plans.standard.description")}
               </p>
             </div>
             <p className="p-1 border self-start rounded-2xl font-semibold sm:text-sm text-xs text-center ">
-              $50,000
+              {t("plansGrid.plans.standard.price")}
             </p>
           </div>
-          <p className="font-semibold text-3xl">
-            +3.5%
-            <span className="text-sm text-gray-600 font-medium">
-              {" "}
-              ROI
-            </span>
+          <p className="font-semibold text-3xl flex gap-2 items-end">
+            {t("plansGrid.plans.standard.roi")}
+            <span className="text-base uppercase font-normal text-gray-600">roi</span>
           </p>
         </button>
-        <button className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors ${ selectedPlan === 'Premium' && 'bg-gray-300' }`}  onClick={() => handlePlanSelection('Premium')} 
-                    >
+
+        {/* Premium Plan */}
+        <button
+          className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors ${
+            selectedPlan === "Premium" && "bg-gray-300"
+          }`}
+          onClick={() => handlePlanSelection("Premium")}
+        >
           <div className="flex justify-between gap-1">
             <div className="flex-col flex gap-1">
-              <h4 className="font-semibold text-lg">Premium Plan</h4>
+              <h4 className="font-semibold text-lg">{t("plansGrid.plans.premium.title")}</h4>
               <p className="sm:text-sm text-xs text-gray-600">
-                Up to 20 securities
+                {t("plansGrid.plans.premium.description")}
               </p>
             </div>
             <p className="p-1 border self-start rounded-2xl font-semibold sm:text-sm text-xs text-center ">
-              $250,000
+              {t("plansGrid.plans.premium.price")}
             </p>
           </div>
-          <p className="font-semibold text-3xl">
-            +5%
-            <span className="text-sm text-gray-600 font-medium">
-              {" "}
-              ROI
-            </span>
+          <p className="font-semibold text-3xl flex gap-2 items-end">
+            {t("plansGrid.plans.premium.roi")} 
+            <span className="text-base uppercase font-normal text-gray-600">roi</span>
           </p>
         </button>
-        <button className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors ${ selectedPlan === 'Deluxe' && 'bg-gray-300' }`}  onClick={() => handlePlanSelection('Deluxe')} 
-                    >
+
+        {/* Deluxe Plan */}
+        <button
+          className={`rounded-xl text-left p-3 shadow-md flex flex-col gap-5 hover:bg-gray-200 duration-300 transition-colors ${
+            selectedPlan === "Deluxe" && "bg-gray-300"
+          }`}
+          onClick={() => handlePlanSelection("Deluxe")}
+        >
           <div className="flex justify-between gap-1">
             <div className="flex-col flex gap-1">
-              <h4 className="font-semibold text-lg">Deluxe Plan</h4>
+              <h4 className="font-semibold text-lg">{t("plansGrid.plans.deluxe.title")}</h4>
               <p className="sm:text-sm text-xs text-gray-600">
-                Up to 50 securities
+                {t("plansGrid.plans.deluxe.description")}
               </p>
             </div>
             <p className="p-1 border self-start rounded-2xl font-semibold sm:text-sm text-xs text-center ">
-              $500K - $1M
+              {t("plansGrid.plans.deluxe.price")}
             </p>
           </div>
-          <p className="font-semibold text-3xl">
-            +10%
-            <span className="text-sm text-gray-600 font-medium">
-              {" "}
-              ROI
-            </span>
+          <p className="font-semibold text-3xl flex gap-2 items-end">
+            {t("plansGrid.plans.deluxe.roi")}
+            <span className="text-base uppercase font-normal text-gray-600">roi</span>
           </p>
         </button>
       </div>
 
+      {/* Amount Input */}
       <div className="flex flex-col gap-1 mt-5">
         <label htmlFor="amount" className="">
-          Enter Amount
+          {t("plansGrid.enterAmount")}
         </label>
         <input
           type="text"
           value={amount}
           onChange={handleAmountChange}
-          placeholder="Enter Amount"
+          placeholder={t("plansGrid.amountPlaceholder")}
           className="border border-scheme-purple rounded-xl outline-none p-2"
         />
       </div>

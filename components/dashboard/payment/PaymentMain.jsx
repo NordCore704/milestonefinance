@@ -5,6 +5,7 @@ import CryptoContext from "@/context/CryptoContext";
 import { useSession } from "next-auth/react";
 import emailjs from "@emailjs/browser";
 import { PaymentConfirmationModal } from "@/exports";
+import { useTranslation } from "react-i18next";
 
 const PaymentMain = () => {
   const { selectedCrypto, amount, selectedPlan } = useContext(CryptoContext);
@@ -12,6 +13,7 @@ const PaymentMain = () => {
   const { data: session, status } = useSession();
   const [showModal, setShowModal] = useState(false);
   const [planSuccess, setPlanSuccess ] = useState(false)
+  const { t } = useTranslation()
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(selectedCrypto.address).then(
@@ -73,18 +75,17 @@ const PaymentMain = () => {
     <section className="flex flex-col gap-3 p-3 sm:p-4 min-h-screen items-center">
       <div className="shadow-md rounded-xl px-3 py-5 sm:px-4 sm:py-5 flex flex-col gap-5">
         <p className="bg-yellow-400 text-white px-2 py-1 self-start rounded-lg font-semibold">
-          Your payment window
+          {t("paymentMain.paymentWindow")}
         </p>
         <p className="">
-          You are to make payment of{" "}
-          <span className="font-semibold">${amount}</span> using the selected
-          cryptocurrency
+          {t("paymentMain.instruction")}{" "}
+          <span className="font-semibold">${amount}</span> {t("paymentMain.paymentForCrypto")}
         </p>
         <p className="sm:text-2xl text-[10px] font-semibold text-wrap">
           {selectedCrypto.address}
         </p>
         <p className="uppercase">
-          {selectedCrypto.name} <span className="capitalize">Address:</span>
+          {t("paymentMain.networkType")} <span className="capitalize">{t("paymentMain.address")}:</span>
         </p>
         <div className="flex border rounded-lg justify-between">
           <p className="p-2 text-[10px] sm:text-base ">
@@ -98,23 +99,25 @@ const PaymentMain = () => {
           </button>
         </div>
         <p className="">
-          Network Type:{" "}
+          {t("paymentMain.networkTypeLabel")}:{" "}
           <span className="uppercase">{selectedCrypto.network}</span>
         </p>
         <button
           className="rounded-lg bg-scheme-purple text-white p-2 hover:bg-scheme-purpleOne duration-300 transition-colors lg:w-[60%] self-start"
           onClick={handleSubmit}
         >
-          Submit Payment
+          {t("paymentMain.submitPayment")}
         </button>
         <PaymentConfirmationModal showModal={showModal} onClose={onClose}/>
       </div>
-      {planSuccess && (<div className="shadow-md rounded-xl px-3 py-5 sm:px-4 sm:py-5 flex flex-col gap-1">
-        <p className="text-green-500">
-          Congratulations, you have just confirmed a payment of ${amount} for the {selectedPlan} Plan, your investment will be activated once confirmed on our end
-        </p>
-        <p className="text-green-500">Thanks for making this leap with us!</p>
-      </div>)}
+      {planSuccess && (
+        <div className="shadow-md rounded-xl px-3 py-5 sm:px-4 sm:py-5 flex flex-col gap-1">
+          <p className="text-green-500">
+            {t("paymentMain.confirmationMessage", { amount: amount})}
+          </p>
+          <p className="text-green-500">{t("paymentMain.thankYou")}</p>
+        </div>
+      )}
     </section>
   );
 };

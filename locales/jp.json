@@ -53,7 +53,7 @@
     "about": "会社概要",
     "contact": "お問い合わせ",
     "login": "ログイン",
-    "rightsReserved": "マイルストーン・ファイナンシャル・マネジメント、© {year} 全著作権所有"
+    "rightsReserved": "マイルストーン・ファイナンシャル・マネジメント、©{{year}} 全著作権所有"
   },
   "aboutUs": "私たちについて",
   "title": "私たちは単なる金融技術のリーダーではありません",
@@ -153,7 +153,139 @@
     "description": "新しい投資プランを作成しますか？現在のプランは引き続き有効です。",
     "noButton": "いいえ",
     "yesButton": "はい"
+  },
+  "withdrawalHistoryMain": {
+    "error": "履歴の読み込みに失敗しました",
+    "noHistory": "履歴が見つかりません",
+    "header": "出金取引履歴",
+    "description": "以下は、以前の出金取引のタイムスタンプ付き履歴です",
+    "investment": "投資額",
+    "plan": "プラン",
+    "profitWithdrawn": "引き出された利益",
+    "date": "日付",
+    "time": "時間"
+  },
+  "editPassword": {
+    "header": "パスワードを変更",
+    "labels": {
+      "oldPassword": "古いパスワード",
+      "newPassword": "新しいパスワード",
+      "confirmPassword": "新しいパスワードの確認"
+    },
+    "error": {
+      "requiredFields": "すべてのフィールドが必要です。",
+      "mismatch": "新しいパスワードが一致しません。",
+      "failed": "パスワードの変更に失敗しました。",
+      "general": "エラーが発生しました。もう一度お試しください。"
+    },
+    "success": "パスワードが正常に変更されました！",
+    "buttons": {
+      "submit": "パスワードを変更"
+    }
+  },
+  "withdrawalModal": {
+    "message": "出金リクエストが送信され、確認されます。",
+    "closeButton": "閉じる"
+  },
+  "withdrawal": {
+    "header": "資金を引き出す",
+    "withdrawalAccount": "引き出しアカウント",
+    "selectAccount": "アカウントを選択",
+    "plan": {
+      "basic": "基本",
+      "standard": "標準",
+      "premium": "プレミアム",
+      "deluxe": "デラックス"
+    },
+    "amountLabel": "金額 (USD)",
+    "addressLabel": "住所",
+    "paymentMethodLabel": "支払い方法",
+    "paymentMethod": {
+      "litecoin": "ライトコイン",
+      "ripple": "リップル",
+      "bitcoin": "ビットコイン",
+      "tether": "テザー",
+      "ethereum": "イーサリアム"
+    },
+    "submitButton": "今すぐ引き出す",
+    "errorMessage": "すべてのフィールドを入力してください",
+    "errorActivation": "引き出しの有効化に失敗しました",
+    "errorGeneral": "引き出しを有効化中のエラー："
+  },
+  "investmentPlansMain": {
+    "header": "投資プラン",
+    "subHeader": "アカウントに資金を入れて、今日から多くの投資オプションを始めましょう！",
+    "choosePlan": "投資プランを選択してください",
+    "paymentMethodHeader": "以下のリストから支払い方法を選択してください",
+    "proceedToPaymentButton": {
+      "default": "支払いを進める",
+      "processing": "処理中..."
+    },
+    "investmentHistory": {
+      "header": "投資履歴",
+      "viewAll": "すべて表示"
+    },
+    "alert": {
+      "fillFields": "暗号通貨の支払い方法、プランを選択し、金額を入力してください。",
+      "errorUpdatingPlan": "プランの更新中にエラーが発生しました。",
+      "genericError": "エラーが発生しました。もう一度お試しください。"
+    },
+    "errorMessages": {
+      "userLoading": "ユーザーデータを読み込んでいます...",
+      "userError": "ユーザーデータの読み込み中にエラーが発生しました。"
+    }
+  },
+  "plansGrid": {
+    "selectPackage": "パッケージを選択",
+    "plans": {
+      "basic": {
+        "title": "ベーシックプラン",
+        "description": "最大5証券",
+        "price": "5,000ドル",
+        "roi": "+2.5%"
+      },
+      "standard": {
+        "title": "スタンダードプラン",
+        "description": "最大10証券",
+        "price": "50,000ドル",
+        "roi": "+3.5%"
+      },
+      "premium": {
+        "title": "プレミアムプラン",
+        "description": "最大20証券",
+        "price": "250,000ドル",
+        "roi": "+5%"
+      },
+      "deluxe": {
+        "title": "デラックスプラン",
+        "description": "最大50証券",
+        "price": "50万ドル - 100万ドル",
+        "roi": "+10%"
+      }
+    },
+    "enterAmount": "金額を入力",
+    "amountPlaceholder": "金額を入力"
+  },
+  "paymentMain": {
+    "paymentWindow": "お支払いのウィンドウ",
+    "instruction": "次の金額を支払う必要があります",
+    "paymentForCrypto": "選択した暗号通貨を使用して",
+    "networkType": "ネットワークタイプ",
+    "address": "アドレス",
+    "networkTypeLabel": "ネットワークタイプ",
+    "submitPayment": "支払いを提出",
+    "confirmationMessage": "おめでとうございます。${{amount}} の支払いが確認されました",
+    "thankYou": "私たちと一緒にこの一歩を踏み出していただきありがとうございます！"
+  },
+  "paymentConfirmationModal": {
+    "paymentMessage": "{{selectedPlan}}プランのために {{selectedCrypto}}({{network}}で ${{amount}}の支払いを開始しました。CEX/DEX で転送を行い、下の確認ボタンをクリックしてください。",
+    "timeRemaining": "残り時間: {{minutes}}:{{seconds}}",
+    "confirmButton": "確認"
+  },
+  "cryptoGrid": {
+    "bitcoin": "ビットコイン",
+    "ethereum": "イーサリアム",
+    "tetherERC20": "テザー（ERC-20）",
+    "tetherTRC20": "テザー（TRC-20）"
   }
-
-
 }

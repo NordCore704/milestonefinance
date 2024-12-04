@@ -1,3 +1,4 @@
+'use client'
 import { InvestmentPlansMain } from "@/exports";
 import React from "react";
 

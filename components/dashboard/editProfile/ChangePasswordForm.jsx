@@ -1,14 +1,16 @@
 "use client";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 const ChangePasswordForm = () => {
+  const { t } = useTranslation();
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [isPasswordVisible, setPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
-  const [ isOldPasswordVisible, setIsOldPasswordVisible ] = useState(false)
+  const [isOldPasswordVisible, setIsOldPasswordVisible] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -16,12 +18,12 @@ const ChangePasswordForm = () => {
     e.preventDefault();
 
     if (!oldPassword || !newPassword || !confirmNewPassword) {
-      setError("All fields are required.");
+      setError(t("editPassword.error.requiredFields"));
       return;
     }
 
     if (newPassword !== confirmNewPassword) {
-      setError("New passwords do not match.");
+      setError(t("editPassword.error.mismatch"));
       return;
     }
 
@@ -35,49 +37,48 @@ const ChangePasswordForm = () => {
       });
 
       if (response.ok) {
-        setSuccess("Password changed successfully!");
+        setSuccess(t("editPassword.success"));
         setOldPassword("");
         setNewPassword("");
         setConfirmNewPassword("");
         setError("");
       } else {
         const data = await response.json();
-        setError(data.message || "Failed to change password.");
+        setError(data.message || t("editPassword.error.failed"));
       }
     } catch (error) {
-      setError("An error occurred. Please try again.");
+      setError(t("editPassword.error.general"));
     }
   };
 
   const togglePasswordVisibility = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setPasswordVisible((prevState) => !prevState);
   };
   const toggleConfirmPasswordVisibility = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setConfirmPasswordVisible((prevState) => !prevState);
   };
   const toggleOldPasswordVisibility = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setIsOldPasswordVisible((prevState) => !prevState);
   };
-
 
   return (
     <form onSubmit={handlePasswordChange} className="flex flex-col gap-5">
       <h2 className="text-2xl font-semibold capitalize">
-        Change Password
+        {t("editPassword.header")}
       </h2>
       <div className="flex flex-col gap-2 w-full">
         <label htmlFor="oldPassword" className="text-gray-600">
-          Old Password
+          {t("editPassword.labels.oldPassword")}
         </label>
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
             type={isOldPasswordVisible ? "text" : "password"}
             name="oldPassword"
             onChange={(e) => setOldPassword(e.target.value)}
-            className="rounded-lg  p-2 focus:outline-none text-gray-700 w-[90%]"
+            className="rounded-lg p-2 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
           />
           <button className="" onClick={toggleOldPasswordVisibility}>
@@ -91,14 +92,14 @@ const ChangePasswordForm = () => {
       </div>
       <div className="flex flex-col gap-2 w-full">
         <label htmlFor="newPassword" className="text-gray-600">
-          New Password
+          {t("editPassword.labels.newPassword")}
         </label>
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
             type={isPasswordVisible ? "text" : "password"}
             name="newPassword"
             onChange={(e) => setNewPassword(e.target.value)}
-            className="rounded-lg  p-2 focus:outline-none text-gray-700 w-[90%]"
+            className="rounded-lg p-2 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
           />
           <button className="" onClick={togglePasswordVisibility}>
@@ -112,14 +113,14 @@ const ChangePasswordForm = () => {
       </div>
       <div className="flex flex-col gap-2 w-full">
         <label htmlFor="confirmPassword" className="text-gray-600">
-          Confirm New Password
+          {t("editPassword.labels.confirmPassword")}
         </label>
         <div className="flex p-1 sm:px-2 items-center justify-between gap-1 w-full lg:w-[70%] border border-scheme-purple rounded-lg">
           <input
             type={isConfirmPasswordVisible ? "text" : "password"}
             name="confirmPassword"
             onChange={(e) => setConfirmNewPassword(e.target.value)}
-            className="rounded-lg  p-2 focus:outline-none text-gray-700 w-[90%]"
+            className="rounded-lg p-2 focus:outline-none text-gray-700 w-[90%]"
             placeholder="*****"
           />
           <button className="" onClick={toggleConfirmPasswordVisibility}>
@@ -137,7 +138,7 @@ const ChangePasswordForm = () => {
         type="submit"
         className="bg-scheme-purple text-white p-2 rounded-lg"
       >
-        Change Password
+        {t("editPassword.buttons.submit")}
       </button>
     </form>
   );

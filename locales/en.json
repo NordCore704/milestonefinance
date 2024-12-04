@@ -53,7 +53,7 @@
     "about": "About",
     "contact": "Contact",
     "login": "Log In",
-    "rightsReserved": "Milestone Financial Management, © ${year} All Rights Reserved"
+    "rightsReserved": "Milestone Financial Management, ©{{year}} All Rights Reserved"
   },
   "aboutUs": "About us",
   "title": "We are more than just a leader of financial technology",
@@ -127,7 +127,7 @@
     "errorOccurred": "An error occurred. Please try again.",
     "submitButton": "Reset Password"
   },
-"welcome": "Welcome!",
+  "welcome": "Welcome!",
   "summary": "Here's a summary of your account. Enjoy your investments!",
   "choosePlan": "Choose a plan!",
   "Plan": "Plan",
@@ -153,7 +153,139 @@
     "description": "Would you like to create a new investment plan? Your existing plan will remain active.",
     "noButton": "No",
     "yesButton": "Yes"
+  },
+  "withdrawalHistoryMain": {
+    "error": "Failed to load history",
+    "noHistory": "No history found",
+    "header": "Withdrawal Transaction History",
+    "description": "Below is your previous withdrawal transactions with time stamps",
+    "investment": "Investment",
+    "plan": "Plan",
+    "profitWithdrawn": "Profit Withdrawn",
+    "date": "Date",
+    "time": "Time"
+  },
+  "editPassword": {
+    "header": "Change Password",
+    "labels": {
+      "oldPassword": "Old Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password"
+    },
+    "error": {
+      "requiredFields": "All fields are required.",
+      "mismatch": "New passwords do not match.",
+      "failed": "Failed to change password.",
+      "general": "An error occurred. Please try again."
+    },
+    "success": "Password changed successfully!",
+    "buttons": {
+      "submit": "Change Password"
+    }
+  },
+  "withdrawalModal": {
+    "message": "Your withdrawal request has been placed and will be reviewed.",
+    "closeButton": "Close"
+  },
+  "withdrawal": {
+    "header": "Withdraw Funds",
+    "withdrawalAccount": "Withdrawal Account",
+    "selectAccount": "Select Account",
+    "plan": {
+      "basic": "Basic",
+      "standard": "Standard",
+      "premium": "Premium",
+      "deluxe": "Deluxe"
+    },
+    "amountLabel": "Amount (in USD)",
+    "addressLabel": "Address",
+    "paymentMethodLabel": "Payment Methods",
+    "paymentMethod": {
+      "litecoin": "Litecoin",
+      "ripple": "Ripple",
+      "bitcoin": "Bitcoin",
+      "tether": "Tether",
+      "ethereum": "Ethereum"
+    },
+    "submitButton": "Withdraw Now",
+    "errorMessage": "Please fill in all the fields",
+    "errorActivation": "Failed to activate withdrawal",
+    "errorGeneral": "Error activating withdrawal:"
+  },
+  "investmentPlansMain": {
+    "header": "Investment Plan",
+    "subHeader": "Fund your account to get started with our numerous investment options today!",
+    "choosePlan": "Choose an investment plan",
+    "paymentMethodHeader": "Choose a Payment Method from the list below",
+    "proceedToPaymentButton": {
+      "default": "Proceed to Payment",
+      "processing": "Processing..."
+    },
+    "investmentHistory": {
+      "header": "Investment History",
+      "viewAll": "View All"
+    },
+    "alert": {
+      "fillFields": "Please select a crypto payment method, a plan, and enter the amount.",
+      "errorUpdatingPlan": "Error updating the plan.",
+      "genericError": "An error occurred. Please try again."
+    },
+    "errorMessages": {
+      "userLoading": "Loading user data...",
+      "userError": "Error loading user data."
+    }
+  },
+  "plansGrid": {
+    "selectPackage": "Select Package",
+    "plans": {
+      "basic": {
+        "title": "Basic Plan",
+        "description": "Up to 5 securities",
+        "price": "$5000",
+        "roi": "+2.5%"
+      },
+      "standard": {
+        "title": "Standard Plan",
+        "description": "Up to 10 securities",
+        "price": "$50,000",
+        "roi": "+3.5%"
+      },
+      "premium": {
+        "title": "Premium Plan",
+        "description": "Up to 20 securities",
+        "price": "$250,000",
+        "roi": "+5%"
+      },
+      "deluxe": {
+        "title": "Deluxe Plan",
+        "description": "Up to 50 securities",
+        "price": "$500K - $1M",
+        "roi": "+10%"
+      }
+    },
+    "enterAmount": "Enter Amount",
+    "amountPlaceholder": "Enter Amount"
+  },
+  "paymentMain": {
+    "paymentWindow": "Your payment window",
+    "instruction": "You are to make payment of",
+    "paymentForCrypto": "using the selected cryptocurrency",
+    "networkType": "Network Type",
+    "address": "Address",
+    "networkTypeLabel": "Network Type",
+    "submitPayment": "Submit Payment",
+    "confirmationMessage": "Congratulations, you have just confirmed a payment of ${{amount}}",
+    "thankYou": "Thanks for making this leap with us!"
+  },
+  "paymentConfirmationModal": {
+    "paymentMessage": "You have initiated a payment of ${{amount}} {{selectedCrypto}} ({{network}}) for the {{selectedPlan}} plan. Please make the transfer in your CEX/DEX and click the confirmation button below.",
+    "timeRemaining": "Time remaining: {{minutes}}:{{seconds}}",
+    "confirmButton": "Confirm"
+  },
+  "cryptoGrid": {
+    "bitcoin": "Bitcoin",
+    "ethereum": "Ethereum",
+    "tetherERC20": "Tether (ERC-20)",
+    "tetherTRC20": "Tether (TRC-20)"
   }
-
-
 }

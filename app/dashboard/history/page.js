@@ -1,3 +1,4 @@
+'use client'
 import { WithdrawalHistoryMain } from "@/exports";
 import React from "react";
 
