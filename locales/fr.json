@@ -275,7 +275,8 @@
     "networkTypeLabel": "Type de réseau",
     "submitPayment": "Soumettre le paiement",
     "confirmationMessage": "Félicitations, vous avez confirmé un paiement de ${{amount}}",
-    "thankYou": "Merci d'avoir fait ce pas avec nous!"
+    "thankYou": "Merci d'avoir fait ce pas avec nous!",
+    "memo": "mémo/commentaire (assurez-vous de l'ajouter si nécessaire) :"
   },
   "paymentConfirmationModal": {
     "paymentMessage": "Vous avez initié un paiement de ${{amount}} {{selectedCrypto}} ({{network}}) pour le plan {{selectedPlan}}. Veuillez effectuer le virement dans votre CEX/DEX et cliquer sur le bouton de confirmation ci-dessous.",
@@ -286,6 +287,7 @@
     "bitcoin": "Bitcoin",
     "ethereum": "Ethereum",
     "tetherERC20": "Tether (ERC-20)",
-    "tetherTRC20": "Tether (TRC-20)"
+    "tetherTRC20": "Tether (TRC-20)",
+    "ripple": "Ripple (XRP)"
   }
 }

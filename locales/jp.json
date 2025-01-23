@@ -275,7 +275,8 @@
     "networkTypeLabel": "ネットワークタイプ",
     "submitPayment": "支払いを提出",
     "confirmationMessage": "おめでとうございます。${{amount}} の支払いが確認されました",
-    "thankYou": "私たちと一緒にこの一歩を踏み出していただきありがとうございます！"
+    "thankYou": "私たちと一緒にこの一歩を踏み出していただきありがとうございます！",
+    "memo": "メモ/コメント（必要に応じて追加してください）："
   },
   "paymentConfirmationModal": {
     "paymentMessage": "{{selectedPlan}}プランのために {{selectedCrypto}}({{network}}で ${{amount}}の支払いを開始しました。CEX/DEX で転送を行い、下の確認ボタンをクリックしてください。",
@@ -286,6 +287,7 @@
     "bitcoin": "ビットコイン",
     "ethereum": "イーサリアム",
     "tetherERC20": "テザー（ERC-20）",
-    "tetherTRC20": "テザー（TRC-20）"
+    "tetherTRC20": "テザー（TRC-20）",
+    "ripple": "Ripple (XRP)"
   }
 }

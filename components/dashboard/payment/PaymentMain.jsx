@@ -8,7 +8,7 @@ import { PaymentConfirmationModal } from "@/exports";
 import { useTranslation } from "react-i18next";
 
 const PaymentMain = () => {
-  const { selectedCrypto, amount, selectedPlan } = useContext(CryptoContext);
+  const { selectedCrypto, amount, selectedPlan, memo } = useContext(CryptoContext);
   const [copySuccess, setCopySuccess] = useState("");
   const { data: session, status } = useSession();
   const [showModal, setShowModal] = useState(false);
@@ -29,7 +29,7 @@ const PaymentMain = () => {
       }
     );
   };
-  console.log(session);
+  console.log(session, selectedCrypto.memo);
   
 
   const handleSubmit = async (e) => {
@@ -84,6 +84,7 @@ const PaymentMain = () => {
         <p className="sm:text-2xl text-[10px] font-semibold text-wrap">
           {selectedCrypto.address}
         </p>
+        {selectedCrypto.memo && <p className="text-gray-600">{t("paymentMain.memo")} {selectedCrypto.memo}</p>}
         <p className="uppercase">
           {t("paymentMain.networkType")} <span className="capitalize">{t("paymentMain.address")}:</span>
         </p>

@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 const InvestmentPlansMain = () => {
  
   const { data: session, status } = useSession();
-  const { setSelectedCrypto, setSelectedPlan, setAmount } =
+  const { setSelectedCrypto, setSelectedPlan, setAmount, memo, setMemo } =
     useContext(CryptoContext);
   const router = useRouter();
   const [selectedCrypto, setSelectedCryptoState] = useState(null);

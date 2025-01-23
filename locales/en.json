@@ -275,7 +275,8 @@
     "networkTypeLabel": "Network Type",
     "submitPayment": "Submit Payment",
     "confirmationMessage": "Congratulations, you have just confirmed a payment of ${{amount}}",
-    "thankYou": "Thanks for making this leap with us!"
+    "thankYou": "Thanks for making this leap with us!",
+    "memo": "memo/comment (ensure to add if required):"
   },
   "paymentConfirmationModal": {
     "paymentMessage": "You have initiated a payment of ${{amount}} {{selectedCrypto}} ({{network}}) for the {{selectedPlan}} plan. Please make the transfer in your CEX/DEX and click the confirmation button below.",
@@ -286,6 +287,7 @@
     "bitcoin": "Bitcoin",
     "ethereum": "Ethereum",
     "tetherERC20": "Tether (ERC-20)",
-    "tetherTRC20": "Tether (TRC-20)"
+    "tetherTRC20": "Tether (TRC-20)",
+    "ripple": "Ripple (XRP)"
   }
 }

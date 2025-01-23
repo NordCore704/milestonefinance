@@ -11,7 +11,7 @@ export async function POST(req) {
   const user = await User.findOne({
     email, // Ensure token is still valid
   });
-  console.log(email,);
+  console.log(email, user);
   
 
   if (!user) {

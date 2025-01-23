@@ -40,6 +40,13 @@ const CryptoGrid = ({ handleCryptoSelection }) => {
           <input type="radio" name="crypto" value={'Tether'} className="" onChange={() => handleCryptoSelection({ name: 'Tether', address: 'TTxP1UHbpv1FKwKk5jqVjnat5eBHxmae5i', network: 'TRC20' })} />
         </div>
       </div>
+      <div className="shadow-md rounded-md p-2 flex flex-col justify-between gap-5">
+        <Image src={ripple} className="w-20 self-center" alt="crypto" />
+        <div className="flex justify-between">
+          <label htmlFor='Ripple' className="font-semibold">{t('cryptoGrid.ripple')}</label>
+          <input type="radio" name="crypto" value={'Ripple'} className="" onChange={() => handleCryptoSelection({ name: 'Ripple', address: 'rJn2zAPdFA193sixJwuFixRkYDUtx3apQh', network: 'XRP', memo: '500635888' })} />
+        </div>
+      </div>
     </div>
   );
 };
